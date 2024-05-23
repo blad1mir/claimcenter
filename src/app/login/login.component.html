@@ -1,0 +1,43 @@
+<div class="bg-white">
+    <section id="login" class="p-4 flex flex-col justify-center min-h-screen max-w-md mx-auto">
+      <div class="p-6  rounded text-center">
+        <div class=" items-center justify-center font-black m-3 mb-12">
+          <img src="assets/claimcente_nonebg.png" alt="" >
+        </div>
+        <form id="login_form" (submit)="submitLoginForm()" class="flex flex-col justify-center bg-gray-600 p-7 rounded-[3em] text-left text-white shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]">
+          <!-- ... otras partes del formulario ... -->
+          <label class="text-lg font-medium pb-5 text-center">Iniciar sesión en Claimsoft</label>
+          <label class="text-sm font-medium">Nombre de usuario</label>
+          <input [(ngModel)]="username" class="mb-3 px-2 py-1.5 text-black
+            mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
+            focus:outline-none
+            focus:border-sky-500
+            focus:ring-1
+            focus:ring-sky-500
+            focus:invalid:border-red-500 focus:invalid:ring-red-500" type="text" name="username" placeholder="">
+          <label class="text-sm font-medium mt-5">Contraseña</label>
+          <div class="flex items-center bg-white  border-gray-300 rounded-md">
+            <input [(ngModel)]="password" class="border-gray-300 rounded-md text-black px-2 py-1.5 block w-full px-2 py-1.5 text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:invalid:border-red-500 focus:invalid:ring-red-500" type="{{visiblePassworType}}" name="password" placeholder="">
+            <img *ngIf="!visiblePassword" src="assets/visibility_on.svg" class="icon w-6 h-6 ml-1 mr-2"  (click)="changeVisibilityPassword()">
+            <img *ngIf="visiblePassword" src="assets/visibility_off.svg" class="icon w-6 h-6 ml-1 mr-2"  (click)="changeVisibilityPassword()">
+          </div>
+          
+          <!-- ... otros elementos del formulario ... -->
+          <button class="mt-5 px-4 py-1.5 rounded-full shadow-lg bg-[#01539B] font-medium text-gray-100 block transition duration-300" type="submit">
+            <span id="login_process_state" class="hidden">Sending :)</span>
+            <span id="login_default_state" class="text-white ">Entrar<span id="subtotal"></span></span>
+            
+          </button>
+          <label class="text-sm font-medium text-center mt-4" (click)="goHome()">¿Contraseña olvidada?</label>
+        </form>
+          <br>
+
+
+          <label class="text-lg font-medium mt text-[#01539B]" > <a href="https://www.claimcenter.com/">Web Claim Center</a></label>
+      </div>
+    </section>
+
+   
+  </div>
+
+
