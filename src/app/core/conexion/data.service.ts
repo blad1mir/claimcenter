@@ -8,7 +8,29 @@ import { Observable, firstValueFrom } from 'rxjs';
 })
 export class DataService {
   private readonly baseUrl: string = environment.apiUrl; // Utiliza el baseUrl desde el environment
-  constructor(private http: HttpClient) { }
+  public token: string = '';
+  public categories: Object[] = [];
+  constructor(private http: HttpClient) {
+   
+   }
+
+  public setToken(token: string): boolean{
+    this.token = token;
+
+    return token !== '';
+  }
+
+  public getToken(): string {
+    return this.token;
+  }
+
+  public setCategories(categories: []){
+    this.categories = categories;
+  }
+
+  public getCategories(): Object[]{
+    return this.categories;
+  }
 
   public get<T>(endpoint: string): Observable<T> {
     const url = this.buildUrl(endpoint);
@@ -43,6 +65,17 @@ export class DataService {
      };
      console.log(this.baseUrl + endpoint)
     return this.http.post(this.baseUrl + endpoint, JSON.stringify(data),header);
+  }
+
+  public  getData(endpoint: string) {
+    //const url = this.buildUrl(endpoint);
+    //const response = this.http.post(this.baseUrl + endpoint, data);
+    let header = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'}),
+      withCredentials: true
+     };
+     console.log(this.baseUrl + endpoint)
+    return this.http.get(this.baseUrl + endpoint);
   }
 
   private buildUrl(endpoint: string): string {

@@ -1,193 +1,268 @@
 <app-menu></app-menu>
-<div class="">
 
-    <div class="form-style w-full">
-      <div class="container rounded-md">
-        <h1 class="text-2xl font-bold mb-2" style="margin-top: 20px; margin-left: 20px;">Crear Empresa</h1>
+<div class="bg-gray-300 p-6">
+  <h1 class="text-2xl font-bold mb-2 mt-8 ml-40">Empresas</h1>
   
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="companyName" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Nombre</label>
-          </div>
+  
+  <div *ngIf="!option" class="flex justify-center">
+    
+    <div class="w-3/4">
+      <div class="relative overflow-x-auto">
+        <div class="flex justify-center">
+          <span class="px-6 py-3 ">Buscar empresas: </span>
+          <input [(ngModel)]="searchTerm" placeholder="Buscar..." class="w-1/3 p-2 border rounded" />
+          <span class="px-6 py-3 ">Buscar por categoría: </span>
+          <select [(ngModel)]="empresa.categories[0]" name="categories"
+              class="w-1/5 rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+              <option *ngFor="let category of categories" [value]="category.id">{{ category.category }}</option>
+            </select>
         </div>
-  
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="legalDocument" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">DNI / CIF</label>
-          </div>
-        </div>
-  
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="email" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Correo</label>
-          </div>
-        </div>
-  
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="emailDescription" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Descripción de correo</label>
-          </div>
-        </div>
-  
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="phoneNumber" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Numero de Celular</label>
-          </div>
-          <div class="input-data">
-            <input [(ngModel)]="phoneDescription" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Descripción de celular</label>
-          </div>
-        </div>
-  
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="bankName" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Nombre del banco</label>
-          </div>
-          <div class="input-data">
-            <input [(ngModel)]="bankAbbr" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Abreviatura del banco</label>
-          </div>
-        </div>
-  
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="accountNumber" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Cuenta de banco</label>
-          </div>
-        </div>
-  
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="accountingCode" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Codigo de contabilidad</label>
-          </div>
-        </div>
-  
-        <div class="select-input-data">
-          <label class="block text-black">Categoría</label>
-          <div class="input-data">
-          <select [(ngModel)]="category" class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
-            <option *ngFor="let category of categories" [value]="category.id">{{ category.category }}</option>
-          </select>
-          </div>
-        </div>
-  
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="street" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Dirección</label>
-          </div>
-        </div>
-  
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="city" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Ciudad</label>
-          </div>
-        </div>
-  
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="zipCode" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Código postal</label>
-          </div>
-        </div>
-  
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="state" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Provincia/Estado</label>
-          </div>
-          <div class="input-data">
-            <input [(ngModel)]="country" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">País</label>
-          </div>
-        </div>
-  
-        <div class="form-row">
-          <div class="input-data">
-            <input [(ngModel)]="webPageUrl" class="bg-color" type="text" required>
-            <div class="underline"></div>
-            <label for="">Dirección de pagina web</label>
-          </div>
-        </div>
-  
-        <div class="mb-4.5 check-input-data" style="margin-top: 20px; margin-bottom: 20px;">
-          <input type="checkbox" [(ngModel)]="isPrivate"
-          id="default-checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-          <label for="default-checkbox" class="mb-2.5 text-sm text-black" style="margin-left: 5px;">Privado</label>
-        </div>
-  
-        <div class="select-input-data">
-          <button (click)="createCompany()" class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-container button-38" style="margin-top: 20px; margin-bottom: 20px; padding-top: 10px; padding-bottom: 10px;">
-            Guardar
+
+
+        <div class="flex justify-between items-center mt-8">
+          <h1 class="text-2xl font-bold">Listado de empresas:</h1>
+          <!-- Un botón para acciones generales -->
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300" (click)="registerCompany()">
+            Registrar empresa
           </button>
         </div>
-  
+        
+
+
+        <table class="w-full text-sm text-left mt-5">
+          <thead class="text-xs uppercase bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3">
+                Nombre
+              </th>
+              <th scope="col" class="px-6 py-3">
+                NIF / CIF
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Correo electrónico
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Teléfonos
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Dirección web
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <div *ngFor="let empresa of listado_empresas">
+
+
+              <tr class="bg-white border-b">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                  {{empresa.nombre}}
+                </th>
+                <td class="px-6 py-4">
+                  {{empresa.nombre}}
+                </td>
+                <td class="px-6 py-4">
+                  {{empresa.nombre}}
+                </td>
+                <td class="px-6 py-4">
+                  {{empresa.nombre}}
+                </td>
+
+                <td class="px-6 py-4">
+                  {{empresa.nombre}}
+                </td>
+              </tr>
+
+            </div>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
+
   
-  <!--div class="reputation-container-total">
-    <div class="reputation-box-total items-center rounded-md">
-  
-  
-      <div class="flex justify-center items-center">
-        <ul>
-  
-          <div class="container search" style="display: flex; flex-wrap: wrap; align-items: flex-start;">
-            <h1 class="text-2xl font-bold mb-2" style="margin-top: 20px;">Crear empresa</h1>
+<div *ngIf="option" class="flex justify-center items-center h-full">
+  <div class="w-full max-w-lg">
+    <form class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full">
+        <h1 class="text-2xl font-bold mb-2 mt-8 ml-4">Crear Empresa</h1>
+
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre</label>
+          <input [(ngModel)]="empresa.name" name="name" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección de pagina
+            web</label>
+          <input [(ngModel)]="empresa.web_page_url" name="web_page_url" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre del banco</label>
+          <input [(ngModel)]="empresa.bank_details.bank_name" name="bank_name" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Cuenta de banco</label>
+          <input [(ngModel)]="empresa.bank_details.account_number" name="account_number" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">DNI / CIF</label>
+          <input [(ngModel)]="empresa.legal_document" name="legal_document" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+
+
+
+
+
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código de
+            Contabilidad</label>
+          <input [(ngModel)]="empresa.finance_details.accounting_code" name="accounting_code" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+        <br>
+
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Correos</label>
+
+        <div *ngFor="let email of empresa.emails_associated; let i = index" class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Correo</label>
+            <input [(ngModel)]="email.email" name="email-{{ i }}" type="text"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              required>
           </div>
-  
-          <li>
-            <div class="p-6.5">
-  
-              <div class="mb-4.5">
-                <label class="mb-2.5 block text-black">
-                  Privado
-                </label>
-                <input type="text" [(ngModel)]="isPrivate"
-                  class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" />
-              </div>
-  
-              <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
-  
-                <div class="w-full xl:w-1/2">
-                  <label class="mb-2.5 block text-black">
-                    Tipo de celular
-                  </label>
-                  <input type="text" [(ngModel)]="phoneType"/>
-                </div>
-              </div>
-  
-            </div>
-          </li>
-        </ul>
-  
-  
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción de
+              correo</label>
+            <input [(ngModel)]="email.description" name="email-description-{{ i }}" type="text"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              required>
+          </div>
+
+
+        </div>
+        <div class="w-full px-3 mb-6 md:mb-0 flex justify-center mt-3">
+
+          <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            (click)="removeEmail()">
+            <i class="fas fa-minus">Remover correo</i>
+          </button>
+          <button type="button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            (click)="addEmail()">
+            <i class="fas fa-plus">Agregar correo</i>
+          </button>
+        </div>
+
+
+
+
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Teléfonos</label>
+
+        <div *ngFor="let telefono of empresa.phones_associated; let i = index" class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Numero de teléfono</label>
+            <input [(ngModel)]="telefono.number" name="number-{{ i }}" type="text"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              required>
+          </div>
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción del
+              teléfono</label>
+            <input [(ngModel)]="telefono.description" name="number-description-{{ i }}" type="text"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              required>
+          </div>
+
+
+        </div>
+        <div class="w-full px-3 mb-6 md:mb-0 flex justify-center mt-3">
+
+          <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            (click)="removePhone()">
+            <i class="fas fa-minus">Remover teléfono</i>
+          </button>
+          <button type="button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            (click)="addPhone()">
+            <i class="fas fa-plus">Agregar teléfono</i>
+          </button>
+        </div>
+
+
+    
+
+
+        <br>
+
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección</label>
+
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Ciudad</label>
+            <input [(ngModel)]="empresa.addresses.city" name="city" type="text"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              required>
+          </div>
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código postal</label>
+            <input [(ngModel)]="empresa.addresses.zip_code" name="zip_code" type="text"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              required>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Provincia/Estado</label>
+            <input [(ngModel)]="empresa.addresses.state" name="state" type="text"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              required>
+          </div>
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">País</label>
+            <input [(ngModel)]="empresa.addresses.country" name="country" type="text"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              required>
+          </div>
+        </div>
+
+
+
+
+        <div class="select-input-data">
+          <label class="block text-black">Categoría</label>
+          <div class="input-data">
+            <select [(ngModel)]="empresa.categories[0]" name="categories"
+              class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+              <option *ngFor="let category of categories" [value]="category.id">{{ category.category }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div
+          class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-container button-38 mt-8 mb-8">
+          <button (click)="createCompany()">Guardar</button>
+        </div>
       </div>
-    </div>
-  </div-->
-  
+    </form>
+  </div>
+</div>
+
+
+</div>
+
+
+
 

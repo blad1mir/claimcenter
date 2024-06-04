@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
   }
 
   submitLoginForm() {
+
+
     
     return new Promise((resolve,reject)  => {
       this.service.postData('user_profiles/login/',{ 'username': this.username, 'password': this.password }).subscribe(data  =>{
@@ -76,5 +78,25 @@ export class LoginComponent implements OnInit {
   goHome(){
     this.router.navigate(['/home']); 
   }
+
+  // getdata(){
+  //   return new Promise((resolve,reject)  => {
+  //     this.service.getData('https://httpbin.org/post').subscribe(data  =>{
+  //       console.log(data)
+  //       if(!data){
+  //       reject(new Error('Error de conexión'));
+  //      }else{
+  //       resolve(true);
+  //       this.router.navigate(['/home']); 
+  //      }
+       
+  //     })
+      
+  //   }).catch(error => {
+  //     console.error(error); // Manejo del error, puede ser un registro en la consola
+      
+  //     throw error;
+  //   });;
+  // }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Company } from '../core/interfaces/company';
 
 @Component({
   selector: 'app-empresa',
@@ -6,34 +7,63 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./empresa.component.scss']
 })
 export class EmpresaComponent implements OnInit {
-  companyName: string = '';
-  legalDocument: string = '';
-  isPrivate: boolean = false;
-  bankName: string = '';
-  accountNumber: string = '';
-  bankAbbr: string = '';
-  accountingCode: string = '';
-  category: number = 1;
-  phoneNumber: string = '';
-  phoneDescription: string = '';
-  phoneType: string = '';
-  email: string = '';
-  emailDescription: string = '';
-  country: string = '';
-  state: string = '';
-  city: string = '';
-  street: string = '';
-  zipCode: string = '';
-  webPageUrl: string = '';
+ public option: boolean = false;
+ public searchTerm: string = '';
+  public empresa: Company = {
+    enterprise_id: 1,
+    created_on: "",
+    modified_on: "",
+    name: "",
+    legal_document: "",
+    is_private: true,
+    web_page_url: "",
+    active: true,
+    finance_details: {accounting_code:"", fare:""},
+    bank_details: {bank_name: "", account_number: "", bank_abbr: ""},
+    created_by: null,
+    modified_by: null,
+    addresses: {
+      street: "",
+    city: "",
+    zip_code: "",
+    state: "",
+    country: ""
+    },
+    emails_associated: [] = [
+      { email: '', description: '' }
+    ],
+    phones_associated: [
+      { number: '', description: '' }
+    ],
+    categories: []
+};
+
+public listado_empresas: any[] = [];
+
+
+
+  
 
   categories: any[] = [];
-  constructor() { }
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
+    console.log(this.empresa.emails_associated.length)
+  }
+
+  changeVisibility(): void {
+    this.option = !this.option
+  }
+
+  registerCompany(): void {
+    this.option != this.option;
   }
 
 
   createCompany(): void {
+    console.log(this.empresa)
   //   if (!this.companyName || !this.legalDocument || !this.isPrivate || !this.bankName || !this.accountNumber || !this.bankAbbr || !this.accountingCode || !this.category || !this.phoneNumber || !this.phoneDescription || !this.phoneType || !this.email || !this.emailDescription || !this.country || !this.state || !this.city || !this.street || !this.zipCode || !this.webPageUrl) {
   //     this.showWarningMessage('Por favor, complete todos los campos.');
   //     return;
@@ -95,5 +125,35 @@ export class EmpresaComponent implements OnInit {
 
   // 
 }
+
+addEmail() {
+  if (this.empresa.emails_associated.length < 5) {
+    this.empresa.emails_associated.push({ email: '', description: '' });
+  }
+  
+}
+
+removeEmail() {
+  if (this.empresa.emails_associated.length  > 1) {
+    this.empresa.emails_associated.pop();
+  }
+  
+}
+
+addPhone() {
+
+  if (this.empresa.phones_associated.length < 5) {
+    this.empresa.phones_associated.push({ number: '', description: '' });
+  }
+  
+}
+
+removePhone() {
+  if (this.empresa.phones_associated.length  > 1) {
+    this.empresa.phones_associated.pop();
+  }
+  
+}
+
 
 }
