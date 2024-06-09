@@ -9,7 +9,65 @@ import { Observable, firstValueFrom } from 'rxjs';
 export class DataService {
   private readonly baseUrl: string = environment.apiUrl; // Utiliza el baseUrl desde el environment
   public token: string = '';
-  public categories: Object[] = [];
+  public categories: Object[] = 
+  [
+    {
+        id: 1,
+        category: "Cliente",
+        description: null
+    },
+    {
+        id: 2,
+        category: "Profesional",
+        description: null
+    },
+    {
+        id: 3,
+        category: "Cliente Particular",
+        description: null
+    },
+    {
+        id: 4,
+        category: "Proveedor",
+        description: null
+    },
+    {
+        id: 5,
+        category: "Prescriptor",
+        description: null
+    },
+    {
+        id: 6,
+        category: "Asistencia",
+        description: null
+    },
+    {
+        id: 7,
+        category: "Reparador Alternativo",
+        description: null
+    },
+    {
+        id: 8,
+        category: "Empresa Colaboradora",
+        description: null
+    },
+    {
+        id: 9,
+        category: "Reparador AIDE",
+        description: null
+    },
+    {
+        id: 10,
+        category: "Tramitador Compañía",
+        description: null
+    },
+    {
+        id: 11,
+        category: "Tramitador externo",
+        description: null
+    }
+ 
+]
   constructor(private http: HttpClient) {
    
    }
@@ -59,12 +117,17 @@ export class DataService {
   public  postData(endpoint: string, data: any) {
     //const url = this.buildUrl(endpoint);
     //const response = this.http.post(this.baseUrl + endpoint, data);
-    let header = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'}),
-      withCredentials: true
-     };
+    // let header = {
+    //   headers: new HttpHeaders({'Content-Type': 'application/json'}),
+    //   withCredentials: true
+    //  };
      console.log(this.baseUrl + endpoint)
-    return this.http.post(this.baseUrl + endpoint, JSON.stringify(data),header);
+    return this.http.post(this.baseUrl + endpoint, data);
+  }
+
+  public login(username: string, password: string): Observable<any> {
+    const body = { username, password };
+    return this.http.post(this.baseUrl + 'user_profiles/login/', body, { withCredentials: true });
   }
 
   public  getData(endpoint: string) {

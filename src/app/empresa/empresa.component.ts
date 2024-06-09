@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Company } from '../core/interfaces/company';
+import { DataService } from '../core/conexion/data.service';
 
 @Component({
   selector: 'app-empresa',
@@ -45,8 +46,8 @@ public listado_empresas: any[] = [];
   
 
   categories: any[] = [];
-  constructor() { 
-    
+  constructor(conection: DataService) { 
+    this.categories = conection.getCategories();
   }
 
   ngOnInit(): void {
@@ -58,7 +59,7 @@ public listado_empresas: any[] = [];
   }
 
   registerCompany(): void {
-    this.option != this.option;
+    this.option = !this.option;
   }
 
 

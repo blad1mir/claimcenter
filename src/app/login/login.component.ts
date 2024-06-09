@@ -21,25 +21,36 @@ export class LoginComponent implements OnInit {
 
   submitLoginForm() {
 
+    this.service.login(this.username, this.password).subscribe(
+      response => {
+        console.log('Login successful:', response);
+        // Manejar la respuesta del login correctamente
+        // Redirigir al usuario o manejar la sesión
+      },
+      error => {
+        console.error('Login failed:', error);
+        // Manejar el error en el login
+      });
+
 
     
-    return new Promise((resolve,reject)  => {
-      this.service.postData('user_profiles/login/',{ 'username': this.username, 'password': this.password }).subscribe(data  =>{
-        console.log(data)
-        if(!data){
-        reject(new Error('Error de conexión'));
-       }else{
-        resolve(true);
-        this.router.navigate(['/home']); 
-       }
+    // return new Promise((resolve,reject)  => {
+    //   this.service.postData('user_profiles/login/',{ username: this.username, password: this.password }).subscribe(data  =>{
+    //     console.log(data)
+    //     if(!data){
+    //     reject(new Error('Error de conexión'));
+    //    }else{
+    //     resolve(true);
+    //     this.router.navigate(['/home']); 
+    //    }
        
-      })
+    //   })
       
-    }).catch(error => {
-      console.error(error); // Manejo del error, puede ser un registro en la consola
+    // }).catch(error => {
+    //   console.error(error); // Manejo del error, puede ser un registro en la consola
       
-      throw error;
-    });;
+    //   throw error;
+    // });;
     
         
     
