@@ -125,9 +125,9 @@ export class DataService {
     return this.http.post(this.baseUrl + endpoint, data);
   }
 
-  public login(username: string, password: string): Observable<any> {
-    const body = { username, password };
-    return this.http.post(this.baseUrl + 'user_profiles/login/', body, { withCredentials: true });
+  public login(username: string, password: string){
+    const body = { "username":username, "password": password };
+    return this.http.post(this.baseUrl + 'user_profiles/login/', body);
   }
 
   public  getData(endpoint: string) {
