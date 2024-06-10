@@ -94,7 +94,10 @@ export class LoginComponent implements OnInit {
   goHome(){
     //this.router.navigate(['/home']); 
     console.log("prueba")
-    this.http.post('https://backend.claimcenter.com/api/user_profiles/login/', {"username": "root","password": "ABCD_10000"}, { withCredentials: true }).subscribe(
+    this.http.post('https://backend.claimcenter.com/api/user_profiles/login/', {
+      "username": "root",
+      "password": "ABCD_10000"
+  }).subscribe(
       response => {
         console.log('Login successful:', response);
         // Manejar la respuesta del login correctamente
