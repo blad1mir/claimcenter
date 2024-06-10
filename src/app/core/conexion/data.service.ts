@@ -137,10 +137,14 @@ export class DataService {
   public  getData(endpoint: string) {
     //const url = this.buildUrl(endpoint);
     //const response = this.http.post(this.baseUrl + endpoint, data);
+    let token = this.getToken();
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.getToken()}`
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
     });
      console.log(this.baseUrl + endpoint)
+     console.log(headers)
+     console.log(token)
     return this.http.get<any>(this.baseUrl + endpoint, {headers});
   }
 
