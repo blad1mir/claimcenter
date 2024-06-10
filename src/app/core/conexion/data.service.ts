@@ -137,7 +137,7 @@ export class DataService {
   public  getData(endpoint: string) {
     //const url = this.buildUrl(endpoint);
     //const response = this.http.post(this.baseUrl + endpoint, data);
-    let token = this.getToken();
+    let token  = localStorage.getItem('token');;
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
