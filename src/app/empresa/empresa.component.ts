@@ -47,7 +47,7 @@ public listado_empresas: any[] = [];
 
   categories: any[] = [];
   constructor(public service: DataService) { 
-    
+    this.getListCompany()
   }
 
   ngOnInit(): void {
