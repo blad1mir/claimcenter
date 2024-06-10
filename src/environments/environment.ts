@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   //apiUrl: 'https://backend.claimcenter.com/api/',
   apiUrl: 'https://backend.claimcenter.com/api/',
+           
 };
 
 /*

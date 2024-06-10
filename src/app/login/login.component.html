@@ -4,7 +4,7 @@
         <div class=" items-center justify-center font-black m-3 mb-12">
           <img src="assets/claimcente_nonebg.png" alt="" >
         </div>
-        <form id="login_form" (submit)="submitLoginForm()" class="flex flex-col justify-center bg-gray-600 p-7 rounded-[3em] text-left text-white shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]">
+        <div id="login_form" class="flex flex-col justify-center bg-gray-600 p-7 rounded-[3em] text-left text-white shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]">
           <!-- ... otras partes del formulario ... -->
           <label class="text-lg font-medium pb-5 text-center">Iniciar sesión en Claimsoft</label>
           <label class="text-sm font-medium">Nombre de usuario</label>
@@ -23,13 +23,13 @@
           </div>
           
           <!-- ... otros elementos del formulario ... -->
-          <button class="mt-5 px-4 py-1.5 rounded-full shadow-lg bg-[#01539B] font-medium text-gray-100 block transition duration-300" type="submit">
+          <button class="mt-5 px-4 py-1.5 rounded-full shadow-lg bg-[#01539B] font-medium text-gray-100 block transition duration-300" type="button" (click)="submitLoginForm()" >
             <span id="login_process_state" class="hidden">Sending :)</span>
             <span id="login_default_state" class="text-white ">Entrar<span id="subtotal"></span></span>
             
           </button>
           <label class="text-sm font-medium text-center mt-4" (click)="goHome()">¿Contraseña olvidada?</label>
-        </form>
+        </div>
           <br>
 
 

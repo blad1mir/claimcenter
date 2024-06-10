@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { DataService } from '../core/conexion/data.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -14,14 +15,18 @@ export class LoginComponent implements OnInit {
   public password: string = '';
   public visiblePassword: boolean = false; 
   public visiblePassworType: string = "password";
-  constructor(public service: DataService,  private router: Router) { }
+  constructor(public service: DataService,  private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
   }
 
   submitLoginForm() {
+  
 
+    console.log(this.username, this.password)
     this.service.login(this.username, this.password).subscribe(
+
+      
       response => {
         console.log('Login successful:', response);
         // Manejar la respuesta del login correctamente
@@ -87,7 +92,21 @@ export class LoginComponent implements OnInit {
      
   }
   goHome(){
-    this.router.navigate(['/home']); 
+    //this.router.navigate(['/home']); 
+    console.log("prueba")
+    this.http.post('https://backend.claimcenter.com/api/user_profiles/login/', {"username": "root","password": "ABCD_10000"}, { withCredentials: true }).subscribe(
+      response => {
+        console.log('Login successful:', response);
+        // Manejar la respuesta del login correctamente
+        // Redirigir al usuario o manejar la sesión
+      },
+      error => {
+        console.error('Login failed:', error);
+        // Manejar el error en el login
+      }
+
+    )
+    
   }
 
   // getdata(){

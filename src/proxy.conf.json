@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "https://backend.claimcenter.com/api/",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }
+  
