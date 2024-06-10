@@ -25,12 +25,13 @@ export class LoginComponent implements OnInit {
 
     console.log(this.username, this.password)
     this.service.login(this.username, this.password).subscribe(
+      (response) => {
 
-      
-      response => {
+        if(response)
         console.log('Login successful:', response);
-        // Manejar la respuesta del login correctamente
-        // Redirigir al usuario o manejar la sesión
+        localStorage.setItem('user', JSON.stringify(response.user));  
+        localStorage.setItem('token', JSON.stringify(response.token));  
+        this.router.navigate(['/home']); 
       },
       error => {
         console.error('Login failed:', error);
@@ -38,43 +39,6 @@ export class LoginComponent implements OnInit {
       });
 
 
-    
-    // return new Promise((resolve,reject)  => {
-    //   this.service.postData('user_profiles/login/',{ username: this.username, password: this.password }).subscribe(data  =>{
-    //     console.log(data)
-    //     if(!data){
-    //     reject(new Error('Error de conexión'));
-    //    }else{
-    //     resolve(true);
-    //     this.router.navigate(['/home']); 
-    //    }
-       
-    //   })
-      
-    // }).catch(error => {
-    //   console.error(error); // Manejo del error, puede ser un registro en la consola
-      
-    //   throw error;
-    // });;
-    
-        
-    
-    //this.service.post('user_profiles/login/',{ username: this.username, password: this.password })
-    // this.service.post<any>(this.baseUrl + 'user_profiles/login/', { username: this.username, password: this.password })
-    //   .subscribe(
-    //     (response) => {
-    //       //console.log(response);
-    //       if (response && (response.message == "Inicio de Sesion Existoso")) {
-           
-
-    //         this.router.navigate(['/records']);
-    //       }
-    //     },
-    //     (error) => {
-    //       console.error('Error en la solicitud de inicio de sesión', error);
-    //       this.showErrorMessage('Credenciales incorrectas.');
-    //     }
-    //   );
   }
 
   public changeVisibilityPassword(){
@@ -93,43 +57,26 @@ export class LoginComponent implements OnInit {
   }
   goHome(){
     //this.router.navigate(['/home']); 
-    console.log("prueba")
-    this.http.post('https://backend.claimcenter.com/api/user_profiles/login/', {
-      "username": "root",
-      "password": "ABCD_10000"
-  }).subscribe(
-      response => {
-        console.log('Login successful:', response);
-        // Manejar la respuesta del login correctamente
-        // Redirigir al usuario o manejar la sesión
-      },
-      error => {
-        console.error('Login failed:', error);
-        // Manejar el error en el login
-      }
+  //   console.log("prueba")
+  //   this.http.post('https://backend.claimcenter.com/api/user_profiles/login/', {
+  //     "username": "root",
+  //     "password": "ABCD_10000"
+  // }).subscribe(
+  //     response => {
+  //       console.log('Login successful:', response);
+  //       // Manejar la respuesta del login correctamente
+  //       // Redirigir al usuario o manejar la sesión
+  //     },
+  //     error => {
+  //       console.error('Login failed:', error);
+  //       // Manejar el error en el login
+  //     }
 
-    )
+  //   )
     
   }
 
-  // getdata(){
-  //   return new Promise((resolve,reject)  => {
-  //     this.service.getData('https://httpbin.org/post').subscribe(data  =>{
-  //       console.log(data)
-  //       if(!data){
-  //       reject(new Error('Error de conexión'));
-  //      }else{
-  //       resolve(true);
-  //       this.router.navigate(['/home']); 
-  //      }
-       
-  //     })
-      
-  //   }).catch(error => {
-  //     console.error(error); // Manejo del error, puede ser un registro en la consola
-      
-  //     throw error;
-  //   });;
-  // }
+
+  
 
 }

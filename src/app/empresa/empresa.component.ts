@@ -46,8 +46,8 @@ public listado_empresas: any[] = [];
   
 
   categories: any[] = [];
-  constructor(conection: DataService) { 
-    this.categories = conection.getCategories();
+  constructor(public service: DataService) { 
+    
   }
 
   ngOnInit(): void {
@@ -60,6 +60,25 @@ public listado_empresas: any[] = [];
 
   registerCompany(): void {
     this.option = !this.option;
+  }
+
+  getListCompany() {
+  
+    
+
+    this.service.getData('enterprises/').subscribe(
+      (response) => {
+        console.log(response)
+      this.listado_empresas = response.result
+        
+       
+      },
+      error => {
+        console.error('Error al traer listado de empresas:', error);
+        // Manejar el error en el login
+      });
+
+
   }
 
 

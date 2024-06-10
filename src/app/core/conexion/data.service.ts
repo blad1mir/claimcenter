@@ -78,9 +78,14 @@ export class DataService {
     return token !== '';
   }
 
-  public getToken(): string {
-    return this.token;
+  public getToken(): string | null {
+    const userData = localStorage.getItem('token');
+    if (userData) {
+      return JSON.parse(userData).token;
+    }
+    return null;
   }
+  
 
   public setCategories(categories: []){
     this.categories = categories;
@@ -114,31 +119,28 @@ export class DataService {
     return firstValueFrom(response);
   }
 
-  public  postData(endpoint: string, data: any) {
-    //const url = this.buildUrl(endpoint);
-    //const response = this.http.post(this.baseUrl + endpoint, data);
-    // let header = {
-    //   headers: new HttpHeaders({'Content-Type': 'application/json'}),
-    //   withCredentials: true
-    //  };
+  public  postData(endpoint: string) {
+    
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.getToken()}`
+    });
      console.log(this.baseUrl + endpoint)
-    return this.http.post(this.baseUrl + endpoint, data);
+    return this.http.post(this.baseUrl + endpoint, {headers});
   }
 
   public login(username: string, password: string){
     const body = { "username":username, "password": password };
-    return this.http.post(this.baseUrl + 'user_profiles/login/', body);
+    return this.http.post<any>(this.baseUrl + 'user_profiles/login/', body);
   }
 
   public  getData(endpoint: string) {
     //const url = this.buildUrl(endpoint);
     //const response = this.http.post(this.baseUrl + endpoint, data);
-    let header = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'}),
-      withCredentials: true
-     };
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.getToken()}`
+    });
      console.log(this.baseUrl + endpoint)
-    return this.http.get(this.baseUrl + endpoint);
+    return this.http.get<any>(this.baseUrl + endpoint, {headers});
   }
 
   private buildUrl(endpoint: string): string {
