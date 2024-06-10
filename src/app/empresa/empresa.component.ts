@@ -50,6 +50,7 @@ public listado_empresas: any[] = [];
     console.log(this.service.getToken())
     this.getListCompany()
    
+    
   }
 
   ngOnInit(): void {

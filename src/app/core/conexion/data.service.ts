@@ -80,6 +80,7 @@ export class DataService {
 
   public getToken(): string | null {
     const userData = localStorage.getItem('token');
+    console.log(userData)
     if (userData) {
       return JSON.parse(userData).token;
     }
