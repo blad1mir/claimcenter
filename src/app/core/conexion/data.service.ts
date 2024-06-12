@@ -138,6 +138,10 @@ export class DataService {
     //const url = this.buildUrl(endpoint);
     //const response = this.http.post(this.baseUrl + endpoint, data);
     let token  = localStorage.getItem('token');
+    if(token){
+      token =  token.substring(1, token.length - 1);
+    }
+   
     console.log("el token es: " + token)
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
