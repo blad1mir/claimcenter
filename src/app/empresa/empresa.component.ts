@@ -47,10 +47,10 @@ public listado_empresas: any[] = [];
 
   categories: any[] = [];
   constructor(public service: DataService) { 
-    console.log(this.service.getToken())
+    console.log(localStorage.getItem('token'))
     this.getListCompany()
    
-    
+
   }
 
   ngOnInit(): void {
