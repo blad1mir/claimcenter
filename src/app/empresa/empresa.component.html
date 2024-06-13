@@ -51,24 +51,21 @@
           </thead>
           <tbody>
             <div *ngFor="let empresa of listado_empresas">
-
-
               <tr class="bg-white border-b">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  {{empresa.nombre}}
+                  {{empresa.name}}
                 </th>
                 <td class="px-6 py-4">
-                  {{empresa.nombre}}
+                 <div *ngFor="let email of  empresa.email"> 
+                {{email.email}}
+                {{email.description}}
+                </div>
                 </td>
                 <td class="px-6 py-4">
-                  {{empresa.nombre}}
+                  {{empresa.phone}}
                 </td>
                 <td class="px-6 py-4">
-                  {{empresa.nombre}}
-                </td>
-
-                <td class="px-6 py-4">
-                  {{empresa.nombre}}
+                  {{empresa.web_page_url}}
                 </td>
               </tr>
 
