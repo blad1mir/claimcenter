@@ -72,7 +72,7 @@ public listado_empresas: any[] = [];
     this.service.getData('enterprises/').subscribe(
       (response) => {
         console.log(response)
-      this.listado_empresas = response.result
+      this.listado_empresas = response.results
       console.log( this.listado_empresas)
        
       },
