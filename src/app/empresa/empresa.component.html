@@ -56,7 +56,11 @@
               </td>
 
               <td class="px-6 py-4">
-                {{ empresa.email }}
+                {{ empresa.legal_document }}
+              </td>
+
+              <td class="px-6 py-4">
+                {{ empresa.email.description }} -  {{ empresa.email.email }}
               </td>
               <!-- <td class="px-6 py-4">
                 <div *ngFor="let email of empresa.email">
