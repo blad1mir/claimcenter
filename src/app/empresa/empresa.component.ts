@@ -40,6 +40,7 @@ export class EmpresaComponent implements OnInit {
 };
 
 public listado_empresas: any[] = [];
+filtered_empresas: any[] = [];
 
 
 
@@ -49,6 +50,8 @@ public listado_empresas: any[] = [];
   constructor(public service: DataService) { 
     console.log(localStorage.getItem('token'))
     this.getListCompany()
+    this.filtered_empresas = this.listado_empresas;
+
    
 
   }
@@ -176,6 +179,15 @@ removePhone() {
     this.empresa.phones_associated.pop();
   }
   
+}
+
+onSearch(): void {
+  this.filtered_empresas = this.listado_empresas.filter((empresa: any) => {
+    // Aquí se puede ajustar la lógica del filtro según las necesidades
+    return empresa.nombre.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+           empresa.email.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+           empresa.telefono.includes(this.searchTerm.toLowerCase());
+  });
 }
 
 
