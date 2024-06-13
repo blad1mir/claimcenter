@@ -186,12 +186,12 @@ onSearch(): void {
   console.log(this.searchTerm)
   this.filtered_empresas = this.listado_empresas.filter((empresa: any) => {
     // Verificar que los campos sean strings válidos antes de llamar a toLowerCase()
-    const nombre = empresa.nombre ? empresa.nombre.toLowerCase() : '';
-    const email = empresa.email ? empresa.email.toLowerCase() : '';
-    const telefono = empresa.telefono ? empresa.telefono.toLowerCase() : '';
-    return nombre.includes(this.searchTerm.toLowerCase()) || 
-           email.includes(this.searchTerm.toLowerCase()) || 
-           telefono.includes(this.searchTerm.toLowerCase());
+    const nombre = empresa.nombre ? empresa.nombre : '';
+    const email = empresa.email ? empresa.email : '';
+    const telefono = empresa.telefono ? empresa.telefono : '';
+    return nombre.includes(this.searchTerm) || 
+           email.includes(this.searchTerm) || 
+           telefono.includes(this.searchTerm);
   });
 }
 
