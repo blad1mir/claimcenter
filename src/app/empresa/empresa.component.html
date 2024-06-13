@@ -36,7 +36,7 @@
                 Nombre
               </th>
               <th scope="col" class="px-6 py-3">
-                NIF / CIF 
+                NIF / CIF
               </th>
               <th scope="col" class="px-6 py-3">
                 Correo electrónico
@@ -50,26 +50,22 @@
             </tr>
           </thead>
           <tbody>
-            <div *ngFor="let empresa of listado_empresas">
-              <tr class="bg-white border-b">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  {{empresa.name}}
-                </th>
-                <td class="px-6 py-4">
-                 <div *ngFor="let email of  empresa.email"> 
-                {{email.email}}
-                {{email.description}}
+            <tr *ngFor="let empresa of listado_empresas" class="bg-white border-b">
+              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                {{ empresa.name }}
+              </td>
+              <td class="px-6 py-4">
+                <div *ngFor="let email of empresa.email">
+                  {{ email.email }} - {{ email.description }}
                 </div>
-                </td>
-                <td class="px-6 py-4">
-                  {{empresa.phone}}
-                </td>
-                <td class="px-6 py-4">
-                  {{empresa.web_page_url}}
-                </td>
-              </tr>
-
-            </div>
+              </td>
+              <td class="px-6 py-4">
+                {{ empresa.phone }}
+              </td>
+              <td class="px-6 py-4">
+                {{ empresa.web_page_url }}
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
