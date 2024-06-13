@@ -50,7 +50,7 @@ filtered_empresas: any[] = [];
   constructor(public service: DataService) { 
     console.log(localStorage.getItem('token'))
     this.getListCompany()
-    this.filtered_empresas = this.listado_empresas;
+    
 
    
 
@@ -75,7 +75,8 @@ filtered_empresas: any[] = [];
     this.service.getData('enterprises/').subscribe(
       (response) => {
         console.log(response)
-      this.listado_empresas = response.results
+      this.listado_empresas = response.results;
+      this.filtered_empresas = response.results;
       console.log( this.listado_empresas)
        
       },
