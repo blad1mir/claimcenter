@@ -73,7 +73,7 @@ public listado_empresas: any[] = [];
       (response) => {
         console.log(response)
       this.listado_empresas = response.result
-        
+      console.log( this.listado_empresas)
        
       },
       error => {
