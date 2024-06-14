@@ -120,13 +120,21 @@ export class DataService {
     return firstValueFrom(response);
   }
 
-  public  postData(endpoint: string) {
+  public  postData(endpoint: string, body: any) {
     
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.getToken()}`
-    });
+    // let token  = localStorage.getItem('token');
+    // if(token){
+    //   token =  token.substring(1, token.length - 1);
+    // }
+   
+    // console.log("el token es: " + token)
+    // const headers = new HttpHeaders({
+    //   'Authorization': `Bearer ${token}`,
+    //   'Content-Type': 'application/json'
+    // });
+
      console.log(this.baseUrl + endpoint)
-    return this.http.post(this.baseUrl + endpoint, {headers});
+    return this.http.post(this.baseUrl + endpoint,body);
   }
 
   public login(username: string, password: string){

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Company } from '../core/interfaces/company';
 import { DataService } from '../core/conexion/data.service';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-empresa',
@@ -47,7 +49,8 @@ filtered_empresas: any[] = [];
   
 
   categories: any[] = [];
-  constructor(public service: DataService) { 
+  constructor(public service: DataService, private snackBar: MatSnackBar) { 
+    this.categories = this.service.categories
     console.log(localStorage.getItem('token'))
     this.getListCompany()
     
@@ -91,66 +94,29 @@ filtered_empresas: any[] = [];
 
   createCompany(): void {
     console.log(this.empresa)
-  //   if (!this.companyName || !this.legalDocument || !this.isPrivate || !this.bankName || !this.accountNumber || !this.bankAbbr || !this.accountingCode || !this.category || !this.phoneNumber || !this.phoneDescription || !this.phoneType || !this.email || !this.emailDescription || !this.country || !this.state || !this.city || !this.street || !this.zipCode || !this.webPageUrl) {
-  //     this.showWarningMessage('Por favor, complete todos los campos.');
-  //     return;
-  //   }
-  //   const authToken = this.authService.getAuthToken();
+    if (!this.empresa.name || !this.empresa.legal_document || !this.empresa.is_private || !this.empresa.bank_details.bank_name || !this.empresa.bank_details.account_number || !this.empresa.bank_details.bank_abbr || !this.empresa.finance_details.accounting_code || !this.empresa.categories || !this.empresa.categories || !this.empresa.phones_associated || !this.empresa.emails_associated || !this.empresa.addresses || !this.empresa.web_page_url) {
+      this.snackBar.open("Por favor, complete todos los campos", "", {
+        duration: 2000
+      })
+      
+    }else{
+      this.service.postData('/enterprises',this.empresa).subscribe(
+        (response) => {
+  
+          if(response)
+          console.log('Registro creado correctamente', response);
+      
+         
+        },
+        error => {
+          console.error('La empresa no se pudo crear:', error);
+          // Manejar el error en el login
+        });
+    }
 
 
-  //   if (authToken) {
-  //     const headers = new HttpHeaders({
-  //       'Authorization': `Bearer ${authToken}`,
-  //       'Content-Type': 'application/json'
-  //     });
 
-  //     const companyData = {
-  //       name: this.companyName,
-  //       legal_document: this.legalDocument,
-  //       is_private: this.isPrivate,
-  //       bank_details: {
-  //         bank_name: this.bankName,
-  //         account_number: this.accountNumber,
-  //         bank_abbr: this.bankAbbr,
-  //       },
-  //       finance_details: {
-  //         accounting_code: this.accountingCode,
-  //       },
-  //       categories: [this.category],
-  //       phones_associated: [{
-  //         phone_number: this.phoneNumber,
-  //         description: this.phoneDescription,
-  //         phone_type: this.phoneType,
-  //       }],
-  //       emails_associated: [{
-  //         email: this.email,
-  //         description: this.emailDescription,
-  //       }],
-  //       addresses: [{
-  //         country: this.country,
-  //         state: this.state,
-  //         city: this.city,
-  //         street: this.street,
-  //         zip_code: this.zipCode,
-  //       }],
-  //       web_page_url: this.webPageUrl,
-  //     };
-
-  //     this.http.post(this.companyProfilesUrl, companyData, { headers }).subscribe(
-  //       (response) => {
-  //         console.log('Empresa creada exitosamente', response);
-  //         this.showWarningMessage('Empresa creada exitosamente.');
-
-  //       },
-  //       (error) => {
-  //         console.error('Error al crear la empresa', error);
-  //       }
-  //     );
-  //   } else {
-  //     console.error('No hay token de autorización disponible.');
-  //   }
-
-  // 
+  
 }
 
 addEmail() {
