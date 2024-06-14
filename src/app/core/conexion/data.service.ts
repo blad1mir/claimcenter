@@ -120,29 +120,6 @@ export class DataService {
     const response = this.http.post<T>(this.baseUrl + endpoint, data);
     return firstValueFrom(response);
   }
-
-  public  postData(endpoint: string, body: Company) {
-    console.log("la empresa es: "+ body)
-    let token  = localStorage.getItem('token');
-    if(token){
-      token =  token.substring(1, token.length - 1);
-    }
-   
-    console.log("el token es: " + token)
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
-    });
-
-     console.log(this.baseUrl + endpoint)
-    return this.http.post(this.baseUrl + endpoint,body, { headers: headers });
-  }
-
-  public login(username: string, password: string){
-    const body = { "username":username, "password": password };
-    return this.http.post<any>(this.baseUrl + 'user_profiles/login/', body);
-  }
-
   public  getData(endpoint: string) {
     //const url = this.buildUrl(endpoint);
     //const response = this.http.post(this.baseUrl + endpoint, data);
@@ -161,6 +138,30 @@ export class DataService {
     
     return this.http.get<any>(this.baseUrl + endpoint, {headers});
   }
+
+  public  postData(endpoint: string, body: Company) {
+    console.log("la empresa es: "+ body)
+    let token  = localStorage.getItem('token');
+    if(token){
+      token =  token.substring(1, token.length - 1);
+    }
+   
+    console.log("el token es: " + token)
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+
+     console.log(this.baseUrl + endpoint)
+    return this.http.post<any>(this.baseUrl + endpoint,body, { headers });
+  }
+
+  public login(username: string, password: string){
+    const body = { "username":username, "password": password };
+    return this.http.post<any>(this.baseUrl + 'user_profiles/login/', body);
+  }
+
+
 
   private buildUrl(endpoint: string): string {
     return `${this.baseUrl}/${endpoint}`;
