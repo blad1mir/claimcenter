@@ -45,7 +45,9 @@ public usuario: Contacto = {
 
   categories: any[] = [];
 
-  constructor(public service: DataService) { }
+  constructor(public service: DataService) { 
+    this.getListUsers()
+  }
 
   ngOnInit(): void {
   }
