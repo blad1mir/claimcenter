@@ -100,7 +100,7 @@ filtered_empresas: any[] = [];
       })
       
     }else{
-      this.service.postData('/enterprises',this.empresa).subscribe(
+      this.service.postData('enterprises',this.empresa).subscribe(
         (response) => {
   
           if(response)
