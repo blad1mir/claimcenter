@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, firstValueFrom } from 'rxjs';
+import { Company } from '../interfaces/company';
 
 @Injectable({
   providedIn: 'root'
@@ -120,8 +121,8 @@ export class DataService {
     return firstValueFrom(response);
   }
 
-  public  postData(endpoint: string, body: any) {
-    
+  public  postData(endpoint: string, body: Company) {
+    console.log("la empresa es: "+ body)
     let token  = localStorage.getItem('token');
     if(token){
       token =  token.substring(1, token.length - 1);
