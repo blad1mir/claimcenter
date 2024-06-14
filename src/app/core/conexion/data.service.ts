@@ -122,19 +122,19 @@ export class DataService {
 
   public  postData(endpoint: string, body: any) {
     
-    // let token  = localStorage.getItem('token');
-    // if(token){
-    //   token =  token.substring(1, token.length - 1);
-    // }
+    let token  = localStorage.getItem('token');
+    if(token){
+      token =  token.substring(1, token.length - 1);
+    }
    
-    // console.log("el token es: " + token)
-    // const headers = new HttpHeaders({
-    //   'Authorization': `Bearer ${token}`,
-    //   'Content-Type': 'application/json'
-    // });
+    console.log("el token es: " + token)
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
 
      console.log(this.baseUrl + endpoint)
-    return this.http.post(this.baseUrl + endpoint,body);
+    return this.http.post(this.baseUrl + endpoint,body, { headers: headers });
   }
 
   public login(username: string, password: string){
