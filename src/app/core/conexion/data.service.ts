@@ -139,7 +139,7 @@ export class DataService {
     return this.http.get<any>(this.baseUrl + endpoint, {headers});
   }
 
-  public  postData(endpoint: string, body: Company) {
+  public  postData(endpoint: string, body: any) {
     console.log("la empresa es: "+ body)
     let token  = localStorage.getItem('token');
     if(token){
@@ -153,7 +153,7 @@ export class DataService {
     });
 
      console.log(this.baseUrl + endpoint)
-    return this.http.post<any>(this.baseUrl + endpoint,body, { headers });
+    return this.http.post<any>(this.baseUrl + endpoint,body, {headers});
   }
 
   public login(username: string, password: string){
