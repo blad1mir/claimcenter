@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Company } from '../core/interfaces/company';
 import { DataService } from '../core/conexion/data.service';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+//import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -49,7 +49,7 @@ filtered_empresas: any[] = [];
   
 
   categories: any[] = [];
-  constructor(public service: DataService, private snackBar: MatSnackBar) { 
+  constructor(public service: DataService) { 
     this.categories = this.service.categories
     console.log(localStorage.getItem('token'))
     this.getListCompany()
@@ -95,7 +95,7 @@ filtered_empresas: any[] = [];
   createCompany(): void {
     console.log(this.empresa)
     if (!this.empresa.name || !this.empresa.legal_document || !this.empresa.is_private || !this.empresa.bank_details.bank_name || !this.empresa.bank_details.account_number || !this.empresa.bank_details.bank_abbr || !this.empresa.finance_details.accounting_code || !this.empresa.categories || !this.empresa.categories || !this.empresa.phones_associated || !this.empresa.emails_associated || !this.empresa.addresses || !this.empresa.web_page_url) {
-      this.snackBar.open("Por favor, complete todos los campos", "", {
+      console.log("Por favor, complete todos los campos", "", {
         duration: 2000
       })
       
