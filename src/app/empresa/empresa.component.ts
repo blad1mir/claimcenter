@@ -237,7 +237,7 @@ const headers = new HttpHeaders({
 
  console.log(headers)
 
- this.http.get<any>('https://backend.claimcenter.com/api/enterprises/79770066', {headers}).subscribe(
+ this.http.get<any>('https://backend.claimcenter.com/api/enterprises/79770066/', {headers: headers}).subscribe(
   (response) => {
 
     if(response)
