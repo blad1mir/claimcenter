@@ -102,7 +102,7 @@ filtered_empresas: any[] = [];
     const url = this.nextPag;
     const queryString = url.split('?')[1];
     console.log(queryString);
-          this.service.getData('?'+queryString).subscribe(
+          this.service.getData('enterprises/?'+queryString).subscribe(
       (response) => {
         console.log(response)
       this.listado_empresas = response.results;
@@ -126,7 +126,7 @@ filtered_empresas: any[] = [];
       const url = this.nextPag;
       const queryString = url.split('?')[1];
       console.log(queryString);
-          this.service.getData('?'+queryString).subscribe(
+          this.service.getData('enterprises/?'+queryString).subscribe(
       (response) => {
         console.log(response)
       this.listado_empresas = response.results;
@@ -219,3 +219,5 @@ onSearch(): void {
 
 
 }
+
+
