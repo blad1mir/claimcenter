@@ -139,6 +139,23 @@ export class DataService {
     return this.http.get<any>(this.baseUrl + endpoint, {headers});
   }
 
+  public  getPaginated(endpoint: string) {
+    let token  = localStorage.getItem('token');
+    if(token){
+      token =  token.substring(1, token.length - 1);
+    }
+   
+    console.log("el token es: " + token)
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+     console.log(this.baseUrl + endpoint)
+     console.log(headers)
+    
+    return this.http.get<any>(endpoint, {headers});
+  }
+
   public  postData(endpoint: string, body: any) {
     console.log("la empresa es: "+ body)
     let token  = localStorage.getItem('token');

@@ -10,6 +10,9 @@ import { DataService } from '../core/conexion/data.service';
   styleUrls: ['./empresa.component.scss']
 })
 export class EmpresaComponent implements OnInit {
+ public nextPag: string = '';
+ public previusPag: string = '';
+
  public option: boolean = false;
  public searchTerm: string = '';
   public empresa: Company = {
@@ -72,14 +75,14 @@ filtered_empresas: any[] = [];
   }
 
   getListCompany() {
-  
-    
 
     this.service.getData('enterprises/').subscribe(
       (response) => {
         console.log(response)
       this.listado_empresas = response.results;
       this.filtered_empresas = response.results;
+      this.nextPag = response.next;
+      this.previusPag = response.previous;
       console.log( this.listado_empresas)
        
       },
@@ -87,6 +90,48 @@ filtered_empresas: any[] = [];
         console.error('Error al traer listado de empresas:', error);
         // Manejar el error en el login
       });
+
+
+  }
+
+  nextPage(){
+    if (this.nextPag != null) {
+          this.service.getPaginated(this.nextPag).subscribe(
+      (response) => {
+        console.log(response)
+      this.listado_empresas = response.results;
+      this.filtered_empresas = response.results;
+      this.nextPag = response.next;
+      this.previusPag = response.previous;
+      console.log( this.listado_empresas)
+       
+      },
+      error => {
+        console.error('Error al traer listado de empresas:', error);
+        // Manejar el error en el login
+      });
+    }
+
+
+  }
+  previusPage(){
+    if (this.previusPag != null) {
+          this.service.getPaginated(this.previusPag).subscribe(
+      (response) => {
+        console.log(response)
+      this.listado_empresas = response.results;
+      this.filtered_empresas = response.results;
+      this.nextPag = response.next;
+      this.previusPag = response.previous;
+      console.log( this.listado_empresas)
+       
+      },
+      error => {
+        console.error('Error al traer listado de empresas:', error);
+        // Manejar el error en el login
+      });
+    }
+
 
 
   }

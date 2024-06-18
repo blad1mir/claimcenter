@@ -8,7 +8,7 @@ import { Contacto, Usuario } from '../core/interfaces/company';
   styleUrls: ['./usuarios.component.scss']
 })
 export class UsuariosComponent implements OnInit {
-   public option: boolean = false;
+  public option: boolean = false;
   public searchTerm: string = '';
 
 
@@ -96,6 +96,8 @@ public usuario: Contacto = {
           // Manejar el error en el login
         });
     }
+
+    
 
 
 
