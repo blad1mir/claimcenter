@@ -136,7 +136,7 @@ export class DataService {
      console.log(this.baseUrl + endpoint)
      console.log(headers)
     
-    return this.http.get<any>(this.baseUrl + endpoint, {headers});
+    return this.http.get<any>(this.baseUrl + endpoint, {headers: headers});
   }
 
   public  getEnterprise(endpoint: string) {
@@ -154,7 +154,7 @@ export class DataService {
      console.log(this.baseUrl + endpoint)
      console.log(headers)
     
-    return this.http.get<any>(this.baseUrl + endpoint, {headers});
+    return this.http.get<any>(this.baseUrl + endpoint, {headers: headers});
   }
 
   public  getPaginated(endpoint: string) {
@@ -171,7 +171,7 @@ export class DataService {
      console.log(this.baseUrl + endpoint)
      console.log(headers)
     
-    return this.http.get<any>(endpoint, {headers});
+    return this.http.get<any>(endpoint, {headers: headers});
   }
 
   public  postData(endpoint: string, body: any) {

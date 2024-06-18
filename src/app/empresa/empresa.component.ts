@@ -225,42 +225,16 @@ onSearch(): void {
 showEnterprise(option: number, idEmpresa: number){
 this.option = option;
 
-let token  = localStorage.getItem('token');
-if(token){
-  token =  token.substring(1, token.length - 1);
-}
-
-console.log("el token es: " + token)
-const headers = new HttpHeaders({
-  'Authorization': `Bearer ${token}`
-});
-
- console.log(headers)
-
- this.http.get<any>('https://backend.claimcenter.com/api/enterprises/79770066/', {headers: headers}).subscribe(
+this.service.getEnterprise('enterprises/'+idEmpresa).subscribe(
   (response) => {
-
-    if(response)
-    console.log('Registro creado correctamente', response);
-
+    console.log(response)
+ this.empresa = response;
    
   },
   error => {
-    console.error('La empresa no se pudo crear:', error);
+    console.error('Error al traer listado de empresas:', error);
     // Manejar el error en el login
   });
-
-
-// this.service.getEnterprise('enterprises/'+idEmpresa).subscribe(
-//   (response) => {
-//     console.log(response)
-//  this.empresa = response;
-   
-//   },
-//   error => {
-//     console.error('Error al traer listado de empresas:', error);
-//     // Manejar el error en el login
-//   });
 
 
 
