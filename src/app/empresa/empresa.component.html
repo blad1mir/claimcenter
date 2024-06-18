@@ -280,6 +280,57 @@
   </div>
 </div>
 
+<div *ngIf="option== 3" class="flex justify-center items-center h-full">
+
+  <div class="w-full max-w-lg">
+    <form class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full">
+        <div class="flex justify-between items-center mt-8">
+          <h1 class="text-2xl font-bold">Detalle de empresa:</h1>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300" (click)="changeVisibility(2)">
+            Cancelar edición
+          </button>
+        </div>
+        <br>
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Número: CC
+            <input type="text" [(ngModel)]="company.enterprise_id">
+          </label>
+        </div>
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre:
+            <input type="text" [(ngModel)]="company.name">
+          </label>
+        </div>
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección de pagina web:
+            <input type="text" [(ngModel)]="company.web_page_url">
+          </label>
+        </div>
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Detalles bancarios </label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Nombre:
+            <input type="text" [(ngModel)]="company.bank_details.bank_name">
+          </label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            ABBR:
+            <input type="text" [(ngModel)]="company.bank_details.bank_abbr">
+          </label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Número de cuenta:
+            <input type="text" [(ngModel)]="company.bank_details.account_number">
+          </label>
+        </div>
+  
+        
+  
+      </div>
+    </form>
+  </div>
+    
+  </div>
+
  
 <div *ngIf="option==2" class="flex justify-center items-center h-full">
   <div class="w-full max-w-lg">
@@ -288,7 +339,7 @@
         <div class="flex justify-between items-center mt-8">
           <h1 class="text-2xl font-bold">Detalle de empresa:</h1>
           <!-- Un botón para acciones generales -->
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300" (click)="changeVisibility(0)">
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300" (click)="changeVisibility(3)">
             Editar
           </button>
         </div>
@@ -343,56 +394,8 @@
         </div>
 </div>
 
-<div ngIf="option==3" class="flex justify-center items-center h-full">
 
-<div class="w-full max-w-lg">
-  <form class="flex flex-wrap -mx-3 mb-6">
-    <div class="w-full">
-      <div class="flex justify-between items-center mt-8">
-        <h1 class="text-2xl font-bold">Detalle de empresa:</h1>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300" (click)="changeVisibility(0)">
-          Cancelar edición
-        </button>
-      </div>
-      <br>
-      <div class="px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Número: CC
-          <input type="text" [(ngModel)]="company.enterprise_id">
-        </label>
-      </div>
-      <div class="px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre:
-          <input type="text" [(ngModel)]="company.name">
-        </label>
-      </div>
-      <div class="px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección de pagina web:
-          <input type="text" [(ngModel)]="company.web_page_url">
-        </label>
-      </div>
-      <div class="px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Detalles bancarios </label>
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-          Nombre:
-          <input type="text" [(ngModel)]="company.bank_details.bank_name">
-        </label>
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-          ABBR:
-          <input type="text" [(ngModel)]="company.bank_details.bank_abbr">
-        </label>
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-          Número de cuenta:
-          <input type="text" [(ngModel)]="company.bank_details.account_number">
-        </label>
-      </div>
 
-      
-
-    </div>
-  </form>
-</div>
-  
-</div>
 
 
 
