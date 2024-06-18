@@ -23,6 +23,7 @@ option 3 = editar empresa
 
  */
  public searchTerm: string = '';
+ public company: any;
   public empresa: Company = {
     enterprise_id: 1,
     created_on: "",
@@ -228,7 +229,7 @@ this.option = option;
 this.service.getEnterprise('enterprises/'+idEmpresa).subscribe(
   (response) => {
     console.log(response)
- this.empresa = response;
+ this.company = response;
    
   },
   error => {
