@@ -226,7 +226,7 @@ onSearch(): void {
 showEnterprise(option: number, idEmpresa: number){
 this.option = option;
 
-this.service.getEnterprise('enterprises/'+idEmpresa).subscribe(
+this.service.getEnterprise('enterprises/'+idEmpresa+'/').subscribe(
   (response) => {
     console.log(response)
  this.company = response;
