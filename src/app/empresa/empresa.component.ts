@@ -123,7 +123,7 @@ filtered_empresas: any[] = [];
   previusPage(){
    
     if (this.previusPag != null) {
-      const url = this.nextPag;
+      const url = this.previusPag;
       const queryString = url.split('?')[1];
       console.log(queryString);
           this.service.getData('enterprises/?'+queryString).subscribe(
