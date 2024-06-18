@@ -95,8 +95,13 @@ filtered_empresas: any[] = [];
   }
 
   nextPage(){
+
+    const url = this.nextPag;
+    const queryString = url.split('?')[1];
+    console.log(queryString);
+
     if (this.nextPag != null) {
-          this.service.getPaginated(this.nextPag).subscribe(
+          this.service.getData(queryString).subscribe(
       (response) => {
         console.log(response)
       this.listado_empresas = response.results;
@@ -115,8 +120,11 @@ filtered_empresas: any[] = [];
 
   }
   previusPage(){
+    const url = this.nextPag;
+    const queryString = url.split('?')[1];
+    console.log(queryString);
     if (this.previusPag != null) {
-          this.service.getPaginated(this.previusPag).subscribe(
+          this.service.getData(queryString).subscribe(
       (response) => {
         console.log(response)
       this.listado_empresas = response.results;
