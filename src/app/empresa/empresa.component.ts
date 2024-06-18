@@ -96,11 +96,12 @@ filtered_empresas: any[] = [];
 
   nextPage(){
 
+
+    if (this.nextPag != null) {
+      
     const url = this.nextPag;
     const queryString = url.split('?')[1];
     console.log(queryString);
-
-    if (this.nextPag != null) {
           this.service.getData('?'+queryString).subscribe(
       (response) => {
         console.log(response)
@@ -120,10 +121,11 @@ filtered_empresas: any[] = [];
 
   }
   previusPage(){
-    const url = this.nextPag;
-    const queryString = url.split('?')[1];
-    console.log(queryString);
+   
     if (this.previusPag != null) {
+      const url = this.nextPag;
+      const queryString = url.split('?')[1];
+      console.log(queryString);
           this.service.getData('?'+queryString).subscribe(
       (response) => {
         console.log(response)
