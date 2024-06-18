@@ -4,7 +4,7 @@
   <h1 class="text-2xl font-bold mb-2 mt-8 ml-40">Empresas</h1>
   
   
-  <div *ngIf="!option" class="flex justify-center">
+  <div *ngIf="option==0" class="flex justify-center">
     
     <div class="w-3/4">
       <div class="relative overflow-x-auto">
@@ -22,7 +22,7 @@
         <div class="flex justify-between items-center mt-8">
           <h1 class="text-2xl font-bold">Listado de empresas:</h1>
           <!-- Un botón para acciones generales -->
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300" (click)="registerCompany()">
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300" (click)="changeVisibility(1)">
             Registrar empresa
           </button>
         </div>
@@ -50,7 +50,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let empresa of filtered_empresas" class="bg-white border-b">
+            <tr *ngFor="let empresa of filtered_empresas" class="bg-white border-b cursor-pointer" (click)="showEnterprise(2,empresa.enterprise_id)">
               <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                 {{ empresa.name }}
               </td>
@@ -93,16 +93,14 @@
   </div>
 
   
-<div *ngIf="option" class="flex justify-center items-center h-full">
+<div *ngIf="option==1" class="flex justify-center items-center h-full">
   <div class="w-full max-w-lg">
     <form class="flex flex-wrap -mx-3 mb-6">
       <div class="w-full">
-        
-
         <div class="flex justify-between items-center mt-8">
           <h1 class="text-2xl font-bold">Crear Empresa:</h1>
           <!-- Un botón para acciones generales -->
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300" (click)="registerCompany()">
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300" (click)="changeVisibility(0)">
             Ver empresas
           </button>
         </div>
@@ -159,7 +157,7 @@
 
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Correos</label>
 
-        <div *ngFor="let email of empresa.emails_associated; let i = index" class="flex flex-wrap -mx-3 mb-6">
+        <div *ngFor="let email of empresa.emails_associated; let i = index" class="flex flex-wrap -mx-3 mb-6" >
           <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Correo</label>
             <input [(ngModel)]="email.email" name="email-{{ i }}" type="text"
@@ -281,6 +279,48 @@
     </form>
   </div>
 </div>
+
+ 
+<div *ngIf="option==2" class="flex justify-center items-center h-full">
+  <div class="w-full max-w-lg">
+    <form class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full">
+        <div class="flex justify-between items-center mt-8">
+          <h1 class="text-2xl font-bold">Detalle de empresa:</h1>
+          <!-- Un botón para acciones generales -->
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300" (click)="changeVisibility(0)">
+            Editar
+          </button>
+        </div>
+        <br>
+
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">{{empresa.name}}</label>
+      
+        </div>
+
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección de pagina
+            web</label>
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">{{empresa.web_page_url}}</label>
+          
+        </div>
+
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre del banco</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">{{empresa.bank_details.bank_name}}</label>
+          
+        </div>
+
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Cuenta de banco</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">{{empresa.bank_details.account_number}}</label>
+          
+        </div>
+
+     
+
 
 
 </div>

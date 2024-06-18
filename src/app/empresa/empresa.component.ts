@@ -13,7 +13,14 @@ export class EmpresaComponent implements OnInit {
  public nextPag: string = '';
  public previusPag: string = '';
 
- public option: boolean = false;
+ public option: number = 0;
+ /* 
+option 0 = listado
+option 1 = crear empresa
+option 2 = detalles de empresa 
+option 3 = editar empresa
+
+ */
  public searchTerm: string = '';
   public empresa: Company = {
     enterprise_id: 1,
@@ -66,13 +73,11 @@ filtered_empresas: any[] = [];
     console.log(this.empresa.emails_associated.length)
   }
 
-  changeVisibility(): void {
-    this.option = !this.option
+  changeVisibility(value: number): void {
+    this.option = value;
   }
 
-  registerCompany(): void {
-    this.option = !this.option;
-  }
+  
 
   getListCompany() {
 
@@ -214,6 +219,26 @@ onSearch(): void {
            email.includes(this.searchTerm) || 
            telefono.includes(this.searchTerm);
   });
+}
+
+showEnterprise(option: number, idEmpresa: number){
+this.option = option;
+
+
+this.service.getData('enterprises/'+idEmpresa).subscribe(
+  (response) => {
+    console.log(response)
+ this.empresa = response;
+   
+  },
+  error => {
+    console.error('Error al traer listado de empresas:', error);
+    // Manejar el error en el login
+  });
+
+
+
+
 }
 
 

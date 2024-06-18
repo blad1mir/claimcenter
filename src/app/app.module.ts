@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
+import { EmpresadetailComponent } from './empresadetail/empresadetail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MenuComponent } from './menu/menu.component';
     UsuariosComponent,
     ExpedientesComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    EmpresadetailComponent
     
   ],
   imports: [
