@@ -293,29 +293,52 @@
           </button>
         </div>
         <br>
-
         <div class="px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre</label>
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">{{company.name}}</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Número: CC{{company.enterprise_id}}</label>
+      
+        </div>
+        <div class="px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre: {{company.name}}</label>
       
         </div>
 
         <div class="px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección de pagina
-            web</label>
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">{{company.web_page_url}}</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección de pagina web: {{company.web_page_url}}</label>
           
         </div>
 
         <div class="px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre del banco</label>
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">{{company.bank_details.bank_name}}</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Detalles bancarios </label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre: {{company.bank_details.bank_name}}</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">ABBR: {{company.bank_details.bank_abbr}}</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Número de cuenta: {{company.bank_details.account_number}}</label>
+
           
         </div>
+       
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Emails asociados </label>
+        <div class="px-3 mb-6 md:mb-0"  *ngFor="let email of company.emails_associated; let i = index">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción: {{email.description}}</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Email: {{email.email}}</label> 
+        </div>
 
-        <div class="px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Cuenta de banco</label>
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">{{company.bank_details.account_number}}</label>
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Teléfonos asociados </label>
+        <div class="px-3 mb-6 md:mb-0"  *ngFor="let phones of company.phones_associated; let i = index">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción: {{phones.description}}</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Número: {{phones.phone_number}}</label> 
+        </div>
+
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Categorías </label>
+        <div class="px-3 mb-6 md:mb-0"  *ngFor="let categoria of company.categories; let i = index">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción: {{categoria.description}}</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Categoría: {{categoria.category}}</label> 
+        </div>
+
+
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Direcciones </label>
+        <div class="px-3 mb-6 md:mb-0"  *ngFor="let direccion of company.addresses; let i = index">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción: {{direccion.street}} - {{direccion.city}} - {{direccion.state}} - {{direccion.country}} zip: {{direccion.zip_code}}</label>
+         
           
         </div>
 
