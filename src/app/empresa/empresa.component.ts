@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Company } from '../core/interfaces/company';
 import { DataService } from '../core/conexion/data.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 
@@ -59,7 +60,7 @@ filtered_empresas: any[] = [];
   
 
   categories: any[] = [];
-  constructor(public service: DataService) { 
+  constructor(public service: DataService, private http: HttpClient) { 
     this.categories = this.service.categories
     console.log(localStorage.getItem('token'))
     this.getListCompany()
@@ -224,17 +225,42 @@ onSearch(): void {
 showEnterprise(option: number, idEmpresa: number){
 this.option = option;
 
+let token  = localStorage.getItem('token');
+if(token){
+  token =  token.substring(1, token.length - 1);
+}
 
-this.service.getEnterprise('enterprises/'+idEmpresa).subscribe(
+console.log("el token es: " + token)
+const headers = new HttpHeaders({
+  'Authorization': `Bearer ${token}`
+});
+
+ console.log(headers)
+
+ this.http.get<any>('https://backend.claimcenter.com/api/enterprises/79770066', {headers}).subscribe(
   (response) => {
-    console.log(response)
- this.empresa = response;
+
+    if(response)
+    console.log('Registro creado correctamente', response);
+
    
   },
   error => {
-    console.error('Error al traer listado de empresas:', error);
+    console.error('La empresa no se pudo crear:', error);
     // Manejar el error en el login
   });
+
+
+// this.service.getEnterprise('enterprises/'+idEmpresa).subscribe(
+//   (response) => {
+//     console.log(response)
+//  this.empresa = response;
+   
+//   },
+//   error => {
+//     console.error('Error al traer listado de empresas:', error);
+//     // Manejar el error en el login
+//   });
 
 
 
