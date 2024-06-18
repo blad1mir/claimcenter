@@ -178,6 +178,23 @@ export class DataService {
     return this.http.post<any>(this.baseUrl + 'user_profiles/login/', body);
   }
 
+  public logout(){
+    
+    let token  = localStorage.getItem('token');
+    if(token){
+      token =  token.substring(1, token.length - 1);
+    }
+   
+    console.log("el token es: " + token)
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+    
+     
+    return this.http.post<any>(this.baseUrl + 'user_profiles/logout/', {headers});
+  }
+
 
 
   private buildUrl(endpoint: string): string {

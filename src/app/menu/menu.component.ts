@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../core/conexion/data.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   public isOpen: boolean[] = [false, false,false,false];
-  constructor(private router: Router) { }
+  constructor(private router: Router, public service: DataService) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +32,22 @@ export class MenuComponent implements OnInit {
 
   goTo(ruta: string, action: number){
     this.router.navigate([`/${ruta}`]); 
+  }
+
+  logout(){
+    this.service.logout().subscribe(
+      (response) => {
+        console.log(response)
+        localStorage.setItem('user', '');  
+        localStorage.setItem('token', '');  
+        this.router.navigate(['/login']); 
+     
+       
+      },
+      error => {
+        console.error('Error al cerrar sesión', error);
+        // Manejar el error en el login
+      });
   }
 
 }
