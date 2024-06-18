@@ -192,7 +192,7 @@ export class DataService {
     });
     
      
-    return this.http.post<any>(this.baseUrl + 'user_profiles/logout/', {headers});
+    return this.http.post<any>(this.baseUrl + 'user_profiles/logout/',{}, {headers});
   }
 
 
