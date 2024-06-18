@@ -101,7 +101,7 @@ filtered_empresas: any[] = [];
     console.log(queryString);
 
     if (this.nextPag != null) {
-          this.service.getData(queryString).subscribe(
+          this.service.getData('?'+queryString).subscribe(
       (response) => {
         console.log(response)
       this.listado_empresas = response.results;
@@ -124,7 +124,7 @@ filtered_empresas: any[] = [];
     const queryString = url.split('?')[1];
     console.log(queryString);
     if (this.previusPag != null) {
-          this.service.getData(queryString).subscribe(
+          this.service.getData('?'+queryString).subscribe(
       (response) => {
         console.log(response)
       this.listado_empresas = response.results;
