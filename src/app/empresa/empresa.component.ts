@@ -225,7 +225,7 @@ showEnterprise(option: number, idEmpresa: number){
 this.option = option;
 
 
-this.service.getData('enterprises/'+idEmpresa).subscribe(
+this.service.getEnterprise('enterprises/'+idEmpresa).subscribe(
   (response) => {
     console.log(response)
  this.empresa = response;
