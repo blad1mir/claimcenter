@@ -10,7 +10,8 @@ import { Contacto, Usuario } from '../core/interfaces/company';
 export class UsuariosComponent implements OnInit {
   public option: boolean = false;
   public searchTerm: string = '';
-
+  public nextPag: string = '';
+  public previusPag: string = '';
 
 
 
@@ -75,6 +76,58 @@ public usuario: Contacto = {
         console.error('Error al traer listado de usuarios:', error);
         // Manejar el error en el login
       });
+
+
+  }
+
+  
+  nextPage(){
+
+
+    if (this.nextPag != null) {
+
+      const url = this.nextPag;
+      const queryString = url.split('?')[1];
+      console.log(queryString);
+      this.service.getData('user_profiles/?'+queryString).subscribe(
+        (response) => {
+          console.log(response)
+        this.listado_usuarios = response.results;
+        this.nextPag = response.next;
+       this.previusPag = response.previous;
+        console.log( this.listado_usuarios)
+         
+        },
+        error => {
+          console.error('Error al traer listado de usuarios:', error);
+          // Manejar el error en el login
+        });
+      
+    }
+
+
+  }
+  previusPage(){
+   
+    if (this.previusPag != null) {
+      const url = this.previusPag;
+      const queryString = url.split('?')[1];
+      console.log(queryString);
+      this.service.getData('user_profiles/?'+queryString).subscribe(
+        (response) => {
+          console.log(response)
+        this.listado_usuarios = response.results;
+        this.nextPag = response.next;
+       this.previusPag = response.previous;
+        console.log( this.listado_usuarios)
+         
+        },
+        error => {
+          console.error('Error al traer listado de usuarios:', error);
+          // Manejar el error en el login
+        });
+    }
+
 
 
   }
