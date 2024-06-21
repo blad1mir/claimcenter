@@ -28,51 +28,6 @@
         </div>
         
 
-
-        <!-- <table class="w-full text-sm text-left mt-5">
-          <thead class="text-xs uppercase bg-gray-50">
-            <tr>
-              <th scope="col" class="px-6 py-3">
-                Nombre
-              </th>
-              <th scope="col" class="px-6 py-3">
-                NIF / CIF
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Correo electrónico
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Teléfonos
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Dirección web
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let empresa of filtered_empresas" class="bg-white border-b cursor-pointer" (click)="showEnterprise(2,empresa.enterprise_id)">
-              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                {{ empresa.name }}
-              </td>
-
-              <td class="px-6 py-4">
-                {{ empresa.legal_document }}
-              </td>
-
-              <td class="px-6 py-4">
-                {{ empresa.email.email }}
-              </td>
-            
-              <td class="px-6 py-4">
-                {{ empresa.phone }}
-              </td>
-              <td class="px-6 py-4">
-                {{ empresa.web_page_url }}
-              </td>
-            </tr>
-          </tbody>
-        </table> -->
-
         
 <br>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -505,7 +460,7 @@
 
 </form>
 
-<form class="max-w-sm mx-auto">
+<form class="max-w-sm mx-auto text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
   <div class="mb-5 flex items-center border-b border-gray-300">
     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Número: CC{{company.enterprise_id}}</label>
   </div>
