@@ -121,8 +121,7 @@
                 {{ empresa.legal_document }}
               </td>
               <td class="px-6 py-4">
-                {{ truncateText(empresa.email.email, 15) }}
-                
+                {{ empresa.email.email }}
               </td>
               <td class="px-6 py-4">
                 {{ empresa.phone }}
@@ -131,13 +130,11 @@
               <div class="flex items-center">
                   <!-- <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online -->
                   <div *ngIf="empresa.web_page_url == '' || empresa.web_page_url == null">
-                    <!-- <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div> No posee -->
-                    No posee
+                    <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div> No posee
                 </div>
                 
                    <div *ngIf="empresa.web_page_url != '' && empresa.web_page_url != null">
-                    <!-- <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2 cursor-pointer"> </div>  -->
-                    <a href="{{empresa.web_page_url}}">Enlace</a>
+                    <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2 cursor-pointer"> </div><a href="{{empresa.web_page_url}}">Enlace</a> 
                    </div>
                  
                   
