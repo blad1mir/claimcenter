@@ -239,10 +239,21 @@ this.service.getEnterprise('enterprises/'+idEmpresa+'/').subscribe(
     // Manejar el error en el login
   });
 
+  
+
 
 
 
 }
+
+truncateText(text: string, limit: number): string {
+  if (text.length > limit) {
+      return text.substring(0, limit) + '...';
+  } else {
+      return text;
+  }
+}
+
 
 
 
