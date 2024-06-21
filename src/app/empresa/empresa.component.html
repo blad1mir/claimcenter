@@ -29,7 +29,7 @@
         
 
 
-        <table class="w-full text-sm text-left mt-5">
+        <!-- <table class="w-full text-sm text-left mt-5">
           <thead class="text-xs uppercase bg-gray-50">
             <tr>
               <th scope="col" class="px-6 py-3">
@@ -62,11 +62,7 @@
               <td class="px-6 py-4">
                 {{ empresa.email.email }}
               </td>
-              <!-- <td class="px-6 py-4">
-                <div *ngFor="let email of empresa.email">
-                  {{ email.email }} - {{ email.description }}
-                </div>
-              </td> -->
+            
               <td class="px-6 py-4">
                 {{ empresa.phone }}
               </td>
@@ -75,17 +71,124 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
+
+        
+<br>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+       
+          <tr>
+            <th scope="col" class="px-6 py-3">
+              Nombre
+            </th>
+            <th scope="col" class="px-6 py-3">
+              NIF / CIF
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Correo electrónico
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Teléfonos
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Dirección web
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Modificar
+            </th>
+          </tr>
+      </thead>
+      <tbody>
+
+   
+          <tr *ngFor="let empresa of filtered_empresas" (click)="showEnterprise(2,empresa.enterprise_id)" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          
+              <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                  
+<div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+  <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+</div>
+
+                  <div class="ps-3">
+                      <div class="text-base font-semibold">{{ empresa.name }}</div>
+                     
+                  </div>  
+              </th>
+              <td class="px-6 py-4">
+                {{ empresa.legal_document }}
+              </td>
+              <td class="px-6 py-4">
+                {{ empresa.email.email }}
+              </td>
+              <td class="px-6 py-4">
+                {{ empresa.phone }}
+            </td>
+            <td class="px-6 py-4">
+              <div class="flex items-center">
+                  <!-- <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online -->
+                   <div *ngIf="empresa.web_page_url == ''">
+                    <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div> No posee
+                   </div>
+                   <div *ngIf="empresa.web_page_url != ''">
+                    <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>  {{ empresa.web_page_url }}
+                   </div>
+                 
+                  
+              </div>
+          </td>
+              <td class="px-6 py-4">
+                  <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" (click)="showEnterprise(2,empresa.enterprise_id)">Editar usuario</a>
+              </td>
+          </tr>
+         
+      </tbody>
+  </table>
+</div>
+
 
         <div class="flex items-center justify-center  h-20">
+
           <div class="text-center">
             <div class="pagination">
               <a class="text-4xl border border-gray-300 rounded-lg px-4 py-2 mr-2 cursor-pointer" (click)="previusPage()">&laquo;</a>
-              <!-- <a class="button-38" >{{paginationNumber()}}</a> -->
+         
               <a class="text-4xl border border-gray-300 rounded-lg px-4 py-2 ml-2 cursor-pointer" (click)="nextPage()">&raquo;</a>
             </div>
           </div>
         </div>
+
+        
+
+
+        <nav aria-label="Page navigation example" class="">
+          <div class="flex justify-center">
+            <ul class="inline-flex -space-x-px text-base h-10">
+    <li>
+      <a (click)="previusPage()" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Anterior</a>
+    </li>
+    <li>
+      <a  class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+    </li>
+    <li>
+      <a  class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">...</a>
+    </li>
+ 
+    <li>
+      <a  class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{{canElementos}}</a>
+    </li>
+
+    <li>
+      <a  (click)="nextPage()" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Siguiente</a>
+    </li>
+  </ul>
+</div>
+</nav>
+
+
+
         
         
       </div>
@@ -114,8 +217,7 @@
         </div>
 
         <div class="px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección de pagina
-            web</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección de pagina web</label>
           <input [(ngModel)]="empresa.web_page_url" name="web_page_url" type="text"
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             required>

@@ -13,6 +13,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class EmpresaComponent implements OnInit {
  public nextPag: string = '';
  public previusPag: string = '';
+ public canElementos: number = 0;
 
  public option: number = 0;
  /* 
@@ -90,6 +91,7 @@ filtered_empresas: any[] = [];
       this.filtered_empresas = response.results;
       this.nextPag = response.next;
       this.previusPag = response.previous;
+      this.canElementos = response.count;
       console.log( this.listado_empresas)
        
       },
