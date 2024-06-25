@@ -496,8 +496,7 @@
                 </div>
                 <br>
                 <label for="address">Emails asociados</label> 
-                <div class="px-3 mb-6 md:mb-0"  *ngFor="let email of company.emails_associated; let i = index">
-                  
+                <div  *ngFor="let email of company.emails_associated; let i = index">
                   
                   <div class="md:col-span-3">
                     <label for="address">Descripción</label>  
@@ -512,7 +511,7 @@
                 </div>
                 <br>
                 <label for="address">Teléfonos asociados</label>  
-                <div class="px-3 mb-6 md:mb-0"  *ngFor="let phones of company.phones_associated; let i = index">
+                <div  *ngFor="let phones of company.phones_associated; let i = index">
 
                   <div class="md:col-span-3">
                     <label for="address">Descripción</label>  
@@ -527,7 +526,7 @@
                 </div>
                 <br>
                 <label for="address">Categorías</label>  
-                <div class="px-3 mb-6 md:mb-0"  *ngFor="let categoria of company.categories; let i = index">
+                <div *ngFor="let categoria of company.categories; let i = index">
 
                   <div class="md:col-span-3">
                     <label for="address">Descripción</label>  
