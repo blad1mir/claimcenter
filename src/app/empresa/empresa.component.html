@@ -397,7 +397,7 @@
 
  
 <div *ngIf="option==2" class="flex justify-center items-center h-full">
-  <div class="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
+  <div class="min-h-screen p-6  flex items-center justify-center">
     <div class="container max-w-screen-lg mx-auto">
       <div>
        
@@ -444,7 +444,7 @@
                 </div>
    <br>
                 <div class="px-3 mb-6 md:mb-0"  *ngFor="let direccion of company.addresses; let i = index">
-                 
+                 {{i}}
 
                   <div class="md:col-span-3">
                     <label for="address">Calle / Avenida</label>  
