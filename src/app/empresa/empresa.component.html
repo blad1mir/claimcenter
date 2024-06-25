@@ -494,13 +494,52 @@
                   </div>
                   
                 </div>
+                <label for="address">Emails asociados</label> 
+                <div class="px-3 mb-6 md:mb-0"  *ngFor="let email of company.emails_associated; let i = index">
+                  
+                  
+                  <div class="md:col-span-3">
+                    <label for="address">Descripción</label>  
+                    <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.description}}" placeholder="" />
+                  </div>
+    
+                  <div class="md:col-span-2">
+                    <label for="city">Email</label>
+                    <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}" placeholder="" />
+                  </div>
 
+                </div>
+                <label for="address">Teléfonos asociados</label>  
+                <div class="px-3 mb-6 md:mb-0"  *ngFor="let phones of company.phones_associated; let i = index">
 
-             
-  
-  
-          
-        
+                  <div class="md:col-span-3">
+                    <label for="address">Descripción</label>  
+                    <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{phones.description}}" placeholder="" />
+                  </div>
+    
+                  <div class="md:col-span-2">
+                    <label for="city">Email</label>
+                    <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{phones.phone_number}}" placeholder="" />
+                  </div>
+
+                </div>
+                <label for="address">Categorías</label>  
+                <div class="px-3 mb-6 md:mb-0"  *ngFor="let categoria of company.categories; let i = index">
+
+                  <div class="md:col-span-3">
+                    <label for="address">Descripción</label>  
+                    <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{categoria.description}}" placeholder="" />
+                  </div>
+    
+                  <div class="md:col-span-2">
+                    <label for="city">Categoría</label>
+                    <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{categoria.category}}" placeholder="" />
+                  </div>
+
+                </div>
+
+                
+
                 <div class="md:col-span-5 text-right">
                   <div class="inline-flex items-end">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
