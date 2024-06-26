@@ -469,26 +469,23 @@
                       value="{{company.bank_details.account_number}}" readonly />
                   </div>
 
-                  <div class="md:col-span-2" *ngFor="let direccion of company.addresses; let i = index">
-                    <div>
+                  <div class="" *ngFor="let direccion of company.addresses; let i = index">
+                    <div class="md:col-span-2">
+                      <label for="address-street">Calle / Avenida:</label>
+                      <input type="text" id="address-street" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value="{{direccion.street}}" readonly />
+                    </div>
+  
+                    <div class="md:col-span-3">
+                      <label for="address-city">Ciudad</label>
+                      <input type="text" name="address-city" id="address-city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value="{{direccion.city}}" readonly />
+                    </div>
 
 
 
 
-                      <div class="md:col-span-2">
-                        <label for="address-street">Calle / Avenida</label>
-                        <input type="text" name="address-street" id="address-street"
-                          class="h-10 border mt-1 rounded px-4 w-1/2 bg-gray-50" value="{{direccion.street}}"
-                          placeholder="" />
-                      </div>
-
-                      <div class="md:col-span-2">
-                        <label for="address-city">Ciudad</label>
-                        <input type="text" name="address-city" id="address-city"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}"
-                          placeholder="" />
-                      </div>
-
+                  
                       <div class="md:col-span-2">
                         <label for="address-country">País / región</label>
 
@@ -513,7 +510,7 @@
                           class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                           placeholder="" value="" />
                       </div>
-                    </div>
+                  
                   </div>
 
 
