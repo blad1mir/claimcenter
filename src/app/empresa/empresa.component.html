@@ -468,8 +468,11 @@
                     <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                       value="{{company.bank_details.account_number}}" readonly />
                   </div>
+                  <div class=" bg-blue-500 grid grid-rows-4 grid-flow-col gap-4 w-full h-auto">
 
-                  <div class=" bg-blue-500 grid grid-rows-4 grid-flow-col gap-4"  *ngFor="let direccion of company.addresses; let i = index">
+                 
+
+                  <div   *ngFor="let direccion of company.addresses; let i = index">
                   
 
 
@@ -515,7 +518,7 @@
                       </div>
                   
                   </div>
-
+                </div>
 
 
 
