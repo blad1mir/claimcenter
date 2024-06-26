@@ -468,56 +468,58 @@
                     <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                       value="{{company.bank_details.account_number}}" readonly />
                   </div>
-                  <div class=" bg-blue-500 grid grid-rows-4 grid-flow-col gap-4 w-full h-auto">
+                  <div class=" bg-blue-500 grid grid-cols-1 md:grid-cols-2 gap-4">
 
                  
 
-                  <div   *ngFor="let direccion of company.addresses; let i = index">
-                  
+                  <ng-container   *ngFor="let direccion of company.addresses; let i = index">
+                  <div>
 
 
 
+                    <div class="md:col-span-2">
+                      <label for="address-street">Calle / Avenida</label>
+                      <input type="text" name="address-street" id="address-street"
+                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}" 
+                        placeholder="" />
+                    </div>
 
-                      <div class="md:col-span-2">
-                        <label for="address-street">Calle / Avenida</label>
-                        <input type="text" name="address-street" id="address-street"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}" 
-                          placeholder="" />
-                      </div>
+                    <div class="md:col-span-2">
+                      <label for="address-city">Ciudad</label>
+                      <input type="text" name="address-city" id="address-city"
+                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}"
+                        placeholder="" />
+                    </div>
 
-                      <div class="md:col-span-2">
-                        <label for="address-city">Ciudad</label>
-                        <input type="text" name="address-city" id="address-city"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}"
-                          placeholder="" />
-                      </div>
+                    <div class="md:col-span-2">
+                      <label for="address-country">País / región</label>
 
-                      <div class="md:col-span-2">
-                        <label for="address-country">País / región</label>
-
-                        <input type="text" name="address-country" id="address-country"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.country}}"
-                          placeholder="" />
+                      <input type="text" name="address-country" id="address-country"
+                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.country}}"
+                        placeholder="" />
 
 
-                      </div>
+                    </div>
 
-                      <div class="md:col-span-2">
-                        <label for="address-state">Estado / Provincia</label>
-                        <input type="text" name="address-state" id="address-state"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.state}}"
-                          placeholder="" />
+                    <div class="md:col-span-2">
+                      <label for="address-state">Estado / Provincia</label>
+                      <input type="text" name="address-state" id="address-state"
+                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.state}}"
+                        placeholder="" />
 
-                      </div>
+                    </div>
 
-                      <div class="md:col-span-1">
-                        <label for="zipcode">Zipcode</label>
-                        <input type="text" name="zipcode" id="zipcode"
-                          class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                          placeholder="" value="" />
-                      </div>
-                  
+                    <div class="md:col-span-1">
+                      <label for="zipcode">Zipcode</label>
+                      <input type="text" name="zipcode" id="zipcode"
+                        class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        placeholder="" value="" />
+                    </div>
                   </div>
+
+
+                  
+                  </ng-container>
                 </div>
 
 
