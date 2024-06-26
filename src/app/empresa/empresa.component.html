@@ -450,45 +450,27 @@
                   {{i}}
 
                   <div class="md:col-span-3">
-                    <label for="address">Calle / Avenida</label>  
-                    <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}" placeholder="" />
+                    <label for="address-street">Calle / Avenida</label>  
+                    <input type="text" name="address-street" id="address-street" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}" placeholder="" />
                   </div>
     
                   <div class="md:col-span-2">
-                    <label for="city">Ciudad</label>
-                    <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}" placeholder="" />
+                    <label for="address-city">Ciudad</label>
+                    <input type="text" name="address-city" id="address-city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}" placeholder="" />
                   </div>
     
                   <div class="md:col-span-2">
-                    <label for="country">País / región</label>
-                    <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                      <input name="country" id="country" placeholder="Country" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="{{direccion.country}}" />
-                      <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                        <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <line x1="18" y1="6" x2="6" y2="18"></line>
-                          <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                      </button>
-                      <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                        <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                      </button>
-                    </div>
+                    <label for="address-country">País / región</label>
+    
+                    <input type="text" name="address-country" id="address-country" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.country}}" placeholder="" />
+
+                   
                   </div>
     
                   <div class="md:col-span-2">
-                    <label for="state">Estado / Provincia</label>
-                    <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                      <input name="state" id="state" placeholder="State" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="{{direccion.state}}" />
-                      <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                        <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <line x1="18" y1="6" x2="6" y2="18"></line>
-                          <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                      </button>
-                      <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                        <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                      </button>
-                    </div>
+                    <label for="address-state">Estado / Provincia</label>
+                    <input type="text" name="address-state" id="address-state" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.state}}" placeholder="" />
+
                   </div>
     
                   <div class="md:col-span-1">
@@ -500,17 +482,17 @@
 
 
                 <br>
-                <label for="address">Emails asociados</label> 
+                <label for="email">Emails asociados</label> 
                 <div  *ngFor="let email of company.emails_associated; let i = index">
                   
                   <div class="md:col-span-3">
-                    <label for="address">Descripción</label>  
-                    <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.description}}" placeholder="" />
+                    <label for="email-description">Descripción</label>  
+                    <input type="text" name="email-description" id="email-description" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.description}}" placeholder="" />
                   </div>
     
                   <div class="md:col-span-2">
-                    <label for="city">Email</label>
-                    <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}" placeholder="" />
+                    <label for="email-mail">Email</label>
+                    <input type="text" name="email-mail" id="email-mail" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}" placeholder="" />
                   </div>
 
                 </div>
