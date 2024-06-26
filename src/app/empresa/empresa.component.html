@@ -443,7 +443,7 @@
                   <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{company.bank_details.account_number}}" readonly />
                 </div>
    <br>
-                <div class="px-3 mb-6 md:mb-0"  *ngFor="let direccion of company.addresses; let i = index">
+                <ng-container class="px-3 mb-6 md:mb-0"  *ngFor="let direccion of company.addresses; let i = index">
                  <div>
 
                  
@@ -496,7 +496,9 @@
                     <input type="text" name="zipcode" id="zipcode" class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
                   </div>
                 </div>
-                </div>
+                </ng-container>
+
+
                 <br>
                 <label for="address">Emails asociados</label> 
                 <div  *ngFor="let email of company.emails_associated; let i = index">
