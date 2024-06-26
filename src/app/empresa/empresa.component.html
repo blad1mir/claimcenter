@@ -410,7 +410,7 @@
             </div>
   
             <div class="lg:col-span-2">
-              <div class="grid gap-12 text-sm grid-cols-1 md:grid-cols-5">
+              <div class="grid gap-6 text-sm grid-cols-1 md:grid-cols-5">
                 <div class="md:col-span-5">
                   <label for="full_name"> Número: CC{{company.enterprise_id}}</label>
                   <!-- <input type="text" name="full_name" id="full_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" /> -->
@@ -444,7 +444,7 @@
                   <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{company.bank_details.account_number}}" readonly />
                 </div>
    
-                <div class="px-3 mb-6 md:mb-0"  *ngFor="let direccion of company.addresses; let i = index">
+                <div class="md:col-span-3"  *ngFor="let direccion of company.addresses; let i = index">
                  <div>
 
                  
