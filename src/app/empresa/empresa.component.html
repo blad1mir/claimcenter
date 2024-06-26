@@ -403,7 +403,7 @@
        
   
         <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-          <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+          <div class="grid gap-12 text-sm grid-cols-1 lg:grid-cols-3">
             <div class="text-gray-600">
               <p class="font-medium text-lg">Detalles de empresas:</p>
               
@@ -426,8 +426,9 @@
                   <label for="email">Dirección de pagina web:</label> 
                   <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{company.web_page_url}}"  readonly />
                 </div>
-                <label for="address">Detalles bancarios:</label>  
+                
                 <div class="md:col-span-5">
+                  <label for="address">Detalles bancarios:</label>  
                   <label for="email">Nombre:</label> 
                   <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"  value="{{company.bank_details.bank_name}}" readonly />
                 </div>
@@ -442,12 +443,12 @@
                   <label for="city">Número de cuenta:</label>
                   <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{company.bank_details.account_number}}" readonly />
                 </div>
-   <br>
-                <ng-container class="px-3 mb-6 md:mb-0"  *ngFor="let direccion of company.addresses; let i = index">
+   
+                <div class="px-3 mb-6 md:mb-0"  *ngFor="let direccion of company.addresses; let i = index">
                  <div>
 
                  
-                  {{i}}
+              
 
                   <div class="md:col-span-3">
                     <label for="address-street">Calle / Avenida</label>  
@@ -478,12 +479,15 @@
                     <input type="text" name="zipcode" id="zipcode" class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
                   </div>
                 </div>
-                </ng-container>
+                </div>
 
 
-                <br>
-                <label for="email">Emails asociados</label> 
-                <div  *ngFor="let email of company.emails_associated; let i = index">
+               
+                
+                <div>
+                  <label for="email">Emails asociados</label> 
+                  <div *ngFor="let email of company.emails_associated; let i = index">
+
                   
                   <div class="md:col-span-3">
                     <label for="email-description">Descripción</label>  
@@ -494,10 +498,12 @@
                     <label for="email-mail">Email</label>
                     <input type="text" name="email-mail" id="email-mail" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}" placeholder="" />
                   </div>
-
                 </div>
-                <br>
-                <label for="address">Teléfonos asociados</label>  
+                </div>
+                <div>
+                  <label for="address">Teléfonos asociados</label> 
+                
+                 
                 <div  *ngFor="let phones of company.phones_associated; let i = index">
 
                   <div class="md:col-span-3">
@@ -511,8 +517,11 @@
                   </div>
 
                 </div>
-                <br>
-                <label for="address">Categorías</label>  
+              </div>
+              <div>
+                 <label for="address">Categorías</label> 
+             
+                
                 <div *ngFor="let categoria of company.categories; let i = index">
 
                   <div class="md:col-span-3">
@@ -526,7 +535,7 @@
                   </div>
 
                 </div>
-
+            </div>
                 
 
                 <div class="md:col-span-5 text-right">
