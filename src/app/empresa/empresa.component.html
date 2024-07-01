@@ -82,9 +82,12 @@
                 <td class="px-6 py-4">
                   {{ empresa.legal_document }}
                 </td>
-                <td class="px-6 py-4">
-
-                  {{ empresa.email.email }}
+                <td class="px-6 py-4" >
+                  <div *ngIf="empresa.email.email">
+                    {{ empresa.email.email }}
+                  </div>
+                  
+                  
                 </td>
                 <td class="px-6 py-4">
                   {{ empresa.phone }}
