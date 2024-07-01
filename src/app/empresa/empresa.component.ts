@@ -155,22 +155,22 @@ filtered_empresas: any[] = [];
 
   }
 
-  orderbyCategory(category: string){
-    console.log(category)
-    // this.service.getData(`enterprises/?categories__category=${category}&ordering=name`).subscribe(
-    //   (response) => {
-    //     console.log(response)
-    //   this.listado_empresas = response.results;
-    //   this.filtered_empresas = response.results;
-    //   this.nextPag = response.next;
-    //   this.previusPag = response.previous;
-    //   console.log( this.listado_empresas)
+  orderbyCategory(category: any){
+    console.log(category.category)
+    this.service.getData(`enterprises/?categories__category=${category}&ordering=name`).subscribe(
+      (response) => {
+        console.log(response)
+      this.listado_empresas = response.results;
+      this.filtered_empresas = response.results;
+      this.nextPag = response.next;
+      this.previusPag = response.previous;
+      console.log( this.listado_empresas)
        
-    //   },
-    //   error => {
-    //     console.error('Error al traer listado de empresas:', error);
-    //     // Manejar el error en el login
-    //   });
+      },
+      error => {
+        console.error('Error al traer listado de empresas:', error);
+        // Manejar el error en el login
+      });
   }
 
 
