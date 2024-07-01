@@ -13,9 +13,9 @@
           <input [(ngModel)]="searchTerm" placeholder="Buscar..." class="w-1/3 p-2 border rounded"
             (input)="onSearch()" />
           <span class="px-6 py-3 ">Buscar por categoría: </span>
-          <select [(ngModel)]="empresa.categories[0]" name="categories"
+          <select [(ngModel)]="empresa.categories[0]" name="categories" 
             class="w-1/5 rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
-            <option *ngFor="let category of categories" [value]="category.id">{{ category.category }}</option>
+            <option *ngFor="let category of categories" [value]="category.id" (ngModelChange)="orderbyCategory(category.category)">{{ category.category }}</option>
           </select>
         </div>
 
