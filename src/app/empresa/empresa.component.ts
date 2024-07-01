@@ -157,7 +157,7 @@ filtered_empresas: any[] = [];
 
   orderbyCategory(category: any){
     console.log(category.category)
-    this.service.getData(`enterprises/?categories__category=${category}&ordering=name`).subscribe(
+    this.service.getData(`enterprises/?categories__category=${category.category}&ordering=name`).subscribe(
       (response) => {
         console.log(response)
       this.listado_empresas = response.results;
