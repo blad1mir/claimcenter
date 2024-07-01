@@ -118,6 +118,7 @@ filtered_empresas: any[] = [];
       this.filtered_empresas = response.results;
       this.nextPag = response.next;
       this.previusPag = response.previous;
+      this.canElementos = response.count;
       console.log( this.listado_empresas)
        
       },
@@ -142,6 +143,7 @@ filtered_empresas: any[] = [];
       this.filtered_empresas = response.results;
       this.nextPag = response.next;
       this.previusPag = response.previous;
+      this.canElementos = response.count;
       console.log( this.listado_empresas)
        
       },
@@ -164,6 +166,7 @@ filtered_empresas: any[] = [];
       this.filtered_empresas = response.results;
       this.nextPag = response.next;
       this.previusPag = response.previous;
+      this.canElementos = response.count;
       console.log( this.listado_empresas)
        
       },
