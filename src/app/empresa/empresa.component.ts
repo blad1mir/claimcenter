@@ -271,16 +271,46 @@ removePhone() {
 }
 
 onSearch(): void {
-  console.log(this.searchTerm)
-  this.filtered_empresas = this.listado_empresas.filter((empresa: any) => {
-    // Verificar que los campos sean strings válidos antes de llamar a toLowerCase()
-    const nombre = empresa.nombre ? empresa.nombre : '';
-    const email = empresa.email ? empresa.email : '';
-    const telefono = empresa.telefono ? empresa.telefono : '';
-    return nombre.includes(this.searchTerm) || 
-           email.includes(this.searchTerm) || 
-           telefono.includes(this.searchTerm);
-  });
+  if (this.searchTerm) {
+  
+  
+
+  
+    this.service.getData(`enterprises/?search=${this.searchTerm}`).subscribe(
+      (response) => {
+        console.log(response)
+      this.listado_empresas = response.results;
+      this.filtered_empresas = response.results;
+      this.nextPag = response.next;
+      this.previusPag = response.previous;
+      if(response.count <= 10){
+        if(response.count == 0){
+          this.canElementos = '0';
+        }else{
+          this.canElementos = '1';
+        }
+        
+      }else{
+        this.canElementos = ((response.count)/10).toFixed(0);
+      }
+      console.log( this.listado_empresas)
+       
+      },
+      error => {
+        console.error('Error al traer listado de empresas:', error);
+        // Manejar el error en el login
+      });
+    } 
+  // console.log(this.searchTerm)
+  // this.filtered_empresas = this.listado_empresas.filter((empresa: any) => {
+  //   // Verificar que los campos sean strings válidos antes de llamar a toLowerCase()
+  //   const nombre = empresa.nombre ? empresa.nombre : '';
+  //   const email = empresa.email ? empresa.email : '';
+  //   const telefono = empresa.telefono ? empresa.telefono : '';
+  //   return nombre.includes(this.searchTerm) || 
+  //          email.includes(this.searchTerm) || 
+  //          telefono.includes(this.searchTerm);
+  // });
 }
 
 showEnterprise(option: number, idEmpresa: number){
