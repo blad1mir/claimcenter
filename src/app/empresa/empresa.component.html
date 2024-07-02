@@ -59,9 +59,12 @@
               </tr>
             </thead>
             <tbody>
-              <div *ngIf="canElementos=='0'" class="text-center text-lg">
+              <tr *ngIf="canElementos=='0'">
+                <div  class="text-center text-lg">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">No hay registros para este elemento</label>
             </div>
+              </tr>
+              
             
             
 
