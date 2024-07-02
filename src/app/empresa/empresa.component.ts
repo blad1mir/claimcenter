@@ -92,7 +92,12 @@ filtered_empresas: any[] = [];
       this.nextPag = response.next;
       this.previusPag = response.previous;
       if(response.count <= 10){
-        this.canElementos = '1';
+        if(response.count == 0){
+          this.canElementos = '0';
+        }else{
+          this.canElementos = '1';
+        }
+        
       }else{
         this.canElementos = ((response.count)/10).toFixed(0);
       }
@@ -124,7 +129,12 @@ filtered_empresas: any[] = [];
       this.nextPag = response.next;
       this.previusPag = response.previous;
       if(response.count <= 10){
-        this.canElementos = '1';
+        if(response.count == 0){
+          this.canElementos = '0';
+        }else{
+          this.canElementos = '1';
+        }
+        
       }else{
         this.canElementos = ((response.count)/10).toFixed(0);
       }
@@ -153,7 +163,12 @@ filtered_empresas: any[] = [];
       this.nextPag = response.next;
       this.previusPag = response.previous;
       if(response.count <= 10){
-        this.canElementos = '1';
+        if(response.count == 0){
+          this.canElementos = '0';
+        }else{
+          this.canElementos = '1';
+        }
+        
       }else{
         this.canElementos = ((response.count)/10).toFixed(0);
       }
@@ -180,7 +195,12 @@ filtered_empresas: any[] = [];
       this.nextPag = response.next;
       this.previusPag = response.previous;
       if(response.count <= 10){
-        this.canElementos = '1';
+        if(response.count == 0){
+          this.canElementos = '0';
+        }else{
+          this.canElementos = '1';
+        }
+        
       }else{
         this.canElementos = ((response.count)/10).toFixed(0);
       }
