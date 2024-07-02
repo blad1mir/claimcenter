@@ -59,12 +59,11 @@
               </tr>
             </thead>
             <tbody>
-
-              <div *ngIf="canElementos=='0'">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">No hay registros para este elemento
-                  </label>
-
-              </div>
+              <div *ngIf="canElementos=='0'" class="text-center text-lg">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">No hay registros para este elemento</label>
+            </div>
+            
+            
 
 
               <tr *ngFor="let empresa of filtered_empresas"
