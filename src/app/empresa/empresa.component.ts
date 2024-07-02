@@ -91,7 +91,12 @@ filtered_empresas: any[] = [];
       this.filtered_empresas = response.results;
       this.nextPag = response.next;
       this.previusPag = response.previous;
-      this.canElementos = ((response.count)/10).toFixed(0);
+      if(response.count <= 10){
+        this.canElementos = '1';
+      }else{
+        this.canElementos = ((response.count)/10).toFixed(0);
+      }
+      
       console.log( this.listado_empresas)
        
       },
@@ -118,7 +123,11 @@ filtered_empresas: any[] = [];
       this.filtered_empresas = response.results;
       this.nextPag = response.next;
       this.previusPag = response.previous;
-      this.canElementos = ((response.count)/10).toFixed(0);
+      if(response.count <= 10){
+        this.canElementos = '1';
+      }else{
+        this.canElementos = ((response.count)/10).toFixed(0);
+      }
       console.log( this.listado_empresas)
        
       },
@@ -143,7 +152,11 @@ filtered_empresas: any[] = [];
       this.filtered_empresas = response.results;
       this.nextPag = response.next;
       this.previusPag = response.previous;
-      this.canElementos = ((response.count)/10).toFixed(0);
+      if(response.count <= 10){
+        this.canElementos = '1';
+      }else{
+        this.canElementos = ((response.count)/10).toFixed(0);
+      }
       console.log( this.listado_empresas)
        
       },
@@ -166,7 +179,11 @@ filtered_empresas: any[] = [];
       this.filtered_empresas = response.results;
       this.nextPag = response.next;
       this.previusPag = response.previous;
-      this.canElementos = ((response.count)/10).toFixed(0);
+      if(response.count <= 10){
+        this.canElementos = '1';
+      }else{
+        this.canElementos = ((response.count)/10).toFixed(0);
+      }
       console.log( this.listado_empresas)
        
       },
