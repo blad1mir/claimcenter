@@ -91,7 +91,9 @@
                   {{ empresa.legal_document }}
                 </td>
                 <td class="px-6 py-4" >
-                  
+                  <div *ngIf="empresa.email">
+                    {{ empresa.email.email }}
+                  </div>
                  <!-- {{ empresa.email.email }} -->
                   
                 </td>
