@@ -453,12 +453,12 @@
 
               <div class="">
 
-                <div class="flex justify-between items-center p-4">
+                <div class="flex justify-between items-center">
                   <h2 class="text-lg font-medium">Datos generales:</h2>
                   <button class="text-blue-500" (click)="toggleItem(0)">{{ expanded_item[0] ? 'Cerrar' : 'Abrir' }}</button>
                 </div>
 
-                <div *ngIf="expanded_item[0]" class="p-4">
+                <div *ngIf="expanded_item[0]">
                  
                 
 
