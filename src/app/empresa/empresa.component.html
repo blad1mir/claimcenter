@@ -455,11 +455,10 @@
 
                 <div class="flex justify-between items-center">
                   <h2 class="text-lg font-medium">Datos generales:</h2>
-                  <button class="text-blue-500" (click)="toggleItem(0)">{{ expanded_item[0] ? 
-                  <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="m280-400 200-201 200 201H280Z"/></svg> : <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M480-360 280-559h400L480-360Z"/></svg> }}</button>
-              <div class="border-t border-gray-300 my-4"></div>
-  
-              </div>
+                  <button class="text-blue-500" (click)="toggleItem(0)">{{ expanded_item[0] ? '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="m280-400 200-201 200 201H280Z"/></svg>' : '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M480-360 280-559h400L480-360Z"/></svg>' }}</button>
+                </div>
+                <div class="border-l border-gray-300 h-12"></div>
+
 
                 <div *ngIf="!expanded_item[0]">
                  
