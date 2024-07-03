@@ -450,9 +450,18 @@
           </div>
           <br>
           
-           
 
               <div class="">
+
+                <div class="flex justify-between items-center p-4">
+                  <h2 class="text-lg font-medium">Datos generales:</h2>
+                  <button class="text-blue-500" (click)="toggleItem(0)">{{ expanded_item[0] ? 'Cerrar' : 'Abrir' }}</button>
+                </div>
+
+                <div *ngIf="expanded_item[0]" class="p-4">
+                 
+                
+
                 <label for="full_name"> Número: CC{{company.enterprise_id}}</label>
                 <div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
 
@@ -489,8 +498,12 @@
                     <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                       value="{{company.bank_details.account_number}}" readonly />
                   </div>
+                </div>
 
 
+
+
+                  
                   <div class=" ">
 
                  
@@ -613,17 +626,7 @@
 
                 </div>
 
-                <div class="accordion">
-                  <div class="border-b">
-                    <div class="flex justify-between items-center p-4">
-                      <h2 class="text-lg font-medium">{{ items.title }}</h2>
-                      <button class="text-blue-500" (click)="toggleItem(items)">{{ items.expanded ? 'Cerrar' : 'Abrir' }}</button>
-                    </div>
-                    <div *ngIf="items.expanded" class="p-4">
-                      <p>{{ items.content }}</p>
-                    </div>
-                  </div>
-                </div>
+                
                 
               </div>
             </div>

@@ -54,13 +54,20 @@ option 3 = editar empresa
     categories: []
 };
 
+expanded_item: any[] = [];
+
 public listado_empresas: any[] = [];
 filtered_empresas: any[] = [];
 
 items = { title: 'Elemento 1', content: 'Contenido del elemento 1', expanded: false };
 
-toggleItem(item: any) {
-  item.expanded = !item.expanded;
+toggleItem(index: any) {
+
+  if(this.expanded_item[index]){
+    this.expanded_item[index] = false;
+  }else{
+    this.expanded_item[index] = true;
+  }
 }
 
 
