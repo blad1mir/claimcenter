@@ -510,9 +510,16 @@
                   
                   <div class=" ">
 
-                 
+                    <div class="flex justify-between items-center">
+                      <h2 class="text-lg font-medium">Direcciones:</h2>
+                      <button class="text-blue-500" (click)="toggleItem(1)">{{ expanded_item[1] ? 'Ocultar' : 'Mostrar' }}</button>
+                    </div>
+                    <div class="border-t border-gray-300 my-4"></div>
+    
+    
+                    <div *ngIf="expanded_item[1]">
 
-                  <ng-container   *ngFor="let direccion of company.addresses; let i = index">
+                  <div   *ngFor="let direccion of company.addresses; let i = index">
                   <div>
 
 
@@ -557,15 +564,24 @@
                     </div>
                   </div>
 
-
+                 
                   
-                  </ng-container>
+                </div>
+                </div>
                 </div>
 
 
 
                   <div>
-                    <label for="email">Emails asociados</label>
+                    <div class="flex justify-between items-center">
+                      <h2 class="text-lg font-medium">Emails asociados:</h2>
+                      <button class="text-blue-500" (click)="toggleItem(2)">{{ expanded_item[2] ? 'Ocultar' : 'Mostrar' }}</button>
+                    </div>
+                    <div *ngIf="expanded_item[2]">
+                    <div class="border-t border-gray-300 my-4"></div>
+    
+    
+                    
                     <div *ngFor="let email of company.emails_associated; let i = index">
 
 
@@ -584,8 +600,15 @@
                       </div>
                     </div>
                   </div>
+                  </div>
                   <div>
-                    <label for="address">Teléfonos asociados</label>
+                  
+
+                    <div class="flex justify-between items-center">
+                      <h2 class="text-lg font-medium">Teléfonos asociados:</h2>
+                      <button class="text-blue-500" (click)="toggleItem(3)">{{ expanded_item[3] ? 'Ocultar' : 'Mostrar' }}</button>
+                    </div>
+                    <div *ngIf="expanded_item[3]">
 
 
                     <div *ngFor="let phones of company.phones_associated; let i = index">
@@ -605,8 +628,15 @@
 
                     </div>
                   </div>
+                </div>
                   <div>
-                    <label for="address">Categorías</label>
+                    
+
+                    <div class="flex justify-between items-center">
+                      <h2 class="text-lg font-medium">Categorías:</h2>
+                      <button class="text-blue-500" (click)="toggleItem(4)">{{ expanded_item[4] ? 'Ocultar' : 'Mostrar' }}</button>
+                    </div>
+                    <div *ngIf="expanded_item[4]">
 
 
                     <div *ngFor="let categoria of company.categories; let i = index">
@@ -625,6 +655,7 @@
                       </div>
 
                     </div>
+                  </div>
                   </div>
 
 
