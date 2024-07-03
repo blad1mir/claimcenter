@@ -612,6 +612,19 @@
 
 
                 </div>
+
+                <div class="accordion">
+                  <div *ngFor="let item of items" class="border-b">
+                    <div class="flex justify-between items-center p-4">
+                      <h2 class="text-lg font-medium">{{ item.title }}</h2>
+                      <button class="text-blue-500" (click)="toggleItem(item)">{{ item.expanded ? 'Cerrar' : 'Abrir' }}</button>
+                    </div>
+                    <div *ngIf="item.expanded" class="p-4">
+                      <p>{{ item.content }}</p>
+                    </div>
+                  </div>
+                </div>
+                
               </div>
             </div>
           </div>
