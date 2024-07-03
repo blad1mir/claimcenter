@@ -76,6 +76,7 @@ toggleItem(index: any) {
 
   categories: any[] = [];
   constructor(public service: DataService, private http: HttpClient) { 
+    this.expanded_item[0] = true;
     this.categories = this.service.categories
     console.log(localStorage.getItem('token'))
     this.getListCompany()

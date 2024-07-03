@@ -520,7 +520,7 @@
                     <div *ngIf="expanded_item[1]">
 
                   <div   *ngFor="let direccion of company.addresses; let i = index">
-                    <h3 class="text-lg font-medium">Dirección {{i}}:</h3>
+                    <h3 class="text-lg font-medium">Dirección {{i+1}}</h3>
                   <div>
 
 
@@ -617,7 +617,7 @@
 
 
                     <div *ngFor="let phones of company.phones_associated; let i = index">
-                      <h3 class="text-lg font-medium">Teléfono: {{i}}:</h3>
+                      <h3 class="text-lg font-medium">Teléfono {{i+1}}</h3>
                       <div class="md:col-span-3">
                         <label for="address">Descripción</label>
                         <input type="text" name="address" id="address"
