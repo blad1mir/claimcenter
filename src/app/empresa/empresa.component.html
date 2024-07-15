@@ -5,19 +5,9 @@
 
 
   <div *ngIf="option==0" class="flex justify-center">
-
     <div class="w-auto">
       <div class="relative overflow-x-auto">
-        <div class="flex justify-center">
-          <span class="px-6 py-3 ">Buscar empresas: </span>
-          <input [(ngModel)]="searchTerm" placeholder="Buscar..." class="w-1/3 p-2 border rounded"
-            (input)="onSearch()" />
-          <span class="px-6 py-3 ">Buscar por categoría: </span>
-          <select [(ngModel)]="empresa.categories[0]" name="categories"  (ngModelChange)="orderbyCategory($event)"
-            class="w-1/5 rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
-            <option *ngFor="let category of categories" [value]="category.id" [ngValue]="category" >{{ category.category }}</option>
-          </select>
-        </div>
+       
 
 
         <div class="flex justify-between items-center mt-8">
@@ -32,10 +22,19 @@
 
 
         <br>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg text-gray-700 bg-gray-50">
+          <div class="flex justify-center">
+            <span class="px-6 py-3 ">Buscar empresas: </span>
+            <input [(ngModel)]="searchTerm" placeholder="Buscar..." class="w-1/3 p-2 border rounded"
+              (input)="onSearch()" />
+            <span class="px-6 py-3 ">Buscar por categoría: </span>
+            <select [(ngModel)]="empresa.categories[0]" name="categories"  (ngModelChange)="orderbyCategory($event)"
+              class="w-1/5 rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+              <option *ngFor="let category of categories" [value]="category.id" [ngValue]="category" >{{ category.category }}</option>
+            </select>
+          </div>
           <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+            <thead class="text-xs text-gray-700 bg-gray-50 ">
 
               <tr>
                 <th scope="col" class="px-6 py-3">
@@ -55,6 +54,10 @@
                 </th> -->
                 <th scope="col" class="px-6 py-3">
                   Ver detalles
+                </th>
+
+                <th scope="col" class="px-6 py-3">
+                  Editar
                 </th>
               </tr>
             </thead>
@@ -119,12 +122,20 @@
                 <td class="px-6 py-4"  >
                   <div (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
 
-                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M480.12-330q70.88 0 120.38-49.62t49.5-120.5q0-70.88-49.62-120.38T479.88-670Q409-670 359.5-620.38T310-499.88q0 70.88 49.62 120.38t120.5 49.5Zm-.36-58q-46.76 0-79.26-32.74-32.5-32.73-32.5-79.5 0-46.76 32.74-79.26 32.73-32.5 79.5-32.5 46.76 0 79.26 32.74 32.5 32.73 32.5 79.5 0 46.76-32.74 79.26-32.73 32.5-79.5 32.5Zm.24 188q-146 0-264-83T40-500q58-134 176-217t264-83q146 0 264 83t176 217q-58 134-176 217t-264 83Zm0-300Zm-.17 240Q601-260 702.5-325.5 804-391 857-500q-53-109-154.33-174.5Q601.34-740 480.17-740T257.5-674.5Q156-609 102-500q54 109 155.33 174.5Q358.66-260 479.83-260Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="M480.12-330q70.88 0 120.38-49.62t49.5-120.5q0-70.88-49.62-120.38T479.88-670Q409-670 359.5-620.38T310-499.88q0 70.88 49.62 120.38t120.5 49.5Zm-.36-58q-46.76 0-79.26-32.74-32.5-32.73-32.5-79.5 0-46.76 32.74-79.26 32.73-32.5 79.5-32.5 46.76 0 79.26 32.74 32.5 32.73 32.5 79.5 0 46.76-32.74 79.26-32.73 32.5-79.5 32.5Zm.24 188q-146 0-264-83T40-500q58-134 176-217t264-83q146 0 264 83t176 217q-58 134-176 217t-264 83Zm0-300Zm-.17 240Q601-260 702.5-325.5 804-391 857-500q-53-109-154.33-174.5Q601.34-740 480.17-740T257.5-674.5Q156-609 102-500q54 109 155.33 174.5Q358.66-260 479.83-260Z"/></svg>
 
-                  <!-- <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline cursor-pointer"
-                   >Editar usuario</a> -->
                   </div>
                 </td>
+
+                <td class="px-6 py-4"  >
+                  <div (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"/></svg>
+
+                  </div>
+                </td>
+
+
               </tr>
 
             </tbody>
@@ -373,62 +384,6 @@
     </div>
   </div>
 
-  <div *ngIf="option== 3" class="flex justify-center items-center h-full">
-
-    <div class="w-full max-w-lg">
-      <form class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full">
-          <div class="flex justify-between items-center mt-8">
-            <h1 class="text-2xl font-bold">Detalle de empresa:</h1>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
-              (click)="changeVisibility(2)">
-              Cancelar edición
-            </button>
-          </div>
-          <br>
-          <div class="px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Número: CC
-              <input type="text" [(ngModel)]="company.enterprise_id">
-            </label>
-          </div>
-          <div class="px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre:
-              <input type="text" [(ngModel)]="company.name">
-            </label>
-          </div>
-          <div class="px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección de pagina web:
-              <input type="text" [(ngModel)]="company.web_page_url">
-            </label>
-          </div>
-          <div class="px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Detalles bancarios
-            </label>
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-              Nombre:
-              <input type="text" [(ngModel)]="company.bank_details.bank_name">
-            </label>
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-              ABBR:
-              <input type="text" [(ngModel)]="company.bank_details.bank_abbr">
-            </label>
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-              Número de cuenta:
-              <input type="text" [(ngModel)]="company.bank_details.account_number">
-            </label>
-          </div>
-
-
-
-        </div>
-      </form>
-
-
-
-    </div>
-
-  </div>
-
 
   <div *ngIf="option==2" class="flex justify-center items-center h-full">
 
@@ -441,10 +396,10 @@
           <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
             <div class="flex justify-between">
               <div (click)="changeVisibility(0)" class="cursor-pointer">
-                              <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z"/></svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z"/></svg>
               </div>
-              <div  class="cursor-pointer">
-                              <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"/></svg>
+              <div (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
+                              <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"/></svg>
 
               </div>
           </div>
@@ -626,7 +581,7 @@
                       </div>
 
                       <div class="md:col-span-2">
-                        <label for="city">Email</label>
+                        <label for="city">Teléfono:</label>
                         <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                           value="{{phones.phone_number}}" placeholder="" readonly/>
                       </div>
@@ -648,12 +603,12 @@
 
                     <div *ngFor="let categoria of company.categories; let i = index">
 
-                      <div class="md:col-span-3">
+                      <!-- <div class="md:col-span-3">
                         <label for="address">Descripción</label>
                         <input type="text" name="address" id="address"
                           class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{categoria.description}}"
                           placeholder="" readonly/>
-                      </div>
+                      </div> -->
 
                       <div class="md:col-span-2">
                         <label for="city">Categoría</label>
@@ -672,6 +627,61 @@
                 
               </div>
             </div>
+          </div>
+          <div *ngIf="option== 3" class="flex justify-center items-center h-full">
+
+            <div class="w-full max-w-lg">
+              <form class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full">
+                  <div class="flex justify-between items-center mt-8">
+                    <h1 class="text-2xl font-bold">Detalle de empresa:</h1>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+                      (click)="changeVisibility(2)">
+                      Cancelar edición
+                    </button>
+                  </div>
+                  <br>
+                  <div class="px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Número: CC
+                      <input type="text" [(ngModel)]="company.enterprise_id">
+                    </label>
+                  </div>
+                  <div class="px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre:
+                      <input type="text" [(ngModel)]="company.name">
+                    </label>
+                  </div>
+                  <div class="px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección de pagina web:
+                      <input type="text" [(ngModel)]="company.web_page_url">
+                    </label>
+                  </div>
+                  <div class="px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Detalles bancarios
+                    </label>
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                      Nombre:
+                      <input type="text" [(ngModel)]="company.bank_details.bank_name">
+                    </label>
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                      ABBR:
+                      <input type="text" [(ngModel)]="company.bank_details.bank_abbr">
+                    </label>
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                      Número de cuenta:
+                      <input type="text" [(ngModel)]="company.bank_details.account_number">
+                    </label>
+                  </div>
+        
+        
+        
+                </div>
+              </form>
+        
+        
+        
+            </div>
+        
           </div>
         </div>
 

@@ -200,6 +200,7 @@ toggleItem(index: any) {
   }
 
   orderbyCategory(category: any){
+    this.searchTerm = '';
     console.log(category.category)
     this.service.getData(`enterprises/?categories__category=${category.category}&ordering=name`).subscribe(
       (response) => {
