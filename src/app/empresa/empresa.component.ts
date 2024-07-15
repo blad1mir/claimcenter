@@ -358,7 +358,7 @@ truncateText(text: string, limit: number): string {
 }
 
 saveChanges(id_company: string){
-  this.service.putData('enterprises/',id_company).subscribe(
+  this.service.putData('enterprises/'+id_company,this.empresa).subscribe(
     (response) => {
 
       if(response)
