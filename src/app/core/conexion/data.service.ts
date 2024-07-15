@@ -191,6 +191,23 @@ export class DataService {
     return this.http.post<any>(this.baseUrl + endpoint,body, {headers});
   }
 
+  public  putData(endpoint: string, body: any) {
+    console.log("la empresa es: "+ body)
+    let token  = localStorage.getItem('token');
+    if(token){
+      token =  token.substring(1, token.length - 1);
+    }
+   
+    console.log("el token es: " + token)
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+
+     console.log(this.baseUrl + endpoint)
+    return this.http.put<any>(this.baseUrl + endpoint,body, {headers});
+  }
+
   public login(username: string, password: string){
     const body = { "username":username, "password": password };
     return this.http.post<any>(this.baseUrl + 'user_profiles/login/', body);

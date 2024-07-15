@@ -357,6 +357,22 @@ truncateText(text: string, limit: number): string {
   }
 }
 
+saveChanges(id_company: string){
+  this.service.putData('enterprises/',id_company).subscribe(
+    (response) => {
+
+      if(response)
+      console.log('Registro creado correctamente', response);
+  
+     
+    },
+    error => {
+      console.error('La empresa no se pudo modificar:', error);
+      // Manejar el error en el login
+    });
+
+}
+
 
 
 
