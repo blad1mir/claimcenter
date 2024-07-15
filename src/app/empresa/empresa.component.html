@@ -37,16 +37,16 @@
             <thead class="text-xs text-gray-700 bg-gray-50 ">
 
               <tr>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 cursor-pointer" (click)="setSort('name')">
                   Nombre
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 cursor-pointer" (click)="setSort('legal_document')">
                   NIF / CIF
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 cursor-pointer" (click)="setSort('email')">
                   Correo electrónico
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 cursor-pointer" (click)="setSort('phone')">
                   Teléfonos
                 </th>
                 <!-- <th scope="col" class="px-6 py-3">

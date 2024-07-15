@@ -60,6 +60,8 @@ public listado_empresas: any[] = [];
 filtered_empresas: any[] = [];
 
 items = { title: 'Elemento 1', content: 'Contenido del elemento 1', expanded: false };
+sortBy: string = '';
+sortDirection: number = 1;
 
 toggleItem(index: any) {
 
@@ -372,6 +374,25 @@ saveChanges(id_company: string){
       // Manejar el error en el login
     });
 
+}
+
+
+ 
+setSort(column: string) {
+  if (this.sortBy === column) {
+    this.sortDirection *= -1;
+  } else {
+    this.sortBy = column;
+    this.sortDirection = 1;
+  }
+  this.sortTable();
+}
+
+sortTable() {
+  this.filtered_empresas.sort((a, b) => {
+    const isReversed = this.sortDirection === -1 ? -1 : 1;
+    return isReversed * (a[this.sortBy] > b[this.sortBy] ? 1 : -1);
+  });
 }
 
 
