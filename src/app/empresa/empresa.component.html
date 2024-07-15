@@ -335,13 +335,13 @@
           <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Ciudad</label>
-              <input [(ngModel)]="empresa.addresses.city" name="city" type="text"
+              <input [(ngModel)]="empresa.addresses[0].city" name="city" type="text"
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 required>
             </div>
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código postal</label>
-              <input [(ngModel)]="empresa.addresses.zip_code" name="zip_code" type="text"
+              <input [(ngModel)]="empresa.addresses[0].zip_code" name="zip_code" type="text"
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 required>
             </div>
@@ -350,13 +350,13 @@
           <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Provincia/Estado</label>
-              <input [(ngModel)]="empresa.addresses.state" name="state" type="text"
+              <input [(ngModel)]="empresa.addresses[0].state" name="state" type="text"
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 required>
             </div>
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">País</label>
-              <input [(ngModel)]="empresa.addresses.country" name="country" type="text"
+              <input [(ngModel)]="empresa.addresses[0].country" name="country" type="text"
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 required>
             </div>
@@ -638,15 +638,14 @@
 
 
             <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
-              <!-- <div class="flex justify-between">
+              <div class="flex justify-between">
                 <div (click)="changeVisibility(0)" class="cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z"/></svg>
                 </div>
-                <div (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"/></svg>
-  
+                <div (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#e8eaed"><path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/></svg>  
                 </div>
-            </div> -->
+            </div>
             <br>
             
   

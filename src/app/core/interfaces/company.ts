@@ -11,7 +11,7 @@ export interface Company {
     bank_details: AssociatedBanks;
     created_by: null | any;
     modified_by: null | any;
-    addresses: AssociatedAddress;
+    addresses: AssociatedAddress[];
     emails_associated: AssociatedEmail[];
     phones_associated: AssociatedPhone[];
     categories: object[];

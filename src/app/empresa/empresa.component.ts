@@ -38,13 +38,13 @@ option 3 = editar empresa
     bank_details: {bank_name: "", account_number: "", bank_abbr: ""},
     created_by: null,
     modified_by: null,
-    addresses: {
+    addresses: [] = [{
       street: "",
     city: "",
     zip_code: "",
     state: "",
     country: ""
-    },
+    }] ,
     emails_associated: [] = [
       { email: '', description: '' }
     ],
