@@ -400,6 +400,16 @@
 
 
           <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
+            <div class="flex justify-between">
+              <div (click)="changeVisibility(0)" class="cursor-pointer">
+                              <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z"/></svg>
+              </div>
+              <div (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
+                              <img src="assets/Edit.svg" class="icon w-6 h-6 ml-1 mr-2"  class="cursor-pointer">
+
+              </div>
+          </div>
+          <br>
             <div class="block">
               <div class="w-full">
                 <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
@@ -434,59 +444,148 @@
                   <div class="px-4 py-5 flex-auto">
                     <div class="tab-content tab-space">
                       <div [ngClass]="{'hidden': openTab !== 1, 'block': openTab === 1}">
-                        <p>
-                          Collaboratively administrate empowered markets via
-                          plug-and-play networks. Dynamically procrastinate B2C users
-                          after installed base benefits.
-                          <br />
-                          <br />
-                          Dramatically visualize customer directed convergence
-                          without revolutionary ROI.
-                        </p>
+                        <label for="full_name"> Número: CC{{company.enterprise_id}}</label>
+                        <div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
+        
+                          <div class="md:col-span-3">
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            value="{{company.name}}" readonly />
+                          </div>
+        
+                          <div class="md:col-span-2">
+                            <label for="web">Dirección de pagina web</label>
+                            <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            value="{{company.web_page_url}}" readonly />
+                          </div>
+        
+        
+                          <label for="address">Detalles bancarios:</label>
+                          <div class="md:col-span-5">
+                            
+                            <label for="email">Nombre:</label>
+                            <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              value="{{company.bank_details.bank_name}}" readonly />
+                          </div>
+        
+        
+                          <div class="md:col-span-2">
+                            <label for="address">ABBR:</label>
+                            <input type="text" id="abbr" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              value="{{company.bank_details.bank_abbr}}" readonly />
+                          </div>
+        
+                          <div class="md:col-span-3">
+                            <label for="city">Número de cuenta:</label>
+                            <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              value="{{company.bank_details.account_number}}" readonly />
+                          </div>
+                        </div>
                       </div>
                       <div [ngClass]="{'hidden': openTab !== 2, 'block': openTab === 2}">
-                        <p>
-                          Completely synergize resource taxing relationships via
-                          premier niche markets. Professionally cultivate one-to-one
-                          customer service with robust ideas.
-                          <br />
-                          <br />
-                          Dynamically innovate resource-leveling customer service for
-                          state of the art customer service.
-                        </p>
+                        <div   *ngFor="let direccion of company.addresses; let i = index">
+                          <h3 class="text-lg font-medium">Dirección {{i+1}}</h3>
+                        <div>
+      
+      
+      
+                          <div class="md:col-span-2">
+                            <label for="address-street">Calle / Avenida</label>
+                            <input type="text" name="address-street" id="address-street"
+                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}" 
+                              placeholder="" readonly />
+                          </div>
+      
+                          <div class="md:col-span-2">
+                            <label for="address-city">Ciudad</label>
+                            <input type="text" name="address-city" id="address-city"
+                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}"
+                              placeholder="" readonly/>
+                          </div>
+      
+                          <div class="md:col-span-2">
+                            <label for="address-country">País / región</label>
+      
+                            <input type="text" name="address-country" id="address-country"
+                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.country}}"
+                              placeholder="" readonly/>
+      
+      
+                          </div>
+      
+                          <div class="md:col-span-2">
+                            <label for="address-state">Estado / Provincia</label>
+                            <input type="text" name="address-state" id="address-state"
+                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.state}}"
+                              placeholder="" readonly/>
+      
+                          </div>
+      
+                          <div class="md:col-span-1">
+                            <label for="zipcode">Zipcode</label>
+                            <input type="text" name="zipcode" id="zipcode"
+                              class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              placeholder="" value="{{direccion.zip}}" readonly/>
+                          </div>
+                        </div>
+      
+                       
+                        
+                      </div>
                       </div>
                       <div [ngClass]="{'hidden': openTab !== 3, 'block': openTab === 3}">
-                        <p>
-                          Efficiently unleash cross-media information without
-                          cross-media value. Quickly maximize timely deliverables for
-                          real-time schemas.
-                          <br />
-                          <br />
-                          Dramatically maintain clicks-and-mortar solutions
-                          without functional solutions.
-                        </p>
+                        <div class="border-t border-gray-300 my-4"></div>
+    
+    
+                    
+                        <div *ngFor="let email of company.emails_associated; let i = index">
+    
+    
+                          <div class="md:col-span-3">
+                            <label for="email-description">Descripción</label>
+                            <input type="text" name="email-description" id="email-description"
+                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.description}}"
+                              placeholder=""  readonly/>
+                          </div>
+    
+                          <div class="md:col-span-2">
+                            <label for="email-mail">Email</label>
+                            <input type="text" name="email-mail" id="email-mail"
+                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}"
+                              placeholder="" readonly/>
+                          </div>
+                        </div>
                       </div>
                       <div [ngClass]="{'hidden': openTab !== 4, 'block': openTab === 4}">
-                        <p>
-                          Efficiently unleash cross-media information without
-                          cross-media value. Quickly maximize timely deliverables for
-                          real-time schemas.
-                          <br />
-                          <br />
-                          Dramatically maintain clicks-and-mortar solutions
-                          without functional solutions.
-                        </p>
+                        <div *ngFor="let phones of company.phones_associated; let i = index">
+                          <h3 class="text-lg font-medium">Teléfono {{i+1}}</h3>
+                          <div class="md:col-span-3">
+                            <label for="address">Descripción</label>
+                            <input type="text" name="address" id="address"
+                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{phones.description}}"
+                              placeholder="" readonly/>
+                          </div>
+    
+                          <div class="md:col-span-2">
+                            <label for="city">Teléfono:</label>
+                            <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              value="{{phones.phone_number}}" placeholder="" readonly/>
+                          </div>
+    
+                        </div>
                       </div>
                       <div [ngClass]="{'hidden': openTab !== 5, 'block': openTab === 5}">
-                        <p>
-                          Efficiently unleash cross-media information without
-                          cross-media value. Quickly maximize timely deliverables for
-                          real-time schemas.
-                          <br />
-                          <br />
-                          Dramatically maintain clicks-and-mortar solutions
-                          without functional solutions.
-                        </p>
+                        <div *ngFor="let categoria of company.categories; let i = index">
+
+                  
+
+                          <div class="md:col-span-2">
+                            <label for="city">Categoría</label>
+                            <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              value="{{categoria.category}}" placeholder="" readonly/>
+                          </div>
+    
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -495,16 +594,7 @@
             </div>
             <br>
 
-            <div class="flex justify-between">
-              <div (click)="changeVisibility(0)" class="cursor-pointer">
-                              <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z"/></svg>
-              </div>
-              <div (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
-                              <img src="assets/Edit.svg" class="icon w-6 h-6 ml-1 mr-2"  class="cursor-pointer">
-
-              </div>
-          </div>
-          <br>
+            
           
 
               <div>
@@ -704,12 +794,7 @@
 
                     <div *ngFor="let categoria of company.categories; let i = index">
 
-                      <!-- <div class="md:col-span-3">
-                        <label for="address">Descripción</label>
-                        <input type="text" name="address" id="address"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{categoria.description}}"
-                          placeholder="" readonly/>
-                      </div> -->
+                  
 
                       <div class="md:col-span-2">
                         <label for="city">Categoría</label>
