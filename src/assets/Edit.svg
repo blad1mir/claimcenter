@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="40px"
+   height="40px"
+   viewBox="0 0 91 91"
+   enable-background="new 0 0 91 91"
+   id="Layer_1"
+   version="1.1"
+   xml:space="preserve"
+   sodipodi:docname="pencil-edit-office-2-svgrepo-com.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs3" /><sodipodi:namedview
+   id="namedview3"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   inkscape:zoom="1.0325"
+   inkscape:cx="400"
+   inkscape:cy="400"
+   inkscape:window-width="1920"
+   inkscape:window-height="1022"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="g2" />
+
+<g
+   id="g2"
+   transform="translate(0.22033898,0.22033898)">
+
+<path
+   d="M 24.018,49.415 42.149,67.54 80.268,29.418 62.145,11.292 Z M 66.444,25.118 c 1.259,1.262 1.259,3.306 0,4.566 L 44.369,51.753 c -0.629,0.633 -1.455,0.946 -2.278,0.946 -0.831,0 -1.655,-0.313 -2.284,-0.946 -1.261,-1.262 -1.261,-3.305 0,-4.565 l 22.072,-22.07 c 1.259,-1.261 3.304,-1.261 4.565,0 z"
+   fill="#6ec4a7"
+   id="path1" />
+
+<polygon
+   fill="#65b794"
+   points="35.863,70.393 21.111,55.641 15.72,75.578 "
+   id="polygon1"
+   style="fill:#000000" />
+
+<path
+   d="M 87.621,12.533 79.028,3.937 c -2.548,-2.546 -6.992,-2.543 -9.53,0 l -2.792,2.793 18.129,18.124 2.786,-2.788 c 2.623,-2.63 2.623,-6.907 0,-9.533 z"
+   fill="#65b794"
+   id="path2" />
+
+</g>
+
+<path
+   d="M79.585,89.554H3.461c-1.833,0-3.318-1.486-3.318-3.319V5.512c0-1.833,1.484-3.318,3.318-3.318h51.113   c1.835,0,3.317,1.485,3.317,3.318c0,1.832-1.482,3.318-3.317,3.318H6.779v74.086h72.806c2.592,0,4.701-2.108,4.701-4.701V36.588   c0-1.833,1.484-3.318,3.317-3.318c1.832,0,3.318,1.485,3.318,3.318v41.627C90.922,84.467,85.836,89.554,79.585,89.554z"
+   fill="#647F94"
+   id="path3" />
+
+</svg>

@@ -121,11 +121,13 @@
                   </div>
                 </td> -->
                 <td class="px-6 py-4"  >
-                  <div (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
+                  <img src="assets/View.svg" class="icon w-6 h-6 ml-1 mr-2"  (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
+
+                  <!-- <div (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
 
                     <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="M480.12-330q70.88 0 120.38-49.62t49.5-120.5q0-70.88-49.62-120.38T479.88-670Q409-670 359.5-620.38T310-499.88q0 70.88 49.62 120.38t120.5 49.5Zm-.36-58q-46.76 0-79.26-32.74-32.5-32.73-32.5-79.5 0-46.76 32.74-79.26 32.73-32.5 79.5-32.5 46.76 0 79.26 32.74 32.5 32.73 32.5 79.5 0 46.76-32.74 79.26-32.73 32.5-79.5 32.5Zm.24 188q-146 0-264-83T40-500q58-134 176-217t264-83q146 0 264 83t176 217q-58 134-176 217t-264 83Zm0-300Zm-.17 240Q601-260 702.5-325.5 804-391 857-500q-53-109-154.33-174.5Q601.34-740 480.17-740T257.5-674.5Q156-609 102-500q54 109 155.33 174.5Q358.66-260 479.83-260Z"/></svg>
 
-                  </div>
+                  </div> -->
                 </td>
 
                 <td class="px-6 py-4"  >
@@ -198,6 +200,43 @@
 
   <div *ngIf="option==1" class="flex justify-center items-center h-full">
     <div class="w-full max-w-lg">
+      <div class="w-full">
+        <div class="relative right-0">
+          <ul class="relative flex flex-wrap p-1 list-none rounded-lg bg-blue-gray-50/60" data-tabs="tabs" role="list">
+            <li class="z-30 flex-auto text-center">
+              <a class="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
+                data-tab-target="" active role="tab" aria-selected="true">
+                <span class="ml-1">HTML</span>
+              </a>
+            </li>
+            <li class="z-30 flex-auto text-center">
+              <a class="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
+                data-tab-target="" role="tab" aria-selected="false">
+                <span class="ml-1">React</span>
+              </a>
+            </li>
+            <li class="z-30 flex-auto text-center">
+              <a class="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
+                data-tab-target="" role="tab" aria-selected="false">
+                <span class="ml-1">Vue</span>
+              </a>
+            </li>
+            <li class="z-30 flex-auto text-center">
+              <a class="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
+                data-tab-target="" role="tab" aria-selected="true">
+                <span class="ml-1">Angular</span>
+              </a>
+            </li>
+            <li class="z-30 flex-auto text-center">
+              <a class="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
+                data-tab-target="" role="tab" aria-selected="true">
+                <span class="ml-1">Svelte</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div> 
+      
       <form class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full">
           <div class="flex justify-between items-center mt-8">
