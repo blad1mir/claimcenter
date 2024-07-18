@@ -483,6 +483,10 @@
                         </div>
                       </div>
                       <div [ngClass]="{'hidden': openTab !== 2, 'block': openTab === 2}">
+
+                        <div *ngIf="company.addresses.length == 0">
+                          <label for="email-mail">No posee direcciones asociadas</label>
+                        </div>
                         <div   *ngFor="let direccion of company.addresses; let i = index">
                           <h3 class="text-lg font-medium">Dirección {{i+1}}</h3>
                         <div>
@@ -554,6 +558,9 @@
                         </div>
                       </div>
                       <div [ngClass]="{'hidden': openTab !== 4, 'block': openTab === 4}">
+                        <div *ngIf="company.phones_associated.length == 0">
+                          <label for="email-mail">No posee telefonos asociados</label>
+                        </div>
                         <div *ngFor="let phones of company.phones_associated; let i = index">
                           <h3 class="text-lg font-medium">Teléfono ({{i+1}}):</h3>
                           <div class="md:col-span-2">
@@ -565,6 +572,9 @@
                         </div>
                       </div>
                       <div [ngClass]="{'hidden': openTab !== 5, 'block': openTab === 5}">
+                        <div *ngIf="company.categories.length == 0">
+                          <label for="email-mail">No posee categorías asociadas</label>
+                        </div>
                         <div *ngFor="let categoria of company.categories; let i = index">
 
                   
