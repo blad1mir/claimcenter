@@ -537,10 +537,10 @@
                         <div class="border-t border-gray-300 my-4"></div>
     
     
-                        <div *ngIf="company.emails_associated.lenght == 0">
+                        <div *ngIf="company.emails_associated.length == 0">
                           <label for="email-mail">No posee email asociado</label>
                         </div>
-                        
+
                         <div *ngFor="let email of company.emails_associated; let i = index">
                           
                          
@@ -557,7 +557,7 @@
                         <div *ngFor="let phones of company.phones_associated; let i = index">
                           <h3 class="text-lg font-medium">Teléfono ({{i+1}}):</h3>
                           <div class="md:col-span-2">
-                            <label for="city">Teléfono ({{phones.description}}):</label>
+                            <label for="city">Teléfono {{phones.description}}:</label>
                             <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                               value="{{phones.phone_number}}" placeholder="" readonly/>
                           </div>
