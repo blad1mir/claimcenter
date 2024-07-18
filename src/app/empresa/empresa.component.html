@@ -200,42 +200,6 @@
 
   <div *ngIf="option==1" class="flex justify-center items-center h-full">
     <div class="w-full max-w-lg">
-      <div class="w-full">
-        <div class="relative right-0">
-          <ul class="relative flex flex-wrap p-1 list-none rounded-lg bg-blue-gray-50/60" data-tabs="tabs" role="list">
-            <li class="z-30 flex-auto text-center">
-              <a class="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-                data-tab-target="" active role="tab" aria-selected="true">
-                <span class="ml-1">HTML</span>
-              </a>
-            </li>
-            <li class="z-30 flex-auto text-center">
-              <a class="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-                data-tab-target="" role="tab" aria-selected="false">
-                <span class="ml-1">React</span>
-              </a>
-            </li>
-            <li class="z-30 flex-auto text-center">
-              <a class="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-                data-tab-target="" role="tab" aria-selected="false">
-                <span class="ml-1">Vue</span>
-              </a>
-            </li>
-            <li class="z-30 flex-auto text-center">
-              <a class="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-                data-tab-target="" role="tab" aria-selected="true">
-                <span class="ml-1">Angular</span>
-              </a>
-            </li>
-            <li class="z-30 flex-auto text-center">
-              <a class="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-                data-tab-target="" role="tab" aria-selected="true">
-                <span class="ml-1">Svelte</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div> 
       
       <form class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full">
@@ -426,7 +390,66 @@
 
 
   <div *ngIf="option==2" class="flex justify-center items-center h-full">
-
+    <div class="flex flex-wrap">
+      <div class="w-full">
+        <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+          <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" (click)="toggleTabs(1)" [ngClass]="{'text-pink-600 bg-white': openTab !== 1, 'text-white bg-pink-600': openTab === 1}">
+    <i class="fas fa-space-shuttle text-base mr-1"></i> Profile
+            </a>
+          </li>
+          <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" (click)="toggleTabs(2)" [ngClass]="{'text-pink-600 bg-white': openTab !== 2, 'text-white bg-pink-600': openTab === 2}">
+    <i class="fas fa-cog text-base mr-1"></i> Settings
+            </a>
+          </li>
+          <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" (click)="toggleTabs(3)" [ngClass]="{'text-pink-600 bg-white': openTab !== 3, 'text-white bg-pink-600': openTab === 3}">
+        <i class="fas fa-briefcase text-base mr-1"></i> Options
+            </a>
+          </li>
+        </ul>
+        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+          <div class="px-4 py-5 flex-auto">
+            <div class="tab-content tab-space">
+              <div [ngClass]="{'hidden': openTab !== 1, 'block': openTab === 1}">
+                <p>
+                  Collaboratively administrate empowered markets via
+                  plug-and-play networks. Dynamically procrastinate B2C users
+                  after installed base benefits.
+                  <br />
+                  <br />
+                  Dramatically visualize customer directed convergence
+                  without revolutionary ROI.
+                </p>
+              </div>
+              <div [ngClass]="{'hidden': openTab !== 2, 'block': openTab === 2}">
+                <p>
+                  Completely synergize resource taxing relationships via
+                  premier niche markets. Professionally cultivate one-to-one
+                  customer service with robust ideas.
+                  <br />
+                  <br />
+                  Dynamically innovate resource-leveling customer service for
+                  state of the art customer service.
+                </p>
+              </div>
+              <div [ngClass]="{'hidden': openTab !== 3, 'block': openTab === 3}">
+                <p>
+                  Efficiently unleash cross-media information without
+                  cross-media value. Quickly maximize timely deliverables for
+                  real-time schemas.
+                  <br />
+                  <br />
+                  Dramatically maintain clicks-and-mortar solutions
+                  without functional solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   
 
  

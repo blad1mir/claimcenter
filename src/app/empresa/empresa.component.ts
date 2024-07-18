@@ -62,6 +62,10 @@ filtered_empresas: any[] = [];
 items = { title: 'Elemento 1', content: 'Contenido del elemento 1', expanded: false };
 sortBy: string = '';
 sortDirection: number = 1;
+openTab = 1;
+toggleTabs($tabNumber: number){
+  this.openTab = $tabNumber;
+}
 
 toggleItem(index: any) {
 
