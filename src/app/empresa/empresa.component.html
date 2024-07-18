@@ -537,19 +537,16 @@
                         <div class="border-t border-gray-300 my-4"></div>
     
     
-                    
+                        <div *ngIf="company.emails_associated.lenght == 0">
+                          <label for="email-mail">No posee email asociado</label>
+                        </div>
+                        
                         <div *ngFor="let email of company.emails_associated; let i = index">
-    
-    
-                          <div class="md:col-span-3">
-                            <label for="email-description">Descripción</label>
-                            <input type="text" name="email-description" id="email-description"
-                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.description}}"
-                              placeholder=""  readonly/>
-                          </div>
-    
+                          
+                         
+
                           <div class="md:col-span-2">
-                            <label for="email-mail">Email</label>
+                            <label for="email-mail">Email ({{email.description}}):</label>
                             <input type="text" name="email-mail" id="email-mail"
                               class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}"
                               placeholder="" readonly/>
@@ -558,16 +555,9 @@
                       </div>
                       <div [ngClass]="{'hidden': openTab !== 4, 'block': openTab === 4}">
                         <div *ngFor="let phones of company.phones_associated; let i = index">
-                          <h3 class="text-lg font-medium">Teléfono {{i+1}}</h3>
-                          <div class="md:col-span-3">
-                            <label for="address">Descripción</label>
-                            <input type="text" name="address" id="address"
-                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{phones.description}}"
-                              placeholder="" readonly/>
-                          </div>
-    
+                          <h3 class="text-lg font-medium">Teléfono ({{i+1}}):</h3>
                           <div class="md:col-span-2">
-                            <label for="city">Teléfono:</label>
+                            <label for="city">Teléfono ({{phones.description}}):</label>
                             <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                               value="{{phones.phone_number}}" placeholder="" readonly/>
                           </div>
@@ -597,7 +587,7 @@
             
           
 
-              <div>
+              <!-- <div>
 
                 <div class="flex justify-between items-center">
                   <h2 class="text-lg font-medium">Datos generales:</h2>
@@ -811,7 +801,8 @@
 
                 
                 
-              </div>
+              </div> -->
+             
             </div>
           </div>
 
