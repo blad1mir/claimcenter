@@ -24,10 +24,10 @@
         <br>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg text-gray-700 bg-gray-50">
           <div class="flex justify-center mt-5 mb-3">
-            <span class="px-6 py-3 ">Buscar empresas: </span>
+            <span class="px-3 py-3 ">Buscar empresas: </span>
             <input [(ngModel)]="searchTerm" placeholder="Buscar..." class="w-1/3 p-2 border rounded"
               (input)="onSearch()" />
-            <span class="px-6 py-3 ">Buscar por categoría: </span>
+            <span class="px-3 py-3 ">Buscar por categoría: </span>
             <select [(ngModel)]="empresa.categories[0]" name="categories"  (ngModelChange)="orderbyCategory($event)"
               class="w-1/5 rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
               <option *ngFor="let category of categories" [value]="category.id" [ngValue]="category" >{{ category.category }}</option>
