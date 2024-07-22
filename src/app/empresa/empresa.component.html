@@ -11,14 +11,13 @@
        
 
 
-        <div class="flex justify-between items-center mt-8">
-          <h1 class="text-2xl font-bold">Listado de empresas:</h1>
-          <!-- Un botón para acciones generales -->
+        <!-- <div class="flex justify-between items-center mt-8">
+          
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
             (click)="changeVisibility(1)">
-            Registrar empresa
+            Nueva empresa
           </button>
-        </div>
+        </div> -->
 
 
 
@@ -33,6 +32,11 @@
               class="w-1/5 rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
               <option *ngFor="let category of categories" [value]="category.id" [ngValue]="category" >{{ category.category }}</option>
             </select>
+
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+            (click)="changeVisibility(1)">
+            Nueva empresa
+          </button>
           </div>
           <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
             <thead class="text-xs text-gray-700 bg-gray-50 ">
