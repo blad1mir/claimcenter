@@ -16,6 +16,7 @@ export class EmpresaComponent implements OnInit {
  public canElementos: string = '';
 
  public option: number = 0;
+ public shortPresent: string = '';
  /* 
 option 0 = listado
 option 1 = crear empresa
@@ -394,9 +395,14 @@ shortby(column: string) {
 
 
 setSort(column: string){
+  var url = '';
+  if (this.shortPresent == column) {
+    url = 'enterprises/?ordering=-'
+  }else{
+    url = 'enterprises/?ordering='
+  }
 
-
-  this.service.getData('enterprises/?ordering='+column).subscribe(
+  this.service.getData(url+column).subscribe(
     (response) => {
       console.log(response)
     this.listado_empresas = response.results;
@@ -420,7 +426,11 @@ setSort(column: string){
     error => {
       console.error('Error al traer listado de empresas:', error);
       // Manejar el error en el login
-    });
+    }
+    
+  );
+
+  this.shortPresent = column;
   
 }
 
