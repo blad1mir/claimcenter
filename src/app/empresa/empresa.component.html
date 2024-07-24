@@ -483,8 +483,11 @@
 
                           
                    
-                    <div class="border-t border-gray-300 my-4 row-auto"></div>
-                    <br>
+                 
+
+                    <div class="row-auto">
+
+                   
         
         
                           <label for="address">Detalles bancarios:</label>
@@ -507,6 +510,8 @@
                             <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                               value="{{company.bank_details.account_number}}" readonly />
                           </div>
+
+                        </div>
                         </div>
                       </div>
                       <div [ngClass]="{'hidden': openTab !== 2, 'block': openTab === 2}">
