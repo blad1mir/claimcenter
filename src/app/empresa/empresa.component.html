@@ -450,31 +450,39 @@
                       <div [ngClass]="{'hidden': openTab !== 1, 'block': openTab === 1}">
                         <label for="full_name"> Número: CC{{company.enterprise_id}}</label>
                         <div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
-        
-                          <div class="md:col-span-4">
-                            <label for="name">Nombre:</label>
-                            <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                            value="{{company.name}}" readonly />
-                          </div>
-        
-                          <div class="md:col-span-2">
-                            <label for="web">Dirección de pagina web</label>
-                            <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                            value="{{company.web_page_url}}" readonly />
+                          <div class="row-auto">
+                            <div class="md:col-span-4">
+                              <label for="name">Nombre:</label>
+                              <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              value="{{company.name}}" readonly />
+                            </div>
+          
+                            <div class="md:col-span-2">
+                              <label for="web">Dirección de pagina web</label>
+                              <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              value="{{company.web_page_url}}" readonly />
+                            </div>
                           </div>
 
-                          <div class="border-t border-gray-300 my-4"></div>
-                          <div class="md:col-span-4">
-                            <label for="name">NIF/CIF:</label>
-                            <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                            value="{{company.legal_document}}" readonly />
+                          <div class="row-auto">
+                            <div class="md:col-span-4">
+                              <label for="name">NIF/CIF:</label>
+                              <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              value="{{company.legal_document}}" readonly />
+                            </div>
+          
+                            <div class="md:col-span-2">
+                              <label for="web">Teléfono principal:</label>
+                              <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              value="{{company.phones_associated[0].phone_number}}" readonly />
+                            </div>
                           </div>
-        
-                          <div class="md:col-span-2">
-                            <label for="web">Teléfono principal:</label>
-                            <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                            value="{{company.phones_associated[0].phone_number}}" readonly />
-                          </div>
+
+                       
+                         
+
+                          
+                    
         
         
                           <label for="address">Detalles bancarios:</label>
