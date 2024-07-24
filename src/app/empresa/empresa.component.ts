@@ -382,7 +382,7 @@ saveChanges(id_company: string){
 
 
  
-setSort(column: string) {
+shortby(column: string) {
   if (this.sortBy === column) {
     this.sortDirection *= -1;
   } else {
@@ -390,6 +390,38 @@ setSort(column: string) {
     this.sortDirection = 1;
   }
   this.sortTable();
+}
+
+
+setSort(column: string){
+
+
+  this.service.getData('enterprises/?ordering='+column).subscribe(
+    (response) => {
+      console.log(response)
+    this.listado_empresas = response.results;
+    this.filtered_empresas = response.results;
+    this.nextPag = response.next;
+    this.previusPag = response.previous;
+    if(response.count <= 10){
+      if(response.count == 0){
+        this.canElementos = '0';
+      }else{
+        this.canElementos = '1';
+      }
+      
+    }else{
+      this.canElementos = ((response.count)/10).toFixed(0);
+    }
+    
+    console.log( this.listado_empresas)
+     
+    },
+    error => {
+      console.error('Error al traer listado de empresas:', error);
+      // Manejar el error en el login
+    });
+  
 }
 
 sortTable() {
