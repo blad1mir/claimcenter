@@ -5,10 +5,10 @@
   <!-- <h1 class="text-2xl font-bold mb-2 mt-8 ml-40">Empresas</h1> -->
 
 
-  <div *ngIf="option==0" class="flex justify-center" >
+  <div *ngIf="option==0" class="flex justify-center">
     <div class="" name="listado_principal" style="width: 80%;">
       <div class="relative overflow-x-auto">
-       
+
 
 
         <!-- <div class="flex justify-between items-center mt-8">
@@ -28,15 +28,17 @@
             <input [(ngModel)]="searchTerm" placeholder="Buscar..." class="w-1/3 p-2 border rounded"
               (input)="onSearch()" />
             <span class="px-3 py-3 ">Buscar por categoría: </span>
-            <select [(ngModel)]="empresa.categories[0]" name="categories"  (ngModelChange)="orderbyCategory($event)"
+            <select [(ngModel)]="empresa.categories[0]" name="categories" (ngModelChange)="orderbyCategory($event)"
               class="w-1/5 rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
-              <option *ngFor="let category of categories" [value]="category.id" [ngValue]="category" >{{ category.category }}</option>
+              <option *ngFor="let category of categories" [value]="category.id" [ngValue]="category">{{
+                category.category }}</option>
             </select>
 
-            <button class="bg-[#6EC4A7] hover:bg-blue-200 text-white hover:text-black font-bold py-2 px-4 rounded transition duration-300 ml-2"
-            (click)="changeVisibility(1)">
-            Nueva empresa
-          </button>
+            <button
+              class="bg-[#6EC4A7] hover:bg-blue-200 text-white hover:text-black font-bold py-2 px-4 rounded transition duration-300 ml-2"
+              (click)="changeVisibility(1)">
+              Nueva empresa
+            </button>
           </div>
           <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
             <thead class="text-xs text-gray-700 bg-gray-50 ">
@@ -68,17 +70,17 @@
             </thead>
             <tbody>
               <tr *ngIf="canElementos=='0'">
-                <div  class="text-center text-lg w-full text-center">
-                <label class="block tracking-wide text-gray-700 text-xs font-bold mb-2">No hay registros para este elemento</label>
-            </div>
+                <div class="text-center text-lg w-full text-center">
+                  <label class="block tracking-wide text-gray-700 text-xs font-bold mb-2">No hay registros para este
+                    elemento</label>
+                </div>
               </tr>
-              
-            
-            
 
 
-              <tr *ngFor="let empresa of filtered_empresas"
-                class="bg-white border-b   hover:bg-gray-50 ">
+
+
+
+              <tr *ngFor="let empresa of filtered_empresas" class="bg-white border-b   hover:bg-gray-50 ">
 
                 <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
 
@@ -98,12 +100,12 @@
                 <td class="px-6 py-4">
                   {{ empresa.legal_document }}
                 </td>
-                <td class="px-6 py-4" >
+                <td class="px-6 py-4">
                   <div *ngIf="empresa.email">
                     {{ empresa.email.email }}
                   </div>
-                 <!-- {{ empresa.email.email }} -->
-                  
+                  <!-- {{ empresa.email.email }} -->
+
                 </td>
                 <td class="px-6 py-4">
                   {{ empresa.phone }}
@@ -124,8 +126,9 @@
 
                   </div>
                 </td> -->
-                <td class="px-6 py-4"  >
-                  <img src="assets/View.svg" style="width: 24px;"  class="icon w-4 h-4 ml-1 mr-2"  (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
+                <td class="px-6 py-4">
+                  <img src="assets/View.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
+                    (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
 
                   <!-- <div (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
 
@@ -134,9 +137,10 @@
                   </div> -->
                 </td>
 
-                <td class="px-6 py-4"  >
-                  <img src="assets/Edit.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"  (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
-<!-- 
+                <td class="px-6 py-4">
+                  <img src="assets/Edit.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
+                    (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
+                  <!-- 
                   <div (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
 
                     <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"/></svg>
@@ -206,7 +210,7 @@
 
   <div *ngIf="option==1" class="flex justify-center items-center h-full">
     <div class="w-full max-w-lg">
-      
+
       <form class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full">
           <div class="flex justify-between items-center mt-8">
@@ -396,240 +400,256 @@
 
 
   <div *ngIf="option==2" class="flex justify-center items-center h-full">
-    
-  
-
- 
-  
 
 
-          <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
-            <div class="flex justify-between">
-              <div (click)="changeVisibility(0)" class="cursor-pointer">
-                              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z"/></svg>
-              </div>
-              <div (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
-                              <img src="assets/Edit.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"  class="cursor-pointer">
 
-              </div>
-          </div>
-          <br>
-            <div class="block">
-              <div class="w-full">
-                <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
-                  <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                    <a class="text-xs font-bold px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer" (click)="toggleTabs(1)" [ngClass]="{'text-gray-600 bg-white': openTab !== 1, 'text-white bg-gray-600': openTab === 1}">
-            <i class="fas fa-space-shuttle text-base mr-1"></i> Datos generales
-                    </a>
-                  </li>
-                  <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                    <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer" (click)="toggleTabs(2)" [ngClass]="{'text-gray-600 bg-white': openTab !== 2, 'text-white bg-gray-600': openTab === 2}">
-            <i class="fas fa-cog text-base mr-1"></i> Direcciones
 
-                    </a>
-                  </li>
-                  <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                    <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer" (click)="toggleTabs(3)" [ngClass]="{'text-gray-600 bg-white': openTab !== 3, 'text-white bg-gray-600': openTab === 3}">
+
+
+
+    <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
+      <div class="flex justify-between">
+        <div (click)="changeVisibility(0)" class="cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z" />
+          </svg>
+        </div>
+        <div (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
+          <img src="assets/Edit.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2" class="cursor-pointer">
+
+        </div>
+      </div>
+      <br>
+      <div class="block">
+        <div class="w-full">
+          <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a class="text-xs font-bold px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
+                (click)="toggleTabs(1)"
+                [ngClass]="{'text-gray-600 bg-white': openTab !== 1, 'text-white bg-gray-600': openTab === 1}">
+                <i class="fas fa-space-shuttle text-base mr-1"></i> Datos generales
+              </a>
+            </li>
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
+                (click)="toggleTabs(2)"
+                [ngClass]="{'text-gray-600 bg-white': openTab !== 2, 'text-white bg-gray-600': openTab === 2}">
+                <i class="fas fa-cog text-base mr-1"></i> Direcciones
+
+              </a>
+            </li>
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
+                (click)="toggleTabs(3)"
+                [ngClass]="{'text-gray-600 bg-white': openTab !== 3, 'text-white bg-gray-600': openTab === 3}">
                 <i class="fas fa-briefcase text-base mr-1"></i> Emails asociados
-                    </a>
-                  </li>
-                  <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                    <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer" (click)="toggleTabs(4)" [ngClass]="{'text-gray-600 bg-white': openTab !== 4, 'text-white bg-gray-600': openTab === 4}">
+              </a>
+            </li>
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
+                (click)="toggleTabs(4)"
+                [ngClass]="{'text-gray-600 bg-white': openTab !== 4, 'text-white bg-gray-600': openTab === 4}">
                 <i class="fas fa-briefcase text-base mr-1"></i> Teléfonos asociados
-                    </a>
-                  </li>
-                  <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                    <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer" (click)="toggleTabs(5)" [ngClass]="{'text-gray-600 bg-white': openTab !== 5, 'text-white bg-gray-600': openTab === 5}">
+              </a>
+            </li>
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
+                (click)="toggleTabs(5)"
+                [ngClass]="{'text-gray-600 bg-white': openTab !== 5, 'text-white bg-gray-600': openTab === 5}">
                 <i class="fas fa-briefcase text-base mr-1"></i> Categorías
-                    </a>
-                  </li>
-                </ul>
-                <div class="flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
-                  <div class="px-4 py-5 flex-auto">
-                    <div class="tab-content tab-space">
-                      <div [ngClass]="{'hidden': openTab !== 1, 'block': openTab === 1}">
-                        <label for="full_name"> Número: CC{{company.enterprise_id}}</label>
-                        <div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
-                          <div class="row-auto">
-                            <div class="md:col-span-4">
-                              <label for="name">Nombre:</label>
-                              <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value="{{company.name}}" readonly />
-                            </div>
-          
-                            <div class="md:col-span-2">
-                              <label for="web">Dirección de pagina web</label>
-                              <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value="{{company.web_page_url}}" readonly />
-                            </div>
-                          </div>
+              </a>
+            </li>
+          </ul>
+          <div class="flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+            <div class="px-4 py-5 flex-auto">
+              <div class="tab-content tab-space">
+                <div [ngClass]="{'hidden': openTab !== 1, 'block': openTab === 1}">
+                  <label for="full_name"> Número: CC{{company.enterprise_id}}</label>
+                  <div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
+                    <div class="row-auto">
+                      <div class="md:col-span-4">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          value="{{company.name}}" readonly />
+                      </div>
 
-                          <div class="row-auto">
-                            <div class="md:col-span-4">
-                              <label for="name">NIF/CIF:</label>
-                              <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value="{{company.legal_document}}" readonly />
-                            </div>
-          
-                            <div class="md:col-span-2">
-                              <label for="web">Teléfono principal:</label>
-                              <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value="{{company.phones_associated[0].phone_number}}" readonly />
-                            </div>
-                          </div>
+                      <div class="md:col-span-2">
+                        <label for="web">Dirección de pagina web</label>
+                        <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          value="{{company.web_page_url}}" readonly />
+                      </div>
+                    </div>
 
-                       
-                         
+                    <div class="row-auto">
+                      <div class="md:col-span-4">
+                        <label for="name">NIF/CIF:</label>
+                        <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          value="{{company.legal_document}}" readonly />
+                      </div>
 
-                          
-                   
-                 
+                      <div class="md:col-span-2">
+                        <label for="web">Teléfono principal:</label>
+                        <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          value="{{company.phones_associated[0].phone_number}}" readonly />
+                      </div>
+                    </div>
+
+
+
+
+
+
+
 
                     <div class="row-auto">
 
-                   
-        
-        
-                          <label for="address">Detalles bancarios:</label>
-                          <div class="md:col-span-5">
-                            
-                            <label for="email">Nombre:</label>
-                            <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value="{{company.bank_details.bank_name}}" readonly />
-                          </div>
-        
-        
-                          <div class="md:col-span-2">
-                            <label for="address">ABBR:</label>
-                            <input type="text" id="abbr" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value="{{company.bank_details.bank_abbr}}" readonly />
-                          </div>
-        
-                          <div class="md:col-span-3">
-                            <label for="city">Número de cuenta:</label>
-                            <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value="{{company.bank_details.account_number}}" readonly />
-                          </div>
 
-                        </div>
-                        </div>
+
+
+                      <label for="address">Detalles bancarios:</label>
+                      <div class="md:col-span-5">
+
+                        <label for="email">Nombre:</label>
+                        <input type="text" name="email" id="email"
+                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          value="{{company.bank_details.bank_name}}" readonly />
                       </div>
-                      <div [ngClass]="{'hidden': openTab !== 2, 'block': openTab === 2}">
 
-                        <div *ngIf="company.addresses.length == 0">
-                          <label for="email-mail">No posee direcciones asociadas</label>
-                        </div>
-                        <div   *ngFor="let direccion of company.addresses; let i = index">
-                          <h3 class="text-lg font-medium">Dirección {{i+1}}</h3>
-                        <div>
-      
-      
-      
-                          <div class="md:col-span-2">
-                            <label for="address-street">Calle / Avenida</label>
-                            <input type="text" name="address-street" id="address-street"
-                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}" 
-                              placeholder="" readonly />
-                          </div>
-      
-                          <div class="md:col-span-2">
-                            <label for="address-city">Ciudad</label>
-                            <input type="text" name="address-city" id="address-city"
-                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}"
-                              placeholder="" readonly/>
-                          </div>
-      
-                          <div class="md:col-span-2">
-                            <label for="address-country">País / región</label>
-      
-                            <input type="text" name="address-country" id="address-country"
-                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.country}}"
-                              placeholder="" readonly/>
-      
-      
-                          </div>
-      
-                          <div class="md:col-span-2">
-                            <label for="address-state">Estado / Provincia</label>
-                            <input type="text" name="address-state" id="address-state"
-                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.state}}"
-                              placeholder="" readonly/>
-      
-                          </div>
-      
-                          <div class="md:col-span-1">
-                            <label for="zipcode">Zipcode</label>
-                            <input type="text" name="zipcode" id="zipcode"
-                              class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              placeholder="" value="{{direccion.zip}}" readonly/>
-                          </div>
-                        </div>
-      
-                       
-                        
-                      </div>
-                      </div>
-                      <div [ngClass]="{'hidden': openTab !== 3, 'block': openTab === 3}">
-                        <div class="border-t border-gray-300 my-4"></div>
-    
-    
-                        <div *ngIf="company.emails_associated.length == 0">
-                          <label for="email-mail">No posee email asociado</label>
-                        </div>
-
-                        <div *ngFor="let email of company.emails_associated; let i = index">
-                          
-                         
-
-                          <div class="md:col-span-2">
-                            <label for="email-mail">Email ({{email.description}}):</label>
-                            <input type="text" name="email-mail" id="email-mail"
-                              class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}"
-                              placeholder="" readonly/>
-                          </div>
-                        </div>
-                      </div>
-                      <div [ngClass]="{'hidden': openTab !== 4, 'block': openTab === 4}">
-                        <div *ngIf="company.phones_associated.length == 0">
-                          <label for="email-mail">No posee telefonos asociados</label>
-                        </div>
-                        <div *ngFor="let phones of company.phones_associated; let i = index">
-                          <h3 class="text-lg font-medium">Teléfono ({{i+1}}):</h3>
-                          <div class="md:col-span-2">
-                            <label for="city">Teléfono {{phones.description}}:</label>
-                            <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value="{{phones.phone_number}}" placeholder="" readonly/>
-                          </div>
-    
-                        </div>
-                      </div>
-                      <div [ngClass]="{'hidden': openTab !== 5, 'block': openTab === 5}">
-                        <div *ngIf="company.categories.length == 0">
-                          <label for="email-mail">No posee categorías asociadas</label>
-                        </div>
-                        <div *ngFor="let categoria of company.categories; let i = index">
-
-                  
-
-                          <div class="md:col-span-2">
-                            <label for="city">Categoría</label>
-                            <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value="{{categoria.category}}" placeholder="" readonly/>
-                          </div>
-    
-                        </div>
+                      <div class="md:col-span-2">
+                        <label for="address">ABBR:</label>
+                        <input type="text" id="abbr" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          value="{{company.bank_details.bank_abbr}}" readonly />
                       </div>
                     </div>
+
+
+                    <div class="row-auto">
+
+                      <div class="md:col-span-3">
+                        <label for="city">Número de cuenta:</label>
+                        <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          value="{{company.bank_details.account_number}}" readonly />
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div [ngClass]="{'hidden': openTab !== 2, 'block': openTab === 2}">
+
+                  <div *ngIf="company.addresses.length == 0">
+                    <label for="email-mail">No posee direcciones asociadas</label>
+                  </div>
+                  <div *ngFor="let direccion of company.addresses; let i = index">
+                    <h3 class="text-lg font-medium">Dirección {{i+1}}</h3>
+                    <div>
+
+
+
+                      <div class="md:col-span-2">
+                        <label for="address-street">Calle / Avenida</label>
+                        <input type="text" name="address-street" id="address-street"
+                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}"
+                          placeholder="" readonly />
+                      </div>
+
+                      <div class="md:col-span-2">
+                        <label for="address-city">Ciudad</label>
+                        <input type="text" name="address-city" id="address-city"
+                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}"
+                          placeholder="" readonly />
+                      </div>
+
+                      <div class="md:col-span-2">
+                        <label for="address-country">País / región</label>
+
+                        <input type="text" name="address-country" id="address-country"
+                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.country}}"
+                          placeholder="" readonly />
+
+
+                      </div>
+
+                      <div class="md:col-span-2">
+                        <label for="address-state">Estado / Provincia</label>
+                        <input type="text" name="address-state" id="address-state"
+                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.state}}"
+                          placeholder="" readonly />
+
+                      </div>
+
+                      <div class="md:col-span-1">
+                        <label for="zipcode">Zipcode</label>
+                        <input type="text" name="zipcode" id="zipcode"
+                          class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          placeholder="" value="{{direccion.zip}}" readonly />
+                      </div>
+                    </div>
+
+
+
+                  </div>
+                </div>
+                <div [ngClass]="{'hidden': openTab !== 3, 'block': openTab === 3}">
+                  <div class="border-t border-gray-300 my-4"></div>
+
+
+                  <div *ngIf="company.emails_associated.length == 0">
+                    <label for="email-mail">No posee email asociado</label>
+                  </div>
+
+                  <div *ngFor="let email of company.emails_associated; let i = index">
+
+
+
+                    <div class="md:col-span-2">
+                      <label for="email-mail">Email ({{email.description}}):</label>
+                      <input type="text" name="email-mail" id="email-mail"
+                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}" placeholder=""
+                        readonly />
+                    </div>
+                  </div>
+                </div>
+                <div [ngClass]="{'hidden': openTab !== 4, 'block': openTab === 4}">
+                  <div *ngIf="company.phones_associated.length == 0">
+                    <label for="email-mail">No posee telefonos asociados</label>
+                  </div>
+                  <div *ngFor="let phones of company.phones_associated; let i = index">
+                    <h3 class="text-lg font-medium">Teléfono ({{i+1}}):</h3>
+                    <div class="md:col-span-2">
+                      <label for="city">Teléfono {{phones.description}}:</label>
+                      <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        value="{{phones.phone_number}}" placeholder="" readonly />
+                    </div>
+
+                  </div>
+                </div>
+                <div [ngClass]="{'hidden': openTab !== 5, 'block': openTab === 5}">
+                  <div *ngIf="company.categories.length == 0">
+                    <label for="email-mail">No posee categorías asociadas</label>
+                  </div>
+                  <div *ngFor="let categoria of company.categories; let i = index">
+
+
+
+                    <div class="md:col-span-2">
+                      <label for="city">Categoría</label>
+                      <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        value="{{categoria.category}}" placeholder="" readonly />
+                    </div>
+
                   </div>
                 </div>
               </div>
             </div>
-            <br>
+          </div>
+        </div>
+      </div>
+      <br>
 
-            
-          
 
-              <!-- <div>
+
+
+      <!-- <div>
 
                 <div class="flex justify-between items-center">
                   <h2 class="text-lg font-medium">Datos generales:</h2>
@@ -844,266 +864,259 @@
                 
                 
               </div> -->
-             
+
+    </div>
+  </div>
+
+  <div *ngIf="option==3" class="flex justify-center items-center h-full">
+
+    <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
+      <div class="flex justify-between">
+        <div (click)="changeVisibility(0)" class="cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z" />
+          </svg>
+        </div>
+        <div (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
+          <img src="assets/View.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2" class="cursor-pointer">
+        </div>
+      </div>
+      <br>
+
+
+      <div>
+
+        <div class="flex justify-between items-center">
+          <h2 class="text-lg font-medium">Datos generales:</h2>
+          <!-- <button class="text-blue-500" (click)="toggleItem(0)">{{ expanded_item[0] ? 'Ocultar' : 'Mostrar' }}</button> -->
+        </div>
+        <div class="border-t border-gray-300 my-4"></div>
+
+
+        <div>
+
+
+
+          <label for="full_name"> Número: CC{{company.enterprise_id}}</label>
+          <div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
+
+            <div class="md:col-span-3">
+              <label for="name">Nombre:</label>
+              <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                value="{{company.name}}" />
+            </div>
+
+            <div class="md:col-span-2">
+              <label for="web">Dirección de pagina web</label>
+              <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                value="{{company.web_page_url}}" />
+            </div>
+
+
+            <label for="address">Detalles bancarios:</label>
+            <div class="md:col-span-5">
+
+              <label for="email">Nombre:</label>
+              <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                value="{{company.bank_details.bank_name}}" />
+            </div>
+
+
+            <div class="md:col-span-2">
+              <label for="address">ABBR:</label>
+              <input type="text" id="abbr" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                value="{{company.bank_details.bank_abbr}}" />
+            </div>
+
+            <div class="md:col-span-3">
+              <label for="city">Número de cuenta:</label>
+              <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                value="{{company.bank_details.account_number}}" />
             </div>
           </div>
 
-          <div *ngIf="option==3" class="flex justify-center items-center h-full">
+        </div>
 
-            <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
-              <div class="flex justify-between">
-                <div (click)="changeVisibility(0)" class="cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z"/></svg>
+
+
+
+
+        <div class=" ">
+
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-medium">Direcciones:</h2>
+            <!-- <button class="text-blue-500" (click)="toggleItem(1)">{{ expanded_item[1] ? 'Ocultar' : 'Mostrar' }}</button> -->
+          </div>
+          <div class="border-t border-gray-300 my-4"></div>
+
+
+          <div>
+
+            <div *ngFor="let direccion of company.addresses; let i = index">
+              <h3 class="text-lg font-medium">Dirección {{i+1}}</h3>
+              <div>
+
+
+
+                <div class="md:col-span-2">
+                  <label for="address-street">Calle / Avenida</label>
+                  <input type="text" name="address-street" id="address-street"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}"
+                    placeholder="" />
                 </div>
-                <div (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
-                  <img src="assets/View.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"  class="cursor-pointer">
+
+                <div class="md:col-span-2">
+                  <label for="address-city">Ciudad</label>
+                  <input type="text" name="address-city" id="address-city"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}" placeholder="" />
                 </div>
+
+                <div class="md:col-span-2">
+                  <label for="address-country">País / región</label>
+
+                  <input type="text" name="address-country" id="address-country"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.country}}"
+                    placeholder="" />
+
+
+                </div>
+
+                <div class="md:col-span-2">
+                  <label for="address-state">Estado / Provincia</label>
+                  <input type="text" name="address-state" id="address-state"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.state}}"
+                    placeholder="" />
+
+                </div>
+
+                <div class="md:col-span-1">
+                  <label for="zipcode">Zipcode</label>
+                  <input type="text" name="zipcode" id="zipcode"
+                    class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                    placeholder="" value="{{direccion.zip}}" />
+                </div>
+              </div>
+
+
+
             </div>
-            <br>
-            
-  
-                <div>
-  
-                  <div class="flex justify-between items-center">
-                    <h2 class="text-lg font-medium">Datos generales:</h2>
-                    <!-- <button class="text-blue-500" (click)="toggleItem(0)">{{ expanded_item[0] ? 'Ocultar' : 'Mostrar' }}</button> -->
-                  </div>
-                  <div class="border-t border-gray-300 my-4"></div>
-  
-  
-                  <div >
-                   
-                  
-  
-                  <label for="full_name"> Número: CC{{company.enterprise_id}}</label>
-                  <div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
-  
-                    <div class="md:col-span-3">
-                      <label for="name">Nombre:</label>
-                      <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value="{{company.name}}" />
-                    </div>
-  
-                    <div class="md:col-span-2">
-                      <label for="web">Dirección de pagina web</label>
-                      <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value="{{company.web_page_url}}" />
-                    </div>
-  
-  
-                    <label for="address">Detalles bancarios:</label>
-                    <div class="md:col-span-5">
-                      
-                      <label for="email">Nombre:</label>
-                      <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value="{{company.bank_details.bank_name}}" />
-                    </div>
-  
-  
-                    <div class="md:col-span-2">
-                      <label for="address">ABBR:</label>
-                      <input type="text" id="abbr" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value="{{company.bank_details.bank_abbr}}" />
-                    </div>
-  
-                    <div class="md:col-span-3">
-                      <label for="city">Número de cuenta:</label>
-                      <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value="{{company.bank_details.account_number}}" />
-                    </div>
-                  </div>
-  
-                </div>
-  
-  
-  
-  
-                    
-                    <div class=" ">
-  
-                      <div class="flex justify-between items-center">
-                        <h2 class="text-lg font-medium">Direcciones:</h2>
-                        <!-- <button class="text-blue-500" (click)="toggleItem(1)">{{ expanded_item[1] ? 'Ocultar' : 'Mostrar' }}</button> -->
-                      </div>
-                      <div class="border-t border-gray-300 my-4"></div>
-      
-      
-                      <div >
-  
-                    <div   *ngFor="let direccion of company.addresses; let i = index">
-                      <h3 class="text-lg font-medium">Dirección {{i+1}}</h3>
-                    <div>
-  
-  
-  
-                      <div class="md:col-span-2">
-                        <label for="address-street">Calle / Avenida</label>
-                        <input type="text" name="address-street" id="address-street"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}" 
-                          placeholder="" />
-                      </div>
-  
-                      <div class="md:col-span-2">
-                        <label for="address-city">Ciudad</label>
-                        <input type="text" name="address-city" id="address-city"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}"
-                          placeholder=""/>
-                      </div>
-  
-                      <div class="md:col-span-2">
-                        <label for="address-country">País / región</label>
-  
-                        <input type="text" name="address-country" id="address-country"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.country}}"
-                          placeholder="" />
-  
-  
-                      </div>
-  
-                      <div class="md:col-span-2">
-                        <label for="address-state">Estado / Provincia</label>
-                        <input type="text" name="address-state" id="address-state"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.state}}"
-                          placeholder="" />
-  
-                      </div>
-  
-                      <div class="md:col-span-1">
-                        <label for="zipcode">Zipcode</label>
-                        <input type="text" name="zipcode" id="zipcode"
-                          class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                          placeholder="" value="{{direccion.zip}}" />
-                      </div>
-                    </div>
-  
-                   
-                    
-                  </div>
-                  </div>
-                  </div>
-  
-  
-  
-                    <div>
-                      <div class="flex justify-between items-center">
-                        <h2 class="text-lg font-medium">Emails asociados:</h2>
-                        <!-- <button class="text-blue-500" (click)="toggleItem(2)">{{ expanded_item[2] ? 'Ocultar' : 'Mostrar' }}</button> -->
-                      </div>
-                      <div class="border-t border-gray-300 my-4"></div>
-  
-                      <div >
-                      <div class="border-t border-gray-300 my-4"></div>
-      
-      
-                      
-                      <div *ngFor="let email of company.emails_associated; let i = index">
-  
-  
-                        <div class="md:col-span-3">
-                          <label for="email-description">Descripción</label>
-                          <input type="text" name="email-description" id="email-description"
-                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.description}}"
-                            placeholder=""  />
-                        </div>
-  
-                        <div class="md:col-span-2">
-                          <label for="email-mail">Email</label>
-                          <input type="text" name="email-mail" id="email-mail"
-                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}"
-                            placeholder="" />
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                    <div>
-                    
-  
-                      <div class="flex justify-between items-center">
-                        <h2 class="text-lg font-medium">Teléfonos asociados:</h2>
-                        <!-- <button class="text-blue-500" (click)="toggleItem(3)">{{ expanded_item[3] ? 'Ocultar' : 'Mostrar' }}</button> -->
-                      </div>
-                      <div class="border-t border-gray-300 my-4"></div>
-  
-                      <div>
-  
-  
-                      <div *ngFor="let phones of company.phones_associated; let i = index">
-                        <h3 class="text-lg font-medium">Teléfono {{i+1}}</h3>
-                        <div class="md:col-span-3">
-                          <label for="address">Descripción</label>
-                          <input type="text" name="address" id="address"
-                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{phones.description}}"
-                            placeholder="" />
-                        </div>
-  
-                        <div class="md:col-span-2">
-                          <label for="city">Teléfono:</label>
-                          <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                            value="{{phones.phone_number}}" placeholder="" />
-                        </div>
-  
-                      </div>
-                    </div>
-                  </div>
-                    <div>
-                      
-  
-                      <div class="flex justify-between items-center">
-                        <h2 class="text-lg font-medium">Categorías:</h2>
-                        <!-- <button class="text-blue-500" (click)="toggleItem(4)">{{ expanded_item[4] ? 'Ocultar' : 'Mostrar' }}</button> -->
-                      </div>
-                      <div class="border-t border-gray-300 my-4"></div>
-  
-                      <div >
-  
-  
-                      <div *ngFor="let categoria of company.categories; let i = index">
-  
-                        <!-- <div class="md:col-span-3">
+          </div>
+        </div>
+
+
+
+        <div>
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-medium">Emails asociados:</h2>
+            <!-- <button class="text-blue-500" (click)="toggleItem(2)">{{ expanded_item[2] ? 'Ocultar' : 'Mostrar' }}</button> -->
+          </div>
+          <div class="border-t border-gray-300 my-4"></div>
+
+          <div>
+            <div class="border-t border-gray-300 my-4"></div>
+
+
+
+            <div *ngFor="let email of company.emails_associated; let i = index">
+
+
+              <div class="md:col-span-3">
+                <label for="email-description">Descripción</label>
+                <input type="text" name="email-description" id="email-description"
+                  class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.description}}"
+                  placeholder="" />
+              </div>
+
+              <div class="md:col-span-2">
+                <label for="email-mail">Email</label>
+                <input type="text" name="email-mail" id="email-mail"
+                  class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}" placeholder="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+
+
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-medium">Teléfonos asociados:</h2>
+            <!-- <button class="text-blue-500" (click)="toggleItem(3)">{{ expanded_item[3] ? 'Ocultar' : 'Mostrar' }}</button> -->
+          </div>
+          <div class="border-t border-gray-300 my-4"></div>
+
+          <div>
+
+
+            <div *ngFor="let phones of company.phones_associated; let i = index">
+              <h3 class="text-lg font-medium">Teléfono {{i+1}}</h3>
+              <div class="md:col-span-3">
+                <label for="address">Descripción</label>
+                <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                  value="{{phones.description}}" placeholder="" />
+              </div>
+
+              <div class="md:col-span-2">
+                <label for="city">Teléfono:</label>
+                <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                  value="{{phones.phone_number}}" placeholder="" />
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div>
+
+
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-medium">Categorías:</h2>
+            <!-- <button class="text-blue-500" (click)="toggleItem(4)">{{ expanded_item[4] ? 'Ocultar' : 'Mostrar' }}</button> -->
+          </div>
+          <div class="border-t border-gray-300 my-4"></div>
+
+          <div>
+
+
+            <div *ngFor="let categoria of company.categories; let i = index">
+
+              <!-- <div class="md:col-span-3">
                           <label for="address">Descripción</label>
                           <input type="text" name="address" id="address"
                             class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{categoria.description}}"
                             placeholder="" readonly/>
                         </div> -->
-  
-                        <div class="md:col-span-2">
-                          <label for="city">Categoría</label>
-                          <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                            value="{{categoria.category}}" placeholder="" />
-                        </div>
-  
-                      </div>
-                    </div>
-                    </div>
-  
-  
-                  
-  
-                  
-                  
-                </div>
-                <div class="border-t border-gray-300 my-4"></div>
 
-                <br>
-                <div class="text-center">
-                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
-                              (click)="saveChanges(company.enterprise_id)">
-                              Guardar cambios
-                            </button>
-                </div>
-               
+              <div class="md:col-span-2">
+                <label for="city">Categoría</label>
+                <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                  value="{{categoria.category}}" placeholder="" />
               </div>
-            
-              
 
-              
             </div>
-           
-           
+          </div>
         </div>
 
-        
 
 
 
-    
+
+
+      </div>
+      <div class="border-t border-gray-300 my-4"></div>
+
+      <br>
+      <div class="text-center">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+          (click)="saveChanges(company.enterprise_id)">
+          Guardar cambios
+        </button>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+
+
+</div>
