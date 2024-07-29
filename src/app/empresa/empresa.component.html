@@ -2,25 +2,9 @@
 <br><br>
 
 <div class="bg-gray-300 p-6">
-  <!-- <h1 class="text-2xl font-bold mb-2 mt-8 ml-40">Empresas</h1> -->
-
-
   <div *ngIf="option==0" class="flex justify-center">
     <div class="" name="listado_principal" style="width: 80%;">
       <div class="relative overflow-x-auto">
-
-
-
-        <!-- <div class="flex justify-between items-center mt-8">
-          
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
-            (click)="changeVisibility(1)">
-            Nueva empresa
-          </button>
-        </div> -->
-
-
-
         <br>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg text-gray-700 bg-gray-50">
           <div class="flex justify-center mt-5 mb-3">
@@ -56,16 +40,11 @@
                 <th scope="col" class="px-6 py-3 cursor-pointer" (click)="setSort('phone')">
                   Teléfonos
                 </th>
-                <!-- <th scope="col" class="px-6 py-3">
-                  Dirección web
-                </th> -->
                 <th scope="col" class="px-6 py-3">
-                  Ver detalles
+                 
                 </th>
 
-                <th scope="col" class="px-6 py-3">
-                  Editar
-                </th>
+                
               </tr>
             </thead>
             <tbody>
@@ -83,15 +62,6 @@
               <tr *ngFor="let empresa of filtered_empresas" class="bg-white border-b   hover:bg-gray-50 ">
 
                 <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
-
-                  <!-- <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                    <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                  </div> -->
-
                   <div class="ps-3">
                     <div class="text-base font-semibold">{{ truncateText(empresa.name, 15) }}</div>
 
@@ -104,49 +74,32 @@
                   <div *ngIf="empresa.email">
                     {{ empresa.email.email }}
                   </div>
-                  <!-- {{ empresa.email.email }} -->
 
                 </td>
                 <td class="px-6 py-4">
                   {{ empresa.phone }}
                 </td>
-                <!-- <td class="px-6 py-4">
-                  <div class="flex items-center">
-                     <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online 
-                    <div *ngIf="empresa.web_page_url == '' || empresa.web_page_url == null">
-                     <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div> 
-                      No posee
+                
+                <td class="px-6 py-4">
+                  <div class="flex">
+                    <div class="flex-1">
+                      <img src="assets/View.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
+                      (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
                     </div>
 
-                    <div *ngIf="empresa.web_page_url != '' && empresa.web_page_url != null">
-                       <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2 cursor-pointer"> </div> 
-                      <a href="{{empresa.web_page_url}}" class="cursor-pointer">Enlace</a>
+                    <div class="flex-1">
+                      <img src="assets/Edit.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
+                                    (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
                     </div>
-
 
                   </div>
-                </td> -->
-                <td class="px-6 py-4">
-                  <img src="assets/View.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
-                    (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
-
-                  <!-- <div (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="M480.12-330q70.88 0 120.38-49.62t49.5-120.5q0-70.88-49.62-120.38T479.88-670Q409-670 359.5-620.38T310-499.88q0 70.88 49.62 120.38t120.5 49.5Zm-.36-58q-46.76 0-79.26-32.74-32.5-32.73-32.5-79.5 0-46.76 32.74-79.26 32.73-32.5 79.5-32.5 46.76 0 79.26 32.74 32.5 32.73 32.5 79.5 0 46.76-32.74 79.26-32.73 32.5-79.5 32.5Zm.24 188q-146 0-264-83T40-500q58-134 176-217t264-83q146 0 264 83t176 217q-58 134-176 217t-264 83Zm0-300Zm-.17 240Q601-260 702.5-325.5 804-391 857-500q-53-109-154.33-174.5Q601.34-740 480.17-740T257.5-674.5Q156-609 102-500q54 109 155.33 174.5Q358.66-260 479.83-260Z"/></svg>
-
-                  </div> -->
+                 
+                 
+                
+                 
                 </td>
 
-                <td class="px-6 py-4">
-                  <img src="assets/Edit.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
-                    (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
-                  <!-- 
-                  <div (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#000000"><path d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"/></svg>
-
-                  </div> -->
-                </td>
+                
 
 
               </tr>
@@ -154,19 +107,6 @@
             </tbody>
           </table>
         </div>
-
-
-        <!-- <div class="flex items-center justify-center  h-20">
-
-          <div class="text-center">
-            <div class="pagination">
-              <a class="text-4xl border border-gray-300 rounded-lg px-4 py-2 mr-2 cursor-pointer" (click)="previusPage()">&laquo;</a>
-         
-              <a class="text-4xl border border-gray-300 rounded-lg px-4 py-2 ml-2 cursor-pointer" (click)="nextPage()">&raquo;</a>
-            </div>
-          </div>
-        </div> -->
-
 
 
         <br>
@@ -215,7 +155,6 @@
         <div class="w-full">
           <div class="flex justify-between items-center mt-8">
             <h1 class="text-2xl font-bold">Crear Empresa:</h1>
-            <!-- Un botón para acciones generales -->
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
               (click)="changeVisibility(0)">
               Ver empresas
@@ -401,12 +340,6 @@
 
   <div *ngIf="option==2" class="flex justify-center items-center h-full">
 
-
-
-
-
-
-
     <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
       <div class="flex justify-between">
         <div (click)="changeVisibility(0)" class="cursor-pointer">
@@ -494,18 +427,7 @@
                       </div>
                     </div>
 
-
-
-
-
-
-
-
                     <div class="row-auto">
-
-
-
-
                       <label for="address">Detalles bancarios:</label>
                       <div class="md:col-span-5">
 

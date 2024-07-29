@@ -1,284 +1,152 @@
 <app-menu></app-menu>
-
+<br><br>
 <div class="bg-gray-300 p-6">
-  <h1 class="text-2xl font-bold mb-2 mt-8 ml-40">Usuarios</h1>
-  
-  
-  <div *ngIf="!option" class="flex justify-center">
-    
-    <div class="w-3/4">
+  <div *ngIf="option==0" class="flex justify-center">
+    <div class="" name="listado_principal" style="width: 80%;">
       <div class="relative overflow-x-auto">
-        <div class="flex justify-center">
-          <span class="px-6 py-3 ">Buscar usuarios: </span>
-          <input [(ngModel)]="searchTerm" placeholder="Buscar..." class="w-1/3 p-2 border rounded" />
-
-       
-        </div>
-
-
-        <div class="flex justify-between items-center mt-8">
-          <h1 class="text-2xl font-bold">Listado de usuarios:</h1>
-          <!-- Un botón para acciones generales -->
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300" (click)="registerUser()">
-            Registrar usuario
-          </button>
-        </div>
-        
-
-
-        <table class="w-full text-sm text-left mt-5">
-          <thead class="text-xs uppercase bg-gray-50">
-            <tr>
-              <th scope="col" class="px-6 py-3">
-                Nombre
-              </th>
-              <th scope="col" class="px-6 py-3">
-                 Apellido
-              </th>
-              <th scope="col" class="px-6 py-3">
-                NIF / CIF
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Correo
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Teléfonos
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let usuario of listado_usuarios" class="bg-white border-b">
-              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                {{ usuario.user.first_name }}
-              </td>
-              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                {{ usuario.user.last_name }}
-              </td>
-              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                {{ usuario.profile.legal_document }}
-              </td>
-              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                {{ usuario.user.email }}
-              </td>
-
-              <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                {{ usuario.profile.phone }}
-              </td>
-
-
-            
-
-           
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="flex items-center justify-center  h-20">
-          <div class="text-center">
-            <div class="pagination">
-              <a class="text-4xl border border-gray-300 rounded-lg px-4 py-2 mr-2 cursor-pointer" (click)="previusPage()">&laquo;</a>
-              <!-- <a class="button-38" >{{paginationNumber()}}</a> -->
-              <a class="text-4xl border border-gray-300 rounded-lg px-4 py-2 ml-2 cursor-pointer" (click)="nextPage()">&raquo;</a>
-            </div>
+        <br>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg text-gray-700 bg-gray-50">
+          <div class="flex justify-center mt-5 mb-3">
+            <span class="px-3 py-3 ">Buscar contactos: </span>
+            <input [(ngModel)]="searchTerm" placeholder="Buscar..." class="w-1/3 p-2 border rounded"
+              (input)="onSearch('contactos')" />
+            <button
+              class="bg-[#6EC4A7] hover:bg-blue-200 text-white hover:text-black font-bold py-2 px-4 rounded transition duration-300 ml-2"
+              (click)="changeVisibility(1)">
+              Nueva contacto
+            </button>
           </div>
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+            <thead class="text-xs text-gray-700 bg-gray-50 ">
+
+              <tr>
+                <th scope="col" class="px-6 py-3 cursor-pointer">
+                  Nombre
+                </th>
+                <th scope="col" class="px-6 py-3 cursor-pointer" >
+                  Nombre de usuario
+                </th>
+                <th scope="col" class="px-6 py-3 cursor-pointer" >
+                  Correo electrónico
+                </th>
+                <th scope="col" class="px-6 py-3 cursor-pointer" >
+                  Rol
+                </th>
+                <th scope="col" class="px-6 py-3">
+                 
+                </th>
+
+                
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let contacto of filtered_contacts" class="bg-white border-b   hover:bg-gray-50 ">
+
+                <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
+                  <div class="ps-3">
+                    <div class="text-base font-semibold">{{ contacto.user.first_name }}</div>
+
+                  </div>
+                </th>
+                <td class="px-6 py-4">
+                  {{ contacto.user.username }}
+                </td>
+                <td class="px-6 py-4">
+                
+                    {{ contacto.user.email }}
+               
+
+                </td>
+                <td class="px-6 py-4">
+                  {{ contacto.user.roles }}
+                </td>
+                
+                <td class="px-6 py-4">
+                  <div class="flex">
+                    <div class="flex-1">
+                      <img src="assets/View.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
+                       class="cursor-pointer">
+                    </div>
+
+                    <div class="flex-1">
+                      <img src="assets/Edit.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
+                                    class="cursor-pointer">
+                    </div>
+
+                  </div>
+                 
+                 
+                
+                 
+                </td>
+
+                
+
+
+              </tr>
+
+            </tbody>
+          </table>
         </div>
+
+
+        <br>
+        <nav aria-label="Page navigation example" class="">
+          <div class="flex">
+            <ul class="inline-flex -space-x-px text-base h-10 w-full">
+              <li class="w-full">
+                <a (click)="previusPage()"
+                  class=" cursor-pointer flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700  ">Anterior</a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">1</a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">...</a>
+              </li>
+
+              <li class="w-full">
+                <a
+                  class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">00</a>
+              </li>
+
+              <li class="w-full">
+                <a (click)="nextPage()"
+                  class="cursor-pointer flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 ">Siguiente</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+
+
+
+
       </div>
     </div>
+
   </div>
 
-  
-<!-- <div *ngIf="option" class="flex justify-center items-center h-full">
-  <div class="w-full max-w-lg">
-    <form class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full">
-        
-
-        <div class="flex justify-between items-center mt-8">
-          <h1 class="text-2xl font-bold">Crear Empresa:</h1>
-         
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300" (click)="registerCompany()">
-            Ver empresas
-          </button>
-        </div>
-        <br>
-
-        <div class="px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre</label>
-          <input [(ngModel)]="empresa.name" name="name" type="text"
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            required>
-        </div>
-
-        <div class="px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección de pagina
-            web</label>
-          <input [(ngModel)]="empresa.web_page_url" name="web_page_url" type="text"
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            required>
-        </div>
-
-        <div class="px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre del banco</label>
-          <input [(ngModel)]="empresa.bank_details.bank_name" name="bank_name" type="text"
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            required>
-        </div>
-
-        <div class="px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Cuenta de banco</label>
-          <input [(ngModel)]="empresa.bank_details.account_number" name="account_number" type="text"
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            required>
-        </div>
-
-        <div class="px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">DNI / CIF</label>
-          <input [(ngModel)]="empresa.legal_document" name="legal_document" type="text"
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            required>
-        </div>
-
-
-
-
-
-        <div class="px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código de
-            Contabilidad</label>
-          <input [(ngModel)]="empresa.finance_details.accounting_code" name="accounting_code" type="text"
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            required>
-        </div>
-        <br>
-
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Correos</label>
-
-        <div *ngFor="let email of empresa.emails_associated; let i = index" class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Correo</label>
-            <input [(ngModel)]="email.email" name="email-{{ i }}" type="text"
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              required>
-          </div>
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción de
-              correo</label>
-            <input [(ngModel)]="email.description" name="email-description-{{ i }}" type="text"
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              required>
-          </div>
-
-
-        </div>
-        <div class="w-full px-3 mb-6 md:mb-0 flex justify-center mt-3">
-
-          <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-            (click)="removeEmail()">
-            <i class="fas fa-minus">Remover correo</i>
-          </button>
-          <button type="button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-            (click)="addEmail()">
-            <i class="fas fa-plus">Agregar correo</i>
-          </button>
-        </div>
-
-
-
-
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Teléfonos</label>
-
-        <div *ngFor="let telefono of empresa.phones_associated; let i = index" class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Numero de teléfono</label>
-            <input [(ngModel)]="telefono.number" name="number-{{ i }}" type="text"
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              required>
-          </div>
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción del
-              teléfono</label>
-            <input [(ngModel)]="telefono.description" name="number-description-{{ i }}" type="text"
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              required>
-          </div>
-
-
-        </div>
-        <div class="w-full px-3 mb-6 md:mb-0 flex justify-center mt-3">
-
-          <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-            (click)="removePhone()">
-            <i class="fas fa-minus">Remover teléfono</i>
-          </button>
-          <button type="button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-            (click)="addPhone()">
-            <i class="fas fa-plus">Agregar teléfono</i>
-          </button>
-        </div>
-
-
+  <div *ngIf="option==1" class="flex justify-center">
     
-
-
-        <br>
-
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección</label>
-
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Ciudad</label>
-            <input [(ngModel)]="empresa.addresses.city" name="city" type="text"
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              required>
-          </div>
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código postal</label>
-            <input [(ngModel)]="empresa.addresses.zip_code" name="zip_code" type="text"
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              required>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Provincia/Estado</label>
-            <input [(ngModel)]="empresa.addresses.state" name="state" type="text"
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              required>
-          </div>
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">País</label>
-            <input [(ngModel)]="empresa.addresses.country" name="country" type="text"
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              required>
-          </div>
-        </div>
-
-
-
-
-        <div class="select-input-data">
-          <label class="block text-black">Categoría</label>
-          <div class="input-data">
-            <select [(ngModel)]="empresa.categories[0]" name="categories"
-              class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
-              <option *ngFor="let category of categories" [value]="category.id">{{ category.category }}</option>
-            </select>
-          </div>
-        </div>
-
-        <div
-          class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-container button-38 mt-8 mb-8">
-          <button (click)="createCompany()">Guardar</button>
-        </div>
-      </div>
-    </form>
   </div>
-</div> -->
 
+  <div *ngIf="option==2" class="flex justify-center">
+    
+  </div>
 
+  <div *ngIf="option==3" class="flex justify-center">
+    
+  </div>
+
+  <div *ngIf="option==4" class="flex justify-center">
+    
+  </div>
+
+  <div *ngIf="option==5" class="flex justify-center">
+    
+  </div>
 </div>
-
-
-
-

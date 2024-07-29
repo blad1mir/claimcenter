@@ -8,16 +8,21 @@ import { Contacto, Usuario } from '../core/interfaces/company';
   styleUrls: ['./usuarios.component.scss']
 })
 export class UsuariosComponent implements OnInit {
-  public option: boolean = false;
+
   public searchTerm: string = '';
   public nextPag: string = '';
   public previusPag: string = '';
 
+  public option: number = 0;
+
 
 
 public listado_usuarios: any[] = [];
+filtered_users: any[] = [];
 
-
+public contact: any;
+public listado_contactos: any[] = [];
+filtered_contacts: any[] = [];
 
 
 public usuario: Contacto = {
@@ -47,15 +52,15 @@ public usuario: Contacto = {
   categories: any[] = [];
 
   constructor(public service: DataService) { 
-    this.getListUsers()
+    this.getListcontacts()
   }
 
   ngOnInit(): void {
   }
 
   
-  changeVisibility(): void {
-    this.option = !this.option
+  changeVisibility(option: number): void {
+    this.option = option
   }
 
 
@@ -70,6 +75,26 @@ public usuario: Contacto = {
       this.listado_usuarios = response.results;
    
       console.log( this.listado_usuarios)
+       
+      },
+      error => {
+        console.error('Error al traer listado de usuarios:', error);
+        // Manejar el error en el login
+      });
+
+
+  }
+  getListcontacts() {
+  
+    
+
+    this.service.getData('user_profiles/?is_active=false').subscribe(
+      (response) => {
+        console.log(response)
+      this.listado_contactos = response.results;
+      this.filtered_contacts = response.results;
+   
+      console.log( this.listado_contactos)
        
       },
       error => {
@@ -148,6 +173,10 @@ public usuario: Contacto = {
           console.error('El usuario no se pudo crear:', error);
           // Manejar el error en el login
         });
+    }
+
+    onSearch(value: string){
+
     }
 
     

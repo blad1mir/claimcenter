@@ -56,7 +56,6 @@ option 3 = editar empresa
 };
 
 expanded_item: any[] = [];
-
 public listado_empresas: any[] = [];
 filtered_empresas: any[] = [];
 
