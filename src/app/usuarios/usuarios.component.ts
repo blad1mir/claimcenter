@@ -73,6 +73,7 @@ public usuario: Contacto = {
       (response) => {
         console.log(response)
       this.listado_usuarios = response.results;
+      this.filtered_users = response.results;
    
       console.log( this.listado_usuarios)
        
@@ -176,6 +177,15 @@ public usuario: Contacto = {
     }
 
     onSearch(value: string){
+
+    }
+
+    toggleTabs(value: number){
+      if(value==1){
+        this.option = 0
+      }else{
+        this.option = 5
+      }
 
     }
 
