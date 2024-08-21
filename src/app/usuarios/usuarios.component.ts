@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../core/conexion/data.service';
-import { Contacto, Usuario } from '../core/interfaces/company';
+import { Contacto, User, Usuario } from '../core/interfaces/company';
 
 @Component({
   selector: 'app-usuarios',
@@ -20,7 +20,80 @@ export class UsuariosComponent implements OnInit {
 public listado_usuarios: any[] = [];
 filtered_users: any[] = [];
 
-public contact: any;
+public contact: User = {
+  profile: {
+    profile_id: 0,
+    finance_details: {
+      accounting_code: ''
+    },
+    bank_details: {
+      bank_name: '',
+      bank_abbr: '',
+      account_number: ''
+    },
+    phones_associated: [
+      {
+        phone_number: '',
+        description: ''
+      }
+    ],
+    emails_associated: [
+      {
+        email: '',
+        description: ''
+      }
+    ],
+    categories: [
+      {
+        category: '',
+        description: ''
+      }
+    ],
+    addresses: [
+      {
+        country: '',
+        state: '',
+        city: '',
+        street: '',
+        zip_code: ''
+      }
+    ],
+    enterprise: '',
+    created_by: '',
+    modified_by: '',
+    created_on: '',
+    modified_on: '',
+    legal_document: '',
+    is_private: '',
+    second_last_name: '',
+    middle_name: '',
+    profile_info: '',
+    claims_handler: '',
+    enable_professional_form: false
+  },
+  user: {
+    id: 0,
+    groups: [
+      {
+        id: 0,
+        customrole: '',
+        name: ''
+      }
+    ],
+    last_login: '',
+    is_superuser: false,
+    username: '',
+    first_name: '',
+    last_name: '',
+    email: '',
+    is_staff: false,
+    date_joined: '',
+    is_verified: false,
+    is_active: false
+  },
+  edit_enable: false
+};
+
 public listado_contactos: any[] = [];
 filtered_contacts: any[] = [];
 
@@ -50,6 +123,8 @@ public usuario: Contacto = {
   
 
   categories: any[] = [];
+  openTab = 1;
+
 
   constructor(public service: DataService) { 
     this.getListcontacts();
@@ -178,13 +253,17 @@ public usuario: Contacto = {
 
     }
 
-    toggleTabs(value: number){
-      if(value==1){
-        this.option = 0
-      }else{
-        this.option = 5
-      }
+    // toggleTabs(value: number){
+    //   if(value==1){
+    //     this.option = 0
+    //   }else{
+    //     this.option = 5
+    //   }
 
+    // }
+
+    toggleTabs($tabNumber: number){
+      this.openTab = $tabNumber;
     }
 
     showUser(id: number, index:number){

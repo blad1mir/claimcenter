@@ -109,3 +109,68 @@ export interface Usuario {
       roles: string;
     };
   }
+
+  export interface User {
+    profile: {
+      profile_id: number;
+      finance_details: {
+        accounting_code: string;
+      };
+      bank_details: {
+        bank_name: string;
+        bank_abbr: string;
+        account_number: string;
+      };
+      phones_associated: {
+        phone_number: string;
+        description: string;
+      }[];
+      emails_associated: {
+        email: string;
+        description: string;
+      }[];
+      categories: {
+        category: string;
+        description: string;
+      }[];
+      addresses: {
+        country: string;
+        state: string;
+        city: string;
+        street: string;
+        zip_code: string;
+      }[];
+      enterprise: string;
+      created_by: string;
+      modified_by: string;
+      created_on: string;
+      modified_on: string;
+      legal_document: string;
+      is_private: string;
+      second_last_name: string;
+      middle_name: string;
+      profile_info: string;
+      claims_handler: string;
+      enable_professional_form: boolean;
+    };
+    user: {
+      id: number;
+      groups: {
+        id: number;
+        customrole: string;
+        name: string;
+      }[];
+      last_login: string;
+      is_superuser: boolean;
+      username: string;
+      first_name: string;
+      last_name: string;
+      email: string;
+      is_staff: boolean;
+      date_joined: string;
+      is_verified: boolean;
+      is_active: boolean;
+    };
+    edit_enable: boolean;
+  }
+  
