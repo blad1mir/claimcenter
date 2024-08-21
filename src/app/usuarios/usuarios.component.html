@@ -67,7 +67,7 @@
             </thead>
             <tbody>
 
-              <tr *ngFor="let contacto of filtered_contacts" class="bg-white border-b   hover:bg-gray-50 " (click)="showUser(contacto.user.id)">
+              <tr *ngFor="let contacto of filtered_contacts" class="bg-white border-b   hover:bg-gray-50 ">
 
                 <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
                   <div class="ps-3">
@@ -89,7 +89,7 @@
                 </td>
                 
                 <td class="px-6 py-4">
-                  <div class="flex">
+                  <div class="flex"  (click)="showUser(contacto.user.id, 2)">
                     <div class="flex-1">
                       <img src="assets/View.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
                        class="cursor-pointer">
@@ -157,6 +157,10 @@
   </div>
 
   <div *ngIf="option==1" class="flex justify-center">
+    
+  </div>
+
+  <div *ngIf="option==2" class="flex justify-center">
     <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
       <div class="flex justify-between">
         <div (click)="changeVisibility(0)" class="cursor-pointer">
@@ -386,9 +390,7 @@
     
   </div>
 
-  <div *ngIf="option==2" class="flex justify-center">
-    
-  </div>
+
 
   <div *ngIf="option==3" class="flex justify-center">
     

@@ -187,7 +187,8 @@ public usuario: Contacto = {
 
     }
 
-    showUser(id: number){
+    showUser(id: number, index:number){
+      this.changeVisibility(index)
       console.log(id)
 
       this.service.getData('user_profiles/'+id).subscribe(
