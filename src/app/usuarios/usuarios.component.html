@@ -67,7 +67,7 @@
             </thead>
             <tbody>
 
-              <tr *ngFor="let contacto of filtered_contacts" class="bg-white border-b   hover:bg-gray-50 ">
+              <tr *ngFor="let contacto of filtered_contacts" class="bg-white border-b   hover:bg-gray-50 " (click)="showUser(contacto.user.id)">
 
                 <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
                   <div class="ps-3">
@@ -157,6 +157,232 @@
   </div>
 
   <div *ngIf="option==1" class="flex justify-center">
+    <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
+      <div class="flex justify-between">
+        <div (click)="changeVisibility(0)" class="cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z" readonly />
+          </svg>
+        </div>
+        <div (click)="editUser()" class="cursor-pointer">
+          <img src="assets/View.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2" class="cursor-pointer">
+        </div>
+      </div>
+      <br>
+
+
+      <div>
+
+        <div class="flex justify-between items-center">
+          <h2 class="text-lg font-medium">Datos generales:</h2>
+        </div>
+        <div class="border-t border-gray-300 my-4"></div>
+
+
+        <div>
+
+
+
+          <div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
+
+            <div class="md:col-span-3">
+              <label for="name">Nombre:</label>
+              <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                value="{{contact.user.first_name}} {{contact.user.last_name}}" readonly/>
+            </div>
+
+            <div class="md:col-span-2">
+              <label for="web">Correo principal: </label>
+              <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                value="{{contact.user.email}}" readonly/>
+            </div>
+
+            <div class="md:col-span-5">
+
+              <label for="email">Nombre:</label>
+              <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                value="{{contact.user.username}}" readonly />
+            </div>
+
+
+            <div class="md:col-span-2">
+              <label for="address">Estatus de verificación:</label>
+              <input type="text" id="abbr" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                value="{{contact.user.is_verified}}" readonly />
+            </div>
+
+        
+          </div>
+
+        </div>
+
+
+
+
+
+        <div class=" ">
+
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-medium">Direcciones:</h2>
+            <!-- <button class="text-blue-500" (click)="toggleItem(1)">{{ expanded_item[1] ? 'Ocultar' : 'Mostrar' }}</button> -->
+          </div>
+          <div class="border-t border-gray-300 my-4"></div>
+
+
+          <div>
+
+            <div *ngFor="let direccion of contact.addresses; let i = index">
+              <h3 class="text-lg font-medium">Dirección {{i+1}}</h3>
+              <div>
+                <div class="md:col-span-2">
+                  <label for="address-street">Calle / Avenida</label>
+                  <input type="text" name="address-street" id="address-street"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}"
+                    placeholder="" readonly />
+                </div>
+
+                <div class="md:col-span-2">
+                  <label for="address-city">Ciudad</label>
+                  <input type="text" name="address-city" id="address-city"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}" placeholder="" readonly />
+                </div>
+
+                <div class="md:col-span-2">
+                  <label for="address-country">País / región</label>
+
+                  <input type="text" name="address-country" id="address-country"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.country}}"
+                    placeholder="" readonly />
+
+
+                </div>
+
+                <div class="md:col-span-2">
+                  <label for="address-state">Estado / Provincia</label>
+                  <input type="text" name="address-state" id="address-state"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.state}}"
+                    placeholder="" readonly />
+
+                </div>
+
+                <div class="md:col-span-1">
+                  <label for="zipcode">Zipcode</label>
+                  <input type="text" name="zipcode" id="zipcode"
+                    class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                    placeholder="" value="{{direccion.zip}}" readonly />
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+        <div>
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-medium">Emails asociados:</h2>
+            <!-- <button class="text-blue-500" (click)="toggleItem(2)">{{ expanded_item[2] ? 'Ocultar' : 'Mostrar' }}</button> -->
+          </div>
+          <div class="border-t border-gray-300 my-4"></div>
+
+          <div>
+            <div class="border-t border-gray-300 my-4"></div>
+
+
+
+            <div *ngFor="let email of contact.emails_associated; let i = index">
+
+
+              <div class="md:col-span-3">
+                <label for="email-description">Descripción</label>
+                <input type="text" name="email-description" id="email-description"
+                  class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.description}}"
+                  placeholder="" readonly />
+              </div>
+
+              <div class="md:col-span-2">
+                <label for="email-mail">Email</label>
+                <input type="text" name="email-mail" id="email-mail"
+                  class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}" placeholder="" readonly />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+
+
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-medium">Teléfonos asociados:</h2>
+            <!-- <button class="text-blue-500" (click)="toggleItem(3)">{{ expanded_item[3] ? 'Ocultar' : 'Mostrar' }}</button> -->
+          </div>
+          <div class="border-t border-gray-300 my-4"></div>
+
+          <div>
+
+
+            <div *ngFor="let phones of contact.phones_associated; let i = index">
+              <h3 class="text-lg font-medium">Teléfono {{i+1}}</h3>
+              <div class="md:col-span-3">
+                <label for="address">Descripción</label>
+                <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                  value="{{phones.description}}" placeholder="" readonly />
+              </div>
+
+              <div class="md:col-span-2">
+                <label for="city">Teléfono:</label>
+                <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                  value="{{phones.phone_number}}" placeholder="" readonly />
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div>
+
+
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-medium">Categorías:</h2>
+            <!-- <button class="text-blue-500" (click)="toggleItem(4)">{{ expanded_item[4] ? 'Ocultar' : 'Mostrar' }}</button> -->
+          </div>
+          <div class="border-t border-gray-300 my-4"></div>
+
+          <div>
+
+
+            <div *ngFor="let categoria of contact.categories; let i = index">
+
+              <!-- <div class="md:col-span-3">
+                          <label for="address">Descripción</label>
+                          <input type="text" name="address" id="address"
+                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{categoria.description}}"
+                            placeholder="" readonly/>
+                        </div> -->
+
+              <div class="md:col-span-2">
+                <label for="city">Categoría</label>
+                <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                  value="{{categoria.category}}" placeholder="" readonly/>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+      </div>
+      <div class="border-t border-gray-300 my-4"></div>
+
+      <br>
+  
+
+    </div>
     
   </div>
 
@@ -207,12 +433,12 @@
           <div class="flex justify-center mt-5 mb-3">
             <span class="px-3 py-3 ">Buscar usuario: </span>
             <input [(ngModel)]="searchTerm" placeholder="Buscar..." class="w-1/3 p-2 border rounded"
-              (input)="onSearch('usuario')" />
-            <button
+              (input)="onSearch('usuario')" readonly />
+            <!-- <button
               class="bg-[#6EC4A7] hover:bg-blue-200 text-white hover:text-black font-bold py-2 px-4 rounded transition duration-300 ml-2"
               (click)="changeVisibility(1)">
               Nuevo usuario
-            </button>
+            </button> -->
           </div>
           <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
             <thead class="text-xs text-gray-700 bg-gray-50 ">

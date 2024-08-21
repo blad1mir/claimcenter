@@ -165,11 +165,8 @@ public usuario: Contacto = {
 
       this.service.postData('user_profiles/',this.usuario).subscribe(
         (response) => {
-  
-          if(response)
-          console.log('Registro creado correctamente', response);
-      
-         
+        console.log(response)
+        this.contact = response.results;
         },
         error => {
           console.error('El usuario no se pudo crear:', error);
@@ -190,6 +187,27 @@ public usuario: Contacto = {
 
     }
 
+    showUser(id: number){
+      console.log(id)
+
+      this.service.getData('user_profiles/'+id).subscribe(
+        (response) => {
+  
+          if(response)
+          console.log('Registro creado correctamente', response);
+      
+         
+        },
+        error => {
+          console.error('El usuario no se pudo crear:', error);
+          // Manejar el error en el login
+        });
+    }
+
+    editUser(){
+      
+    }
+
     
 
 
@@ -198,3 +216,6 @@ public usuario: Contacto = {
 
 
 }
+
+
+
