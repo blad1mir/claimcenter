@@ -120,6 +120,23 @@ export class DataService {
     const response = this.http.post<T>(this.baseUrl + endpoint, data);
     return firstValueFrom(response);
   }
+  public getUserExample(){
+
+    let token  = localStorage.getItem('token');
+    if(token){
+      token =  token.substring(1, token.length - 1);
+    }
+   
+    console.log("el token es: " + token)
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+     
+    
+    return this.http.get<any>('https://backend.claimcenter.com/api/user_profiles/469', {headers: headers});
+  }
+
   public  getData(endpoint: string) {
     //const url = this.buildUrl(endpoint);
     //const response = this.http.post(this.baseUrl + endpoint, data);

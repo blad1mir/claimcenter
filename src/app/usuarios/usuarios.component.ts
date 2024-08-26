@@ -280,11 +280,14 @@ public usuario: Contacto = {
     }
 
     showUser(id: number, index:number){
+
+      
       this.changeVisibility(index)
       console.log(id)
-
-      this.service.getData('user_profiles/'+id).subscribe(
+   // this.service.getData('user_profiles/?'+queryString).subscribe(
+      this.service.getUserExample().subscribe(
         (response) => {
+          console.log(response)
   
           if(response)
           console.log('Registro creado correctamente', response);
@@ -293,7 +296,7 @@ public usuario: Contacto = {
          
         },
         error => {
-          console.error('El usuario no se pudo crear:', error);
+          console.error('El usuario no se pudo Obtener:', error);
           // Manejar el error en el login
         });
     }
