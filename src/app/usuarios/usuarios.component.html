@@ -14,14 +14,14 @@
               <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                   <a class="text-xs font-bold px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer bg-gray-500 text-white"
-                    (click)="toggleTabs(1)"
+                    (click)="toggleTabs(0,1)"
                     >
                     <i class="fas fa-space-shuttle text-base mr-1"></i> Contactos 
                   </a>
                 </li>
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                   <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
-                    (click)="toggleTabs(2)"
+                    (click)="toggleTabs(5,1)"
                    >
                     <i class="fas fa-cog text-base mr-1"></i> Usuarios
     
@@ -179,14 +179,14 @@
           <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
               <a class="text-xs font-bold px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
-                (click)="toggleTabs(1)"
+                (click)="toggleTabs(1,2)"
                 [ngClass]="{'text-gray-600 bg-white': openTab !== 1, 'text-white bg-gray-600': openTab === 1}">
                 <i class="fas fa-space-shuttle text-base mr-1"></i> Datos generales
               </a>
             </li>
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
               <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
-                (click)="toggleTabs(2)"
+                (click)="toggleTabs(2,2)"
                 [ngClass]="{'text-gray-600 bg-white': openTab !== 2, 'text-white bg-gray-600': openTab === 2}">
                 <i class="fas fa-cog text-base mr-1"></i> Direcciones
 
@@ -194,21 +194,21 @@
             </li>
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
               <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
-                (click)="toggleTabs(3)"
+                (click)="toggleTabs(3,2)"
                 [ngClass]="{'text-gray-600 bg-white': openTab !== 3, 'text-white bg-gray-600': openTab === 3}">
                 <i class="fas fa-briefcase text-base mr-1"></i> Emails asociados
               </a>
             </li>
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
               <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
-                (click)="toggleTabs(4)"
+                (click)="toggleTabs(4,2)"
                 [ngClass]="{'text-gray-600 bg-white': openTab !== 4, 'text-white bg-gray-600': openTab === 4}">
                 <i class="fas fa-briefcase text-base mr-1"></i> Teléfonos asociados
               </a>
             </li>
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
               <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
-                (click)="toggleTabs(5)"
+                (click)="toggleTabs(5,2)"
                 [ngClass]="{'text-gray-600 bg-white': openTab !== 5, 'text-white bg-gray-600': openTab === 5}">
                 <i class="fas fa-briefcase text-base mr-1"></i> Categorías
               </a>
@@ -399,14 +399,14 @@
               <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                   <a class="text-xs font-bold px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer "
-                    (click)="toggleTabs(1)"
+                    (click)="toggleTabs(1,1)"
                     >
                     <i class="fas fa-space-shuttle text-base mr-1"></i> Contactos
                   </a>
                 </li>
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                   <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer bg-gray-500 text-white"
-                    (click)="toggleTabs(2)"
+                    (click)="toggleTabs(5,1)"
                    >
                     <i class="fas fa-cog text-base mr-1"></i> Usuarios 
     

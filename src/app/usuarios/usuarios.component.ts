@@ -241,7 +241,7 @@ public usuario: Contacto = {
       this.service.postData('user_profiles/',this.usuario).subscribe(
         (response) => {
         console.log(response)
-        this.contact = response.results;
+       // this.contact = response.results;
         },
         error => {
           console.error('El usuario no se pudo crear:', error);
@@ -262,8 +262,20 @@ public usuario: Contacto = {
 
     // }
 
-    toggleTabs($tabNumber: number){
-      this.openTab = $tabNumber;
+    toggleTabs(value: number,index: number ){
+      if (index==1) {
+        if(value == 1){
+          this.option = value;
+        }else{
+          this.option = 5
+        }
+  
+      }else{
+        this.openTab = value;
+      }
+   
+     
+     
     }
 
     showUser(id: number, index:number){
@@ -275,6 +287,7 @@ public usuario: Contacto = {
   
           if(response)
           console.log('Registro creado correctamente', response);
+          this.contact = response.results
       
          
         },
