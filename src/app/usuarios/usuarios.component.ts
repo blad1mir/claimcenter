@@ -285,7 +285,7 @@ public usuario: Contacto = {
       this.changeVisibility(index)
       console.log(id)
    // this.service.getData('user_profiles/?'+queryString).subscribe(
-      this.service.getContacts('user_profiles/'+id).subscribe(
+      this.service.getContacts('user_profiles/'+id+'/').subscribe(
         (response) => {
           console.log(response)
   
