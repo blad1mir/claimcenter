@@ -120,8 +120,7 @@ export class DataService {
     const response = this.http.post<T>(this.baseUrl + endpoint, data);
     return firstValueFrom(response);
   }
-  public getUserExample(){
-
+  public getContacts(endpoint: string){
     let token  = localStorage.getItem('token');
     if(token){
       token =  token.substring(1, token.length - 1);
@@ -129,12 +128,15 @@ export class DataService {
    
     console.log("el token es: " + token)
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
+      'Authorization': `Bearer ${token}`
     });
-     
+     console.log(this.baseUrl + endpoint)
+     console.log(headers)
     
-    return this.http.get<any>('https://backend.claimcenter.com/api/user_profiles/469', {headers: headers});
+    return this.http.get<any>(this.baseUrl + endpoint, {headers: headers});
+
+
+   
   }
 
   public  getData(endpoint: string) {
