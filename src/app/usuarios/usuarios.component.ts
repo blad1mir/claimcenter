@@ -263,8 +263,9 @@ public usuario: Contacto = {
     // }
 
     toggleTabs(value: number,index: number ){
+      console.log(value+ ":"+ index)
       if (index==1) {
-        if(value == 1){
+        if(value == 0){
           this.option = value;
         }else{
           this.option = 5
