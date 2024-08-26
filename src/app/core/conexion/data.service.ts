@@ -121,7 +121,8 @@ export class DataService {
     return firstValueFrom(response);
   }
   public getContacts(endpoint: string){
-    
+    console.log('getContacts')
+
     let token  = localStorage.getItem('token');
     if(token){
       token =  token.substring(1, token.length - 1);
