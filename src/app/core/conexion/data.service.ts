@@ -122,7 +122,6 @@ export class DataService {
   }
   public getContacts(endpoint: string){
     console.log('getContacts')
-
     let token  = localStorage.getItem('token');
     if(token){
       token =  token.substring(1, token.length - 1);
@@ -132,10 +131,10 @@ export class DataService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-   
+     console.log(this.baseUrl + endpoint)
      console.log(headers)
     
-    return this.http.get<any>(endpoint, {headers: headers});
+    return this.http.get<any>(this.baseUrl + endpoint, {headers: headers});
 
 
    

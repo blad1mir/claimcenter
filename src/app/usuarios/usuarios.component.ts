@@ -285,13 +285,13 @@ public usuario: Contacto = {
       this.changeVisibility(index)
       console.log(id)
    // this.service.getData('user_profiles/?'+queryString).subscribe(
-      this.service.getContacts('https://backend.claimcenter.com/api/user_profiles/469/').subscribe(
+      this.service.getContacts('user_profiles/'+id).subscribe(
         (response) => {
           console.log(response)
   
           if(response)
           console.log('Registro Obtenido correctamente', response);
-          this.contact = response.results
+          this.contact = response
       
          
         },
