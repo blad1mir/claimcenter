@@ -49,14 +49,12 @@
                 <th scope="col" class="px-6 py-3 cursor-pointer">
                   Nombre
                 </th>
-                <th scope="col" class="px-6 py-3 cursor-pointer" >
-                  Nombre de usuario
-                </th>
+              
                 <th scope="col" class="px-6 py-3 cursor-pointer" >
                   Correo electrónico
                 </th>
                 <th scope="col" class="px-6 py-3 cursor-pointer" >
-                  Rol
+                  Teléfono principal
                 </th>
                 <th scope="col" class="px-6 py-3">
                  
@@ -71,13 +69,11 @@
 
                 <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
                   <div class="ps-3">
-                    <div class="text-base font-semibold">{{ contacto.user.first_name }}</div>
+                    <div class="text-base font-semibold">{{ contacto.user.first_name }} {{ contacto.user.last_name }}</div>
 
                   </div>
                 </th>
-                <td class="px-6 py-4">
-                  {{ contacto.user.username }}
-                </td>
+                
                 <td class="px-6 py-4">
                 
                     {{ contacto.user.email }}
@@ -457,7 +453,7 @@
 
                 <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
                   <div class="ps-3">
-                    <div class="text-base font-semibold">{{ usuario.user.first_name }}</div>
+                    <div class="text-base font-semibold">{{ usuario.user.first_name }} {{ usuario.user.last_name }}</div>
 
                   </div>
                 </th>
