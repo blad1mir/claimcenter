@@ -220,8 +220,8 @@ export class DataService {
    
     console.log("el token es: " + token)
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
+      'Authorization': `Bearer ${token}`
+     // 'Content-Type': 'application/json'
     });
 
      console.log(this.baseUrl + endpoint)

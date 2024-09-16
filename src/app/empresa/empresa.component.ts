@@ -293,10 +293,6 @@ removePhone() {
 
 onSearch(): void {
   if (this.searchTerm) {
-  
-  
-
-  
     this.service.getData(`enterprises/?search=${this.searchTerm}`).subscribe(
       (response) => {
         console.log(response)

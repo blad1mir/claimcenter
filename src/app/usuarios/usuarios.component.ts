@@ -249,8 +249,33 @@ public usuario: Contacto = {
         });
     }
 
-    onSearch(value: string){
+    onSearch(isuser: boolean): void{
+     
+      if (this.searchTerm) { 
+        this.service.getData(`enterprises/?is_active=${isuser}&search=${this.searchTerm}`).subscribe(
+          (response) => {
+            if (isuser) {
+              this.listado_usuarios = response.results;
+            this.filtered_users = response.results;
+            }else{
+              this.listado_contactos = response.results;
+              this.filtered_contacts = response.results;
+            }
+            console.log(response)
+            
 
+            
+
+         
+       
+         
+           
+          },
+          error => {
+            console.error('Error al traer listado de empresas:', error);
+            // Manejar el error en el login
+          });
+        } 
     }
 
     // toggleTabs(value: number){
