@@ -166,6 +166,8 @@ export interface Usuario {
       first_name: string;
       last_name: string;
       email: string;
+      legal_document: string;
+      enterprise: string;
       is_staff: boolean;
       date_joined: string;
       is_verified: boolean;

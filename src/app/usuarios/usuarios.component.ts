@@ -89,7 +89,9 @@ public contact: User = {
     is_staff: false,
     date_joined: '',
     is_verified: false,
-    is_active: false
+    is_active: false,
+    legal_document: '',
+    enterprise: ''
   },
   edit_enable: false
 };

@@ -153,6 +153,46 @@
   </div>
 
   <div *ngIf="option==1" class="flex justify-center">
+    <div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
+      <div class="row-auto">
+        <div class="md:col-span-4">
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+            value="{{contact.user.first_name}}" />
+        </div>
+        <div class="md:col-span-4">
+          <label for="name">Apellido:</label>
+          <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+            value="{{contact.user.last_name}}"  />
+        </div>
+
+        <div class="md:col-span-2">
+          <label for="web">Correo principal:</label>
+          <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+            value="{{contact.user.email}}" />
+        </div>
+      </div>
+
+      <div class="row-auto">
+        <div class="md:col-span-4">
+          <label for="name">Documento legal</label>
+          <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+            value="{{contact.user.legal_document}}" />
+        </div>
+
+        <div class="md:col-span-2">
+          <label for="web">Empresa</label>
+          <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+            value="{{contact.user.enterprise}}" /> 
+        </div>
+      </div>
+
+  
+
+
+
+
+    </div>
     
   </div>
 
