@@ -332,6 +332,11 @@ public usuario: Contacto = {
       
     }
 
+    createContact(){
+      
+
+    }
+
     
 
 
