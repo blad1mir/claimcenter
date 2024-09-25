@@ -109,7 +109,7 @@
         </div>
 
 
-        <br>
+     
         <nav aria-label="Page navigation example" class="">
           <div class="flex">
             <ul class="inline-flex -space-x-px text-base h-10 w-full">
@@ -149,9 +149,208 @@
 
 
   <div *ngIf="option==1" class="flex justify-center items-center h-full">
-    <div class="w-full max-w-lg">
+    <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
+      <div class="flex justify-between">
+        <div (click)="changeVisibility(0)" class="cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+            <path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z" readonly />
+          </svg>
+        </div>
+      
+      </div>
+      <br>
+   
+    <div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
+    
+      <div class="px-3 mb-6 md:mb-0">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre</label>
+        <input [(ngModel)]="empresa.name" name="name" type="text"
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          required>
+      </div>
 
-      <form class="flex flex-wrap -mx-3 mb-6">
+      <div class="px-3 mb-6 md:mb-0">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección de pagina
+          web</label>
+        <input [(ngModel)]="empresa.web_page_url" name="web_page_url" type="text"
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          required>
+      </div>
+
+      <div class="px-3 mb-6 md:mb-0">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre del banco</label>
+        <input [(ngModel)]="empresa.bank_details.bank_name" name="bank_name" type="text"
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          required>
+      </div>
+
+      <div class="px-3 mb-6 md:mb-0">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Cuenta de banco</label>
+        <input [(ngModel)]="empresa.bank_details.account_number" name="account_number" type="text"
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          required>
+      </div>
+
+      <div class="px-3 mb-6 md:mb-0">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">DNI / CIF</label>
+        <input [(ngModel)]="empresa.legal_document" name="legal_document" type="text"
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          required>
+      </div>
+
+
+
+
+
+      <div class="px-3 mb-6 md:mb-0">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código de
+          Contabilidad</label>
+        <input [(ngModel)]="empresa.finance_details.accounting_code" name="accounting_code" type="text"
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          required>
+      </div>
+      <br>
+
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Correos</label>
+
+      <div *ngFor="let email of empresa.emails_associated; let i = index" class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Correo</label>
+          <input [(ngModel)]="email.email" name="email-{{ i }}" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción de
+            correo</label>
+          <input [(ngModel)]="email.description" name="email-description-{{ i }}" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+
+
+      </div>
+      <div class="w-full px-3 mb-6 md:mb-0 flex justify-center mt-3">
+
+        <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          (click)="removeEmail()">
+          <i class="fas fa-minus">Remover correo</i>
+        </button>
+        <button type="button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          (click)="addEmail()">
+          <i class="fas fa-plus">Agregar correo</i>
+        </button>
+      </div>
+
+
+
+
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Teléfonos</label>
+
+      <div *ngFor="let telefono of empresa.phones_associated; let i = index" class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Numero de
+            teléfono</label>
+          <input [(ngModel)]="telefono.number" name="number-{{ i }}" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción del
+            teléfono</label>
+          <input [(ngModel)]="telefono.description" name="number-description-{{ i }}" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+
+
+      </div>
+      <div class="w-full px-3 mb-6 md:mb-0 flex justify-center mt-3">
+
+        <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          (click)="removePhone()">
+          <i class="fas fa-minus">Remover teléfono</i>
+        </button>
+        <button type="button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          (click)="addPhone()">
+          <i class="fas fa-plus">Agregar teléfono</i>
+        </button>
+      </div>
+
+
+
+
+
+      <br>
+
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Dirección</label>
+
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Ciudad</label>
+          <input [(ngModel)]="empresa.addresses[0].city" name="city" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Código postal</label>
+          <input [(ngModel)]="empresa.addresses[0].zip_code" name="zip_code" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Provincia/Estado</label>
+          <input [(ngModel)]="empresa.addresses[0].state" name="state" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">País</label>
+          <input [(ngModel)]="empresa.addresses[0].country" name="country" type="text"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+        </div>
+      </div>
+
+
+
+
+      <div class="select-input-data">
+        <label class="block text-black">Categoría</label>
+        <div class="input-data">
+          <select [(ngModel)]="empresa.categories[0]" name="categories"
+            class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+            <option *ngFor="let category of categories" [value]="category.id">{{ category.category }}</option>
+          </select>
+        </div>
+      </div>
+
+  
+
+
+
+
+    </div>
+
+
+    <div
+    class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-container button-38 mt-8 mb-8">
+    
+    
+    <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    (click)="createCompany()"
+    >
+    <i class="fas fa-plus">Guardar</i>
+  </button>
+  </div>
+  </div>
+
+     <!-- <div class="w-full max-w-lg">
+
+     <form class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full">
           <div class="flex justify-between items-center mt-8">
             <h1 class="text-2xl font-bold">Crear Empresa:</h1>
@@ -333,8 +532,8 @@
             <button (click)="createCompany()">Guardar</button>
           </div>
         </div>
-      </form>
-    </div>
+      </form> 
+    </div>-->
   </div>
 
 
@@ -392,6 +591,14 @@
                 <i class="fas fa-briefcase text-base mr-1"></i> Categorías
               </a>
             </li>
+
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
+                (click)="toggleTabs(6)"
+                [ngClass]="{'text-gray-600 bg-white': openTab !== 6, 'text-white bg-gray-600': openTab === 6}">
+                <i class="fas fa-briefcase text-base mr-1"></i> Tarifas
+              </a>
+            </li>
           </ul>
           <div class="flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
             <div class="px-4 py-5 flex-auto">
@@ -424,7 +631,7 @@
                         <label for="web">Teléfono principal:</label>
                         <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                           value="{{company.phones_associated[0].phone_number}}" readonly />
-                      </div>
+                      </div> 
                     </div>
 
                     <div class="row-auto">
@@ -438,7 +645,7 @@
                       </div>
 
                       <div class="md:col-span-2">
-                        <label for="address">ABBR:</label>
+                        <label for="address">Abreviatura:</label>
                         <input type="text" id="abbr" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                           value="{{company.bank_details.bank_abbr}}" readonly />
                       </div>
@@ -569,231 +776,30 @@
 
                   </div>
                 </div>
+
+                <div [ngClass]="{'hidden': openTab !== 6, 'block': openTab === 6}">
+                  <label for="email-mail">No posee tarifas asociadas</label>
+                  <!-- <div *ngIf="company.categories.length == 0">
+                    <label for="email-mail">No posee categorías asociadas</label>
+                  </div>
+                  <div *ngFor="let categoria of company.categories; let i = index">
+
+
+
+                    <div class="md:col-span-2">
+                      <label for="city">Categoría</label>
+                      <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        value="{{categoria.category}}" placeholder="" readonly />
+                    </div>
+
+                  </div> -->
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <br>
-
-
-
-
-      <!-- <div>
-
-                <div class="flex justify-between items-center">
-                  <h2 class="text-lg font-medium">Datos generales:</h2>
-                  <button class="text-blue-500" (click)="toggleItem(0)">{{ expanded_item[0] ? 'Ocultar' : 'Mostrar' }}</button>
-                </div>
-                <div class="border-t border-gray-300 my-4"></div>
-
-
-                <div *ngIf="expanded_item[0]">
-                 
-                
-
-                <label for="full_name"> Número: CC{{company.enterprise_id}}</label>
-                <div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
-
-                  <div class="md:col-span-3">
-                    <label for="name">Nombre:</label>
-                    <input type="text" id="name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                    value="{{company.name}}" readonly />
-                  </div>
-
-                  <div class="md:col-span-2">
-                    <label for="web">Dirección de pagina web</label>
-                    <input type="text" name="web" id="web" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                    value="{{company.web_page_url}}" readonly />
-                  </div>
-
-
-                  <label for="address">Detalles bancarios:</label>
-                  <div class="md:col-span-5">
-                    
-                    <label for="email">Nombre:</label>
-                    <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value="{{company.bank_details.bank_name}}" readonly />
-                  </div>
-
-
-                  <div class="md:col-span-2">
-                    <label for="address">ABBR:</label>
-                    <input type="text" id="abbr" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value="{{company.bank_details.bank_abbr}}" readonly />
-                  </div>
-
-                  <div class="md:col-span-3">
-                    <label for="city">Número de cuenta:</label>
-                    <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value="{{company.bank_details.account_number}}" readonly />
-                  </div>
-                </div>
-
-              </div>
-
-
-
-
-                  
-                  <div class=" ">
-
-                    <div class="flex justify-between items-center">
-                      <h2 class="text-lg font-medium">Direcciones:</h2>
-                      <button class="text-blue-500" (click)="toggleItem(1)">{{ expanded_item[1] ? 'Ocultar' : 'Mostrar' }}</button>
-                    </div>
-                    <div class="border-t border-gray-300 my-4"></div>
-    
-    
-                    <div *ngIf="expanded_item[1]">
-
-                  <div   *ngFor="let direccion of company.addresses; let i = index">
-                    <h3 class="text-lg font-medium">Dirección {{i+1}}</h3>
-                  <div>
-
-
-
-                    <div class="md:col-span-2">
-                      <label for="address-street">Calle / Avenida</label>
-                      <input type="text" name="address-street" id="address-street"
-                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}" 
-                        placeholder="" readonly />
-                    </div>
-
-                    <div class="md:col-span-2">
-                      <label for="address-city">Ciudad</label>
-                      <input type="text" name="address-city" id="address-city"
-                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}"
-                        placeholder="" readonly/>
-                    </div>
-
-                    <div class="md:col-span-2">
-                      <label for="address-country">País / región</label>
-
-                      <input type="text" name="address-country" id="address-country"
-                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.country}}"
-                        placeholder="" readonly/>
-
-
-                    </div>
-
-                    <div class="md:col-span-2">
-                      <label for="address-state">Estado / Provincia</label>
-                      <input type="text" name="address-state" id="address-state"
-                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.state}}"
-                        placeholder="" readonly/>
-
-                    </div>
-
-                    <div class="md:col-span-1">
-                      <label for="zipcode">Zipcode</label>
-                      <input type="text" name="zipcode" id="zipcode"
-                        class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        placeholder="" value="{{direccion.zip}}" readonly/>
-                    </div>
-                  </div>
-
-                 
-                  
-                </div>
-                </div>
-                </div>
-
-
-
-                  <div>
-                    <div class="flex justify-between items-center">
-                      <h2 class="text-lg font-medium">Emails asociados:</h2>
-                      <button class="text-blue-500" (click)="toggleItem(2)">{{ expanded_item[2] ? 'Ocultar' : 'Mostrar' }}</button>
-                    </div>
-                    <div class="border-t border-gray-300 my-4"></div>
-
-                    <div *ngIf="expanded_item[2]">
-                    <div class="border-t border-gray-300 my-4"></div>
-    
-    
-                    
-                    <div *ngFor="let email of company.emails_associated; let i = index">
-
-
-                      <div class="md:col-span-3">
-                        <label for="email-description">Descripción</label>
-                        <input type="text" name="email-description" id="email-description"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.description}}"
-                          placeholder=""  readonly/>
-                      </div>
-
-                      <div class="md:col-span-2">
-                        <label for="email-mail">Email</label>
-                        <input type="text" name="email-mail" id="email-mail"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}"
-                          placeholder="" readonly/>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-                  <div>
-                  
-
-                    <div class="flex justify-between items-center">
-                      <h2 class="text-lg font-medium">Teléfonos asociados:</h2>
-                      <button class="text-blue-500" (click)="toggleItem(3)">{{ expanded_item[3] ? 'Ocultar' : 'Mostrar' }}</button>
-                    </div>
-                    <div class="border-t border-gray-300 my-4"></div>
-
-                    <div *ngIf="expanded_item[3]">
-
-
-                    <div *ngFor="let phones of company.phones_associated; let i = index">
-                      <h3 class="text-lg font-medium">Teléfono {{i+1}}</h3>
-                      <div class="md:col-span-3">
-                        <label for="address">Descripción</label>
-                        <input type="text" name="address" id="address"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{phones.description}}"
-                          placeholder="" readonly/>
-                      </div>
-
-                      <div class="md:col-span-2">
-                        <label for="city">Teléfono:</label>
-                        <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                          value="{{phones.phone_number}}" placeholder="" readonly/>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-                  <div>
-                    
-
-                    <div class="flex justify-between items-center">
-                      <h2 class="text-lg font-medium">Categorías:</h2>
-                      <button class="text-blue-500" (click)="toggleItem(4)">{{ expanded_item[4] ? 'Ocultar' : 'Mostrar' }}</button>
-                    </div>
-                    <div class="border-t border-gray-300 my-4"></div>
-
-                    <div *ngIf="expanded_item[4]">
-
-
-                    <div *ngFor="let categoria of company.categories; let i = index">
-
-                  
-
-                      <div class="md:col-span-2">
-                        <label for="city">Categoría</label>
-                        <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                          value="{{categoria.category}}" placeholder="" readonly/>
-                      </div>
-
-                    </div>
-                  </div>
-                  </div>
-
-
-                
-
-                
-                
-              </div> -->
 
     </div>
   </div>
@@ -852,7 +858,7 @@
 
 
             <div class="md:col-span-2">
-              <label for="address">ABBR:</label>
+              <label for="address">Abreviatura:</label>
               <input type="text" id="abbr" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                 value="{{company.bank_details.bank_abbr}}" />
             </div>
