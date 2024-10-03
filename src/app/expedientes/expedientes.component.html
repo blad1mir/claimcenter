@@ -1,2 +1,154 @@
 <app-menu></app-menu>
-<p>expedientes works!</p>
+
+<br><br>
+<!-- <div *ngIf="option==0" class="flex justify-center"> -->
+    <div class="flex justify-center">
+    <div class="" name="listado_principal" style="width: 80%;">
+      <div class="relative overflow-x-auto">
+        <br>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg text-gray-700 bg-gray-50">
+          <div class="flex justify-center mt-5 mb-3">
+            <span class="px-3 py-3 ">Buscar expedientes: </span>
+            <input [(ngModel)]="searchTerm" placeholder="Buscar..." class="w-1/3 p-2 border rounded" />
+            <!-- <span class="px-3 py-3 ">Buscar por categoría: </span> -->
+         
+
+            <button
+              class="bg-[#6EC4A7] hover:bg-blue-200 text-white hover:text-black font-bold py-2 px-4 rounded transition duration-300 ml-2"
+             >
+              Nuevo Expediente
+            </button>
+          </div>
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+            <thead class="text-xs text-gray-700 bg-gray-50 ">
+
+              <tr>
+                <th scope="col" class="px-6 py-3 cursor-pointer" >
+                  Referencia
+                </th>
+                <th scope="col" class="px-6 py-3 cursor-pointer" >
+                 Estado
+                </th>
+                <th scope="col" class="px-6 py-3 cursor-pointer" >
+                  cliente
+                </th>
+                <th scope="col" class="px-6 py-3 cursor-pointer" >
+                  Nombre
+                </th>
+                <th scope="col" class="px-6 py-3 cursor-pointer" >
+                    Código Postal
+                  </th>
+                  <th scope="col" class="px-6 py-3 cursor-pointer" >
+                    Calle
+                  </th>
+                  <th scope="col" class="px-6 py-3 cursor-pointer" >
+                    Ciudad
+                  </th>
+                  <th scope="col" class="px-6 py-3 cursor-pointer" >
+                    Fecha de Inicio
+                  </th>
+
+               
+
+                
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr *ngIf="canElementos=='0'">
+                <div class="text-center text-lg w-full text-center">
+                  <label class="block tracking-wide text-gray-700 text-xs font-bold mb-2">No hay registros para este
+                    elemento</label>
+                </div>
+              </tr> -->
+
+
+
+
+<!-- 
+              <tr *ngFor="let expediente of filtered_expedientes" class="bg-white border-b   hover:bg-gray-50 ">
+
+                <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
+                  <div class="ps-3">
+                    <div class="text-base font-semibold">{{ (expediente.name, 15) }}</div>
+
+                  </div>
+                </th>
+                <td class="px-6 py-4">
+                  {{ empresa.legal_document }}
+                </td>
+                <td class="px-6 py-4">
+                  <div *ngIf="empresa.email">
+                    {{ empresa.email.email }}
+                  </div>
+
+                </td>
+                <td class="px-6 py-4">
+                  {{ empresa.phone }}
+                </td>
+                
+                <td class="px-6 py-4">
+                  <div class="flex">
+                    <div class="flex-1">
+                      <img src="assets/View.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
+                      (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
+                    </div>
+
+                    <div class="flex-1">
+                      <img src="assets/Edit.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
+                                    (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
+                    </div>
+
+                  </div>
+                 
+                 
+                
+                 
+                </td>
+
+                
+
+
+              </tr> -->
+
+            </tbody>
+          </table>
+        </div>
+
+
+     
+        <nav aria-label="Page navigation example" class="">
+          <div class="flex">
+            <ul class="inline-flex -space-x-px text-base h-10 w-full">
+              <li class="w-full">
+                <a 
+                  class=" cursor-pointer flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700  ">Anterior</a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">1</a>
+              </li>
+              <li class="w-full">
+                <a
+                  class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">...</a>
+              </li>
+
+              <li class="w-full">
+                <a
+                  class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 "></a>
+              </li>
+
+              <li class="w-full">
+                <a 
+                  class="cursor-pointer flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 ">Siguiente</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
