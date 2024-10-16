@@ -23,6 +23,7 @@ export class EmpresaComponent implements OnInit {
  private navigationDestination: string = '';
  activeTab = 0;
  activeEmailTab = 0;
+ activePhoneTab = 0;
 
  
 
@@ -538,6 +539,9 @@ setActiveTab(index: number) {
 }
 setActiveEmailTab(index: number) {
   this.activeEmailTab = index;
+}
+setActivePhoneTab(index: number) {
+  this.activePhoneTab = index;
 }
 
 

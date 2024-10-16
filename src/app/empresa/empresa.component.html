@@ -791,8 +791,8 @@
                   <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 ">
                     <ul class="flex flex-wrap -mb-px">
                       <li class="mr-2" *ngFor="let email of company.emails_associated; let i = index">
-                        <a  (click)="setActiveEmailTab(i)" [ngClass]="{'border-b-2 border-blue-500': activeEmailTab === i}" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-gray-300 ">
-                          Email {{i + 1}}
+                        <a  (click)="setActiveEmailTab(i)" [ngClass]="{'border-b-2 border-blue-500': activeEmailTab === i}" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-gray-300 cursor-pointer">
+                          Email {{email.description}}
                         </a>
                       </li>
                     </ul>
@@ -801,7 +801,6 @@
                   <div *ngFor="let email of company.emails_associated; let i = index">
                     <div *ngIf="activeEmailTab === i">
                       <div class="md:col-span-2">
-                        <label for="email-mail-{{i}}">Email ({{email.description}}):</label>
                         <input type="text" id="email-mail-{{i}}"
                           class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                           [value]="email.email"
@@ -827,7 +826,30 @@
                   <div *ngIf="company.phones_associated.length == 0">
                     <label for="email-mail">No posee telefonos asociados</label>
                   </div>
-                  <div *ngFor="let phones of company.phones_associated; let i = index">
+                  <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 ">
+                    <ul class="flex flex-wrap -mb-px">
+                      <li class="mr-2" *ngFor="let phone of company.phones_associated; let i = index">
+                        <a (click)="setActivePhoneTab(i)" [ngClass]="{'border-b-2 border-blue-500': activePhoneTab === i}" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-gray-300 cursor-pointer">
+                          Teléfono {{phone.description}}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div *ngFor="let phone of company.phones_associated; let i = index">
+                    <div *ngIf="activePhoneTab === i">
+                      <h3 class="text-lg font-medium">Teléfono ({{i + 1}}):</h3>
+                      <div class="md:col-span-2">
+                        
+                        <input type="text" id="phone-number-{{i}}"
+                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          [value]="phone.phone_number"
+                          placeholder="" readonly />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- <div *ngFor="let phones of company.phones_associated; let i = index">
                     <h3 class="text-lg font-medium">Teléfono ({{i+1}}):</h3>
                     <div class="md:col-span-2">
                       <label for="city">Teléfono {{phones.description}}:</label>
@@ -835,7 +857,7 @@
                         value="{{phones.phone_number}}" placeholder="" readonly />
                     </div>
 
-                  </div>
+                  </div> -->
                 </div>
                 <div [ngClass]="{'hidden': openTab !== 5, 'block': openTab === 5}">
                   <div *ngIf="company.categories.length == 0">
