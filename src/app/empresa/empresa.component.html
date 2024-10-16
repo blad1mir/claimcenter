@@ -788,8 +788,30 @@
                   <div *ngIf="company.emails_associated.length == 0">
                     <label for="email-mail">No posee email asociado</label>
                   </div>
-
+                  <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 ">
+                    <ul class="flex flex-wrap -mb-px">
+                      <li class="mr-2" *ngFor="let email of company.emails_associated; let i = index">
+                        <a  (click)="setActiveEmailTab(i)" [ngClass]="{'border-b-2 border-blue-500': activeEmailTab === i}" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-gray-300 ">
+                          Email {{i + 1}}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  
                   <div *ngFor="let email of company.emails_associated; let i = index">
+                    <div *ngIf="activeEmailTab === i">
+                      <div class="md:col-span-2">
+                        <label for="email-mail-{{i}}">Email ({{email.description}}):</label>
+                        <input type="text" id="email-mail-{{i}}"
+                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          [value]="email.email"
+                          placeholder="" readonly />
+                      </div>
+                    </div>
+                  </div>
+                  
+
+                  <!-- <div *ngFor="let email of company.emails_associated; let i = index">
 
 
 
@@ -799,7 +821,7 @@
                         class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}" placeholder=""
                         readonly />
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <div [ngClass]="{'hidden': openTab !== 4, 'block': openTab === 4}">
                   <div *ngIf="company.phones_associated.length == 0">

@@ -22,6 +22,7 @@ export class EmpresaComponent implements OnInit {
  canChange: boolean = false;
  private navigationDestination: string = '';
  activeTab = 0;
+ activeEmailTab = 0;
 
  
 
@@ -534,6 +535,9 @@ changeVisibility(value: number): void {
 
 setActiveTab(index: number) {
   this.activeTab = index;
+}
+setActiveEmailTab(index: number) {
+  this.activeEmailTab = index;
 }
 
 
