@@ -349,6 +349,7 @@ onSearch(): void {
 
 showEnterprise(option: number, idEmpresa: number){
 this.option = option;
+this.service.setOptionChange(option);
 
 this.service.getEnterprise('enterprises/'+idEmpresa+'/').subscribe(
   (response) => {
@@ -521,7 +522,7 @@ changeVisibility(value: number): void {
   // }
   console.log('El valor actual de option es: '+this.option)
   
-  if (this.option == 3 ) {
+  if (this.option == 3 || this.option ==1) {
     this.service.setChange(false)
   }
 
