@@ -21,11 +21,12 @@ export class EmpresaComponent implements OnInit {
  public nextFunctionValue: string = '';
  canChange: boolean = false;
  private navigationDestination: string = '';
+ activeTab = 0;
 
  
 
 
- public option: number = 0;
+ public option: number = 2;
  public shortPresent: string = '';
  /* 
 option 0 = listado
@@ -526,8 +527,16 @@ changeVisibility(value: number): void {
     this.service.setChange(false)
   }
 
+  
+
 
 }
+
+setActiveTab(index: number) {
+  this.activeTab = index;
+}
+
+
 
 
 
