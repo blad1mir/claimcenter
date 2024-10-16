@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, firstValueFrom } from 'rxjs';
+import { Observable, Subject, firstValueFrom } from 'rxjs';
 import { Company } from '../interfaces/company';
 
 @Injectable({
@@ -9,6 +9,15 @@ import { Company } from '../interfaces/company';
 })
 export class DataService {
   private readonly baseUrl: string = environment.apiUrl; // Utiliza el baseUrl desde el environment
+  private showModalSubject = new Subject<string>();
+  showModal$ = this.showModalSubject.asObservable();
+  public canChange: boolean = true;
+  public optionchange: number = 0;
+
+  triggerShowModal(destination: string) {
+    this.showModalSubject.next(destination);
+  }
+
   public token: string = '';
   public categories: Object[] = 
   [
@@ -250,9 +259,29 @@ export class DataService {
     return this.http.post<any>(this.baseUrl + 'user_profiles/logout/',{}, {headers});
   }
 
+ 
+
 
 
   private buildUrl(endpoint: string): string {
     return `${this.baseUrl}/${endpoint}`;
   }
+
+  public setChange(value: boolean){
+    this.canChange = value;
+  }
+
+  public getChange(): boolean{
+   return this.canChange;
+  }
+
+  public setOptionChange(value: number){
+    this.optionchange = value;
+  }
+
+  public getOptionChange(): number{
+   return this.optionchange;
+  }
+
+  
 }

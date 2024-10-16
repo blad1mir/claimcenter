@@ -1,3 +1,4 @@
+import { ExpedientesComponent } from './../expedientes/expedientes.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../core/conexion/data.service';
@@ -9,7 +10,7 @@ import { DataService } from '../core/conexion/data.service';
 })
 export class MenuComponent implements OnInit {
   public isOpen: boolean[] = [false, false,false,false];
-  constructor(private router: Router, public service: DataService) { }
+  constructor(private router: Router, public service: DataService ) { }
 
   ngOnInit(): void {
   }
@@ -29,9 +30,44 @@ export class MenuComponent implements OnInit {
     // console.log(this.isOpen[index])
 
   }
+  navigateTo(destination: string) {
+    this.service.triggerShowModal(destination);
+    this.service.setChange(true)
+    this.service.setOptionChange(0)
+  }
 
   goTo(ruta: string, action: number){
-    this.router.navigate([`/${ruta}`]); 
+   // this.navigateTo(ruta)
+     if (this.service.getOptionChange() == 1 ||  this.service.getOptionChange() == 3) {
+      this.service.setChange(false)
+      this.navigateTo(ruta)
+     }else{
+      this.service.setChange(true)
+      this.router.navigate([`/${ruta}`]);
+     }
+    
+      
+    
+    
+    console.log("el cambio está en: "+this.service.getChange())
+    // if (this.service.getChange()) {
+    //   this.router.navigate([`/${ruta}`]); 
+    // }else{
+    //   this.navigateTo(ruta)
+    // }
+
+    
+ 
+    // if (ruta == 'expedientes') {
+      
+    //  // this.service.setDestination('expedientes');
+
+      
+    // }else{
+    //   this.router.navigate([`/${ruta}`]); 
+    // }
+
+     
   }
 
   logout(){
@@ -49,5 +85,4 @@ export class MenuComponent implements OnInit {
         // Manejar el error en el login
       });
   }
-
 }

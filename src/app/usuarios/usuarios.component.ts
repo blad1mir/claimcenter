@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../core/conexion/data.service';
 import { Contacto, User, Usuario } from '../core/interfaces/company';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuarios',
@@ -12,13 +13,15 @@ export class UsuariosComponent implements OnInit {
   public searchTerm: string = '';
   public nextPag: string = '';
   public previusPag: string = '';
-
   public option: number = 0;
-
-
-
 public listado_usuarios: any[] = [];
 filtered_users: any[] = [];
+
+isModalOpen = false;
+ public nextFunction: string = '';
+ public nextFunctionValue: string = '';
+ canChange: boolean = false;
+ private navigationDestination: string = '';
 
 public contact: User = {
   profile: {
@@ -128,7 +131,7 @@ public usuario: Contacto = {
   openTab = 1;
 
 
-  constructor(public service: DataService) { 
+  constructor(public service: DataService, private router: Router) { 
     this.getListcontacts();
     this.getListUsers();
   }
@@ -137,9 +140,7 @@ public usuario: Contacto = {
   }
 
   
-  changeVisibility(option: number): void {
-    this.option = option
-  }
+ 
 
 
   
@@ -338,9 +339,83 @@ public usuario: Contacto = {
     }
 
     
+openModal(funcion: string,valor: number) {
+  this.nextFunction = funcion;
+  this.nextFunctionValue =  (valor).toString();
+  this.isModalOpen = true;
+}
+
+confirm() {
+  if(this.nextFunctionValue == '8'){
+    this.router.navigate([this.nextFunction]);
+  }else{
+    console.log('Confirmed');
+    if (this.nextFunction == 'changeVisibility') {
+      this.changeVisibility(parseInt(this.nextFunctionValue));
+    }
+  }
+ 
+
+  this.isModalOpen = false;
+  // Call your function here
+}
+
+cancel() {
+  console.log('Cancelled');
+  this.isModalOpen = false;
+  // Handle cancellation here
+}
+
+setCanChange(value: boolean) {
+  this.canChange = value;
+}
+
+navigateTo(destination: string) {
+  if (this.canChange) {
+    this.router.navigate([destination]);
+  } else {
+    this.isModalOpen = true;
+    this.openModal(destination,8)
+   // alert('No puedes salir de este componente hasta cumplir la condición.');
+  }
+}
+
+  
+showModal() {
+  // Lógica para mostrar el modal
+  this.openModal(this.navigationDestination,8)
+}
+
+onContinue() {
+  // Lógica para cerrar el modal
+  this.router.navigate([this.navigationDestination]);
+}
+
+onCancel() {
+  // Lógica para cerrar el modal y permanecer en el componente actual
+}
 
 
+changeVisibility(value: number): void {
+  this.option = value;
+  this.service.setOptionChange(this.option)
+  // if (this.option != 1 && this.option != 3 ) {
+    
+  //   this.service.setChange(true)
+  // }else{
+   
+  //   this.service.setChange(false)
+  // }
+  console.log('El valor actual de option es: '+this.option)
+  
+  if (this.option == 3 ) {
+    this.service.setChange(false)
+  }
 
+    
+
+
+}
   
 
 
