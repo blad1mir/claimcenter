@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   public password: string = '';
   public visiblePassword: boolean = false; 
   public visiblePassworType: string = "password";
+  isModalInfo = false;
+  isModalCargue = false;
   constructor(public service: DataService,  private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -22,11 +24,12 @@ export class LoginComponent implements OnInit {
 
   submitLoginForm() {
   
-
+    this.isModalCargue = true;
     console.log(this.username, this.password)
     this.service.login(this.username, this.password).subscribe(
+    
       (response) => {
-
+        this.isModalCargue = false;
         if(response)
         console.log('Login successful:', response);
         localStorage.setItem('user', JSON.stringify(response.user));  
@@ -34,9 +37,15 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/empresa']); 
       },
       error => {
+        this.isModalCargue = false;
         console.error('Login failed:', error);
         // Manejar el error en el login
       });
+
+      setTimeout(() => {
+        this.isModalCargue = false;
+        this.isModalInfo = true;
+      }, 10000);
 
 
   }
@@ -74,6 +83,12 @@ export class LoginComponent implements OnInit {
 
   //   )
     
+  }
+
+  modalInfoClose(){
+    this.isModalInfo = false;
+     window.location.reload();
+
   }
 
 
