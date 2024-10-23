@@ -28,7 +28,7 @@ export class EmpresaComponent implements OnInit {
  
 
 
- public option: number = 2;
+ public option: number = 0;
  public shortPresent: string = '';
  /* 
 option 0 = listado

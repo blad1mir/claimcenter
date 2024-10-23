@@ -730,56 +730,6 @@
                     </div>
                   </div>
                   
-
-                  <!-- <div *ngFor="let direccion of company.addresses; let i = index">
-                    <h3 class="text-lg font-medium">Dirección {{i+1}}</h3>
-                    <div>
-
-
-
-                      <div class="md:col-span-2">
-                        <label for="address-street">Calle / Avenida</label>
-                        <input type="text" name="address-street" id="address-street"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}"
-                          placeholder="" readonly />
-                      </div>
-
-                      <div class="md:col-span-2">
-                        <label for="address-city">Ciudad</label>
-                        <input type="text" name="address-city" id="address-city"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}"
-                          placeholder="" readonly />
-                      </div>
-
-                      <div class="md:col-span-2">
-                        <label for="address-country">País / región</label>
-
-                        <input type="text" name="address-country" id="address-country"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.country}}"
-                          placeholder="" readonly />
-
-
-                      </div>
-
-                      <div class="md:col-span-2">
-                        <label for="address-state">Estado / Provincia</label>
-                        <input type="text" name="address-state" id="address-state"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.state}}"
-                          placeholder="" readonly />
-
-                      </div>
-
-                      <div class="md:col-span-1">
-                        <label for="zipcode">Zipcode</label>
-                        <input type="text" name="zipcode" id="zipcode"
-                          class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                          placeholder="" value="{{direccion.zip}}" readonly />
-                      </div>
-                    </div>
-
-
-
-                  </div> -->
                 </div>
                 <div [ngClass]="{'hidden': openTab !== 3, 'block': openTab === 3}">
                   <div class="border-t border-gray-300 my-4"></div>
@@ -809,18 +759,6 @@
                     </div>
                   </div>
                   
-
-                  <!-- <div *ngFor="let email of company.emails_associated; let i = index">
-
-
-
-                    <div class="md:col-span-2">
-                      <label for="email-mail">Email ({{email.description}}):</label>
-                      <input type="text" name="email-mail" id="email-mail"
-                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}" placeholder=""
-                        readonly />
-                    </div>
-                  </div> -->
                 </div>
                 <div [ngClass]="{'hidden': openTab !== 4, 'block': openTab === 4}">
                   <div *ngIf="company.phones_associated.length == 0">
@@ -838,7 +776,6 @@
                   
                   <div *ngFor="let phone of company.phones_associated; let i = index">
                     <div *ngIf="activePhoneTab === i">
-                      <h3 class="text-lg font-medium">Teléfono ({{i + 1}}):</h3>
                       <div class="md:col-span-2">
                         
                         <input type="text" id="phone-number-{{i}}"
@@ -849,15 +786,7 @@
                     </div>
                   </div>
                   
-                  <!-- <div *ngFor="let phones of company.phones_associated; let i = index">
-                    <h3 class="text-lg font-medium">Teléfono ({{i+1}}):</h3>
-                    <div class="md:col-span-2">
-                      <label for="city">Teléfono {{phones.description}}:</label>
-                      <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value="{{phones.phone_number}}" placeholder="" readonly />
-                    </div>
-
-                  </div> -->
+                
                 </div>
                 <div [ngClass]="{'hidden': openTab !== 5, 'block': openTab === 5}">
                   <div *ngIf="company.categories.length == 0">
