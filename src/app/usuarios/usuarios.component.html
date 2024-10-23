@@ -313,54 +313,58 @@
                   <div *ngIf="contact.profile.addresses.length == 0">
                     <label for="email-mail">No posee direcciones asociadas</label>
                   </div>
+
+                  <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 ">
+                    <ul class="flex flex-wrap -mb-px">
+                      <li class="mr-2" *ngFor="let direccion of contact.profile.addresses; let i = index">
+                        <a (click)="setActiveTab(i)" [ngClass]="{'border-b-2 border-blue-500': activeTab === i}" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-gray-300  cursor-pointer">
+                          Dirección {{i + 1}}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
                   <div *ngFor="let direccion of contact.profile.addresses; let i = index">
-                    <h3 class="text-lg font-medium">Dirección {{i+1}}</h3>
-                    <div>
-
-
-
-                      <div class="md:col-span-2">
-                        <label for="address-street">Calle / Avenida</label>
-                        <input type="text" name="address-street" id="address-street"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.street}}"
-                          placeholder="" readonly />
-                      </div>
-
-                      <div class="md:col-span-2">
-                        <label for="address-city">Ciudad</label>
-                        <input type="text" name="address-city" id="address-city"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.city}}"
-                          placeholder="" readonly />
-                      </div>
-
-                      <div class="md:col-span-2">
-                        <label for="address-country">País / región</label>
-
-                        <input type="text" name="address-country" id="address-country"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.country}}"
-                          placeholder="" readonly />
-
-
-                      </div>
-
-                      <div class="md:col-span-2">
-                        <label for="address-state">Estado / Provincia</label>
-                        <input type="text" name="address-state" id="address-state"
-                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{direccion.state}}"
-                          placeholder="" readonly />
-
-                      </div>
-
-                      <div class="md:col-span-1">
-                        <label for="zipcode">Zipcode</label>
-                        <input type="text" name="zipcode" id="zipcode"
-                          class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                          placeholder="" value="{{direccion.zip_code}}" readonly />
+                    <div *ngIf="activeTab === i">
+                     
+                      <div>
+                        <div class="md:col-span-2">
+                          <label for="address-street-{{i}}">Calle / Avenida</label>
+                          <input type="text" id="address-street-{{i}}"
+                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            [value]="direccion.street"
+                            placeholder="" readonly />
+                        </div>
+                        <div class="md:col-span-2">
+                          <label for="address-city-{{i}}">Ciudad</label>
+                          <input type="text" id="address-city-{{i}}"
+                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            [value]="direccion.city"
+                            placeholder="" readonly />
+                        </div>
+                        <div class="md:col-span-2">
+                          <label for="address-country-{{i}}">País / región</label>
+                          <input type="text" id="address-country-{{i}}"
+                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            [value]="direccion.country"
+                            placeholder="" readonly />
+                        </div>
+                        <div class="md:col-span-2">
+                          <label for="address-state-{{i}}">Estado / Provincia</label>
+                          <input type="text" id="address-state-{{i}}"
+                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            [value]="direccion.state"
+                            placeholder="" readonly />
+                        </div>
+                        <div class="md:col-span-1">
+                          <label for="zipcode-{{i}}">Zipcode</label>
+                          <input type="text" id="zipcode-{{i}}"
+                            class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            [value]="direccion.zip_code"
+                            placeholder="" readonly />
+                        </div>
                       </div>
                     </div>
-
-
-
                   </div>
                 </div>
                 <div [ngClass]="{'hidden': openTab !== 3, 'block': openTab === 3}">

@@ -23,6 +23,10 @@ isModalOpen = false;
  canChange: boolean = false;
  private navigationDestination: string = '';
 
+ activeTab = 0;
+ activeEmailTab = 0;
+ activePhoneTab = 0;
+
 public contact: User = {
   profile: {
     profile_id: 0,
@@ -415,6 +419,16 @@ changeVisibility(value: number): void {
     
 
 
+}
+
+setActiveTab(index: number) {
+  this.activeTab = index;
+}
+setActiveEmailTab(index: number) {
+  this.activeEmailTab = index;
+}
+setActivePhoneTab(index: number) {
+  this.activePhoneTab = index;
 }
   
 
