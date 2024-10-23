@@ -318,7 +318,7 @@
                     <ul class="flex flex-wrap -mb-px">
                       <li class="mr-2" *ngFor="let direccion of contact.profile.addresses; let i = index">
                         <a (click)="setActiveTab(i)" [ngClass]="{'border-b-2 border-blue-500': activeTab === i}" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-gray-300  cursor-pointer">
-                          Dirección {{i + 1}}
+                          Dirección 
                         </a>
                       </li>
                     </ul>
@@ -374,32 +374,54 @@
                   <div *ngIf="contact.profile.emails_associated.length == 0">
                     <label for="email-mail">No posee email asociado</label>
                   </div>
-
+                  <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 ">
+                    <ul class="flex flex-wrap -mb-px">
+                      <li class="mr-2" *ngFor="let email of contact.profile.emails_associated; let i = index">
+                        <a  (click)="setActiveEmailTab(i)" [ngClass]="{'border-b-2 border-blue-500': activeEmailTab === i}" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-gray-300 cursor-pointer">
+                          Email {{email.description}}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  
                   <div *ngFor="let email of contact.profile.emails_associated; let i = index">
-
-
-
-                    <div class="md:col-span-2">
-                      <label for="email-mail">Email ({{email.description}}):</label>
-                      <input type="text" name="email-mail" id="email-mail"
-                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{email.email}}" placeholder=""
-                        readonly />
+                    <div *ngIf="activeEmailTab === i">
+                      <div class="md:col-span-2">
+                        <input type="text" id="email-mail-{{i}}"
+                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          [value]="email.email"
+                          placeholder="" readonly />
+                      </div>
                     </div>
                   </div>
+
                 </div>
                 <div [ngClass]="{'hidden': openTab !== 4, 'block': openTab === 4}">
                   <div *ngIf="contact.profile.phones_associated.length == 0">
                     <label for="email-mail">No posee telefonos asociados</label>
                   </div>
-                  <div *ngFor="let phones of contact.profile.phones_associated; let i = index">
-                    <h3 class="text-lg font-medium">Teléfono ({{i+1}}):</h3>
-                    <div class="md:col-span-2">
-                      <label for="city">Teléfono {{phones.description}}:</label>
-                      <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value="{{phones.phone_number}}" placeholder="" readonly />
-                    </div>
-
+                  <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 ">
+                    <ul class="flex flex-wrap -mb-px">
+                      <li class="mr-2" *ngFor="let phone of contact.profile.phones_associated; let i = index">
+                        <a (click)="setActivePhoneTab(i)" [ngClass]="{'border-b-2 border-blue-500': activePhoneTab === i}" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-gray-300 cursor-pointer">
+                          Teléfono {{phone.description}}
+                        </a>
+                      </li>
+                    </ul>
                   </div>
+                  
+                  <div *ngFor="let phone of contact.profile.phones_associated; let i = index">
+                    <div *ngIf="activePhoneTab === i">
+                      <div class="md:col-span-2">
+                        
+                        <input type="text" id="phone-number-{{i}}"
+                          class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          [value]="phone.phone_number"
+                          placeholder="" readonly />
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
                 <div [ngClass]="{'hidden': openTab !== 5, 'block': openTab === 5}">
                   <div *ngIf="contact.profile.categories.length == 0">
