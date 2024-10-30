@@ -96,6 +96,15 @@ export class DataService {
     }
     return null;
   }
+
+  public getUser(): string | null {
+    const userData = localStorage.getItem('user');
+    console.log(userData)
+    if (userData) {
+      return JSON.parse(userData).user;
+    }
+    return null;
+  }
   
 
   public setCategories(categories: []){

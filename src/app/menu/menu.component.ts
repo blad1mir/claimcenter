@@ -9,11 +9,55 @@ import { DataService } from '../core/conexion/data.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  role: any | null = 'a' ;
+  menu: any;
+  rootMenu = [
+    { name: 'Empresas', link: 'empresa' },
+    { name: 'Contactos', link: 'usuarios' }
+  ];
+
+  tramitadorMenu = [
+    { name: 'Expedientes', link: 'expedientes' }
+    
+  ];
   public isOpen: boolean[] = [false, false,false,false];
-  constructor(private router: Router, public service: DataService ) { }
+  constructor(private router: Router, public service: DataService ) { 
+
+    console.log(this.service.getUser())
+  }
 
   ngOnInit(): void {
+    if (this.service.getUser()) {
+
+      this.setMenu();
+    }
+
+    this.setMenu();
+    
+
+   
+
   }
+
+
+
+  setMenu() {
+
+    this.role = this.service.getUser()
+    if (this.service.getUser() != null) {
+     // const hasRoleId9 = this.service.getUser()?.roles.some(role => role.id === 9);
+    }
+    
+
+    if (this.role === 'root') {
+      this.menu = this.rootMenu;
+    } else {
+      this.menu = this.tramitadorMenu;
+    }
+  }
+  
+
+  
 
   showOption(index: number){
     for (let inde = 0; inde < this.isOpen.length ; inde++) {

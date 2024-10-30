@@ -175,4 +175,25 @@ export interface Usuario {
     };
     edit_enable: boolean;
   }
+
+  export interface FileDetails {
+    file_id: number;
+    code: string;
+    start_date: string;
+    end_date: string[]; 
+    assignment: string;
+    description: string;
+    type: string;
+    created_by: number;
+    modified_by: string[]; 
+    status: string;
+    billing_issuer: string;
+    insured_details: string[]; 
+    policy_details: string[]; 
+    current_address: string[]; 
+    community_details: string[]; 
+    accident_details: string[]; 
+    mediator_details: string[]; 
+    attributes: string[];
+  }
   
