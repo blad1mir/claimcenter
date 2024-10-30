@@ -54,7 +54,7 @@ export class ExpedientesComponent implements OnInit {
   constructor(public service: DataService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    // this.getExpedientes()
+     this.getExpedientes()
     const group: any = {}; 
     this.allInputs.forEach(input => { group[input.id] = [this.initialFileDetails[input.id as keyof FileDetails], Validators.required]; }); 
     this.formGroup = this.fb.group({})
