@@ -13,7 +13,7 @@ export class ExpedientesComponent implements OnInit {
   public listado_expedientes: any[] = [];
   filtered_expedientes: any[] = [];
   isModalOpen = false;
-  option = 1;
+  option = 0;
 
   formGroup!: FormGroup;
   activeStep = 0;

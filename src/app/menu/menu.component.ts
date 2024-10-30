@@ -9,7 +9,7 @@ import { DataService } from '../core/conexion/data.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  role: any | null = 'a' ;
+  role: any = 'a' ;
   menu: any;
   rootMenu = [
     { name: 'Empresas', link: 'empresa' },
@@ -45,7 +45,7 @@ export class MenuComponent implements OnInit {
 
     this.role = this.service.getUser()
     if (this.service.getUser() != null) {
-     // const hasRoleId9 = this.service.getUser()?.roles.some(role => role.id === 9);
+     // const hasRoleId9 = this.service.getUser().roles.some(role => role.id === 9);
     }
     
 
