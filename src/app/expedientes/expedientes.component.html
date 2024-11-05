@@ -26,23 +26,12 @@
                 Referencia
               </th>
               <th scope="col" class="px-6 py-3 cursor-pointer">
-                Estado
-              </th>
-              <th scope="col" class="px-6 py-3 cursor-pointer">
                 cliente
               </th>
               <th scope="col" class="px-6 py-3 cursor-pointer">
-                Nombre
+                Tipo
               </th>
-              <th scope="col" class="px-6 py-3 cursor-pointer">
-                Código Postal
-              </th>
-              <th scope="col" class="px-6 py-3 cursor-pointer">
-                Calle
-              </th>
-              <th scope="col" class="px-6 py-3 cursor-pointer">
-                Ciudad
-              </th>
+           
               <th scope="col" class="px-6 py-3 cursor-pointer">
                 Fecha de Inicio
               </th>
@@ -63,51 +52,34 @@
 
 
 
-            <!-- 
+         
               <tr *ngFor="let expediente of filtered_expedientes" class="bg-white border-b   hover:bg-gray-50 ">
 
                 <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
                   <div class="ps-3">
-                    <div class="text-base font-semibold">{{ (expediente.name, 15) }}</div>
+                    <div class="text-base font-semibold">{{ expediente.code }}</div>
 
                   </div>
                 </th>
                 <td class="px-6 py-4">
-                  {{ empresa.legal_document }}
+                  {{ expediente.assignment }}
                 </td>
+           
                 <td class="px-6 py-4">
-                  <div *ngIf="empresa.email">
-                    {{ empresa.email.email }}
-                  </div>
+                  {{  expediente.type }}
+                </td>
 
-                </td>
                 <td class="px-6 py-4">
-                  {{ empresa.phone }}
+                  {{  expediente.start_date }}
                 </td>
+          
                 
-                <td class="px-6 py-4">
-                  <div class="flex">
-                    <div class="flex-1">
-                      <img src="assets/View.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
-                      (click)="showEnterprise(2,empresa.enterprise_id)" class="cursor-pointer">
-                    </div>
-
-                    <div class="flex-1">
-                      <img src="assets/Edit.svg" style="width: 24px;" class="icon w-4 h-4 ml-1 mr-2"
-                                    (click)="showEnterprise(3,empresa.enterprise_id)" class="cursor-pointer">
-                    </div>
-
-                  </div>
-                 
-                 
-                
-                 
-                </td>
+         
 
                 
 
 
-              </tr> -->
+              </tr> 
 
           </tbody>
         </table>
