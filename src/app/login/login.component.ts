@@ -34,7 +34,15 @@ export class LoginComponent implements OnInit {
         console.log('Login successful:', response);
         localStorage.setItem('user', JSON.stringify(response.user));  
         localStorage.setItem('token', JSON.stringify(response.token));  
-        this.router.navigate(['/empresa']); 
+
+        const hasRoleId6 = response.user.roles.some((role: { id: number; }) => role.id === 6);
+        if (hasRoleId6) {
+          this.router.navigate(['/expedientes']); 
+        }else{
+          this.router.navigate(['/empresa']); 
+        }
+        
+       
       },
       error => {
         this.isModalCargue = false;
