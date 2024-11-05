@@ -36,9 +36,12 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', JSON.stringify(response.token));  
 
         const hasRoleId6 = response.user.roles.some((role: { id: number; }) => role.id === 6);
+       
         if (hasRoleId6) {
+          this.service.setRole('tramitador')
           this.router.navigate(['/expedientes']); 
         }else{
+          this.service.setRole('administrador')
           this.router.navigate(['/empresa']); 
         }
         

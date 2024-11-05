@@ -27,10 +27,10 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.service.getUser()) {
+    // if (this.service.getUser()) {
 
-      this.setMenu();
-    }
+    //   this.setMenu();
+    // }
 
     this.setMenu();
     
@@ -43,17 +43,21 @@ export class MenuComponent implements OnInit {
 
   setMenu() {
 
-    this.role = this.service.getUser()
-    if (this.service.getUser() != null) {
-     // const hasRoleId9 = this.service.getUser().roles.some(role => role.id === 9);
+    this.role = this.service.getRole()
+    if (this.role != '') {
+     if (this.role == 'tramitador') {
+      this.menu = this.tramitadorMenu;
+     }else{
+      this.menu = this.rootMenu;
+     }
     }
     
 
-    if (this.role === 'root') {
-      this.menu = this.rootMenu;
-    } else {
-      this.menu = this.tramitadorMenu;
-    }
+    // if (this.role === 'root') {
+    //   this.menu = this.rootMenu;
+    // } else {
+    //   this.menu = this.tramitadorMenu;
+    // }
   }
   
 

@@ -13,6 +13,7 @@ export class DataService {
   showModal$ = this.showModalSubject.asObservable();
   public canChange: boolean = true;
   public optionchange: number = 0;
+  public role: string = '';
 
   triggerShowModal(destination: string) {
     this.showModalSubject.next(destination);
@@ -302,6 +303,16 @@ export class DataService {
 
   public getOptionChange(): number{
    return this.optionchange;
+  }
+
+
+  public getRole(): string{
+    return this.role
+  }
+
+  public setRole(value: string): boolean{
+  this.role = value;
+   return true;
   }
 
   
