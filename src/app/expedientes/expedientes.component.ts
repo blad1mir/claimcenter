@@ -70,7 +70,7 @@ export class ExpedientesComponent implements OnInit {
   }
 
   getExpedientes() {
-    this.service.getExpedients('incident_files').subscribe(
+    this.service.getExpedients('incident_files/').subscribe(
       (response) => {
         console.log(response);
         this.listado_expedientes = response.results;
