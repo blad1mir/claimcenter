@@ -57,7 +57,7 @@
               <tr *ngFor="let expediente of filtered_expedientes" class="bg-white border-b   hover:bg-gray-50 ">
 
                 <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
-                  <div class="ps-3 cursor-pointer" (click)="openExpedient(expediente.code)">
+                  <div class="ps-3 cursor-pointer" (click)="openExpedient(expediente.code, expediente.file_id)">
                     <div class="text-base font-semibold">{{ expediente.code }}</div>
                   </div>
                 </th>
