@@ -257,6 +257,22 @@ this.getListCompany();
 
   }
 
+  getExpedientParticular(id: string) {
+
+    this.service.getEnterprise('incident_files/'+id+'/').subscribe(
+      (response) => {
+        console.log(response)
+      this.initialFileDetails= response.results;
+       
+      },
+      error => {
+        console.error('Error al traer listado de empresas:', error);
+        // Manejar el error en el login
+      });
+
+
+  }
+
   createExpedient(){
     let expediente = {
       

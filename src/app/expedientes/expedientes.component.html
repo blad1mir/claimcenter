@@ -243,6 +243,33 @@ class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-
                       </a>
                     </li>
                   </ul>
+                  <div  *ngIf="activeTab==0">
+                    <h3>Referencia: {{codeExpedient}}</h3>
+                    <h3>Fecha de inicio: {{initialFileDetails.start_date}}</h3>
+                    <h3>Estado: {{initialFileDetails.status}}</h3>
+                    <h3>Fecha de Finalización: {{initialFileDetails.end_date}}</h3>
+                    <h3>Cliente (Empresa): {{initialFileDetails.billing_issuer}}</h3>
+
+                  </div>
+
+                  <div  *ngIf="activeTab==1">
+                    <h3>{{initialFileDetails.description}}</h3>
+                  </div>
+
+                  <div  *ngIf="activeTab==2">
+                    <h3>Asegurado: {{initialFileDetails.assignment}}</h3>
+                  </div>
+                  <div  *ngIf="activeTab==3">
+                    <h3>Póliza: {{initialFileDetails.policy_details}}</h3>
+                  </div>
+
+                  <div  *ngIf="activeTab==4">
+                    
+                  </div>
+
+                  <div  *ngIf="activeTab==4">
+
+                  </div>
                 </div>
               </div>
               <div [ngClass]="{'hidden': openTab !== 2, 'block': openTab === 2}">
