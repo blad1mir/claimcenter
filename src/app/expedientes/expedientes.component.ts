@@ -10,6 +10,9 @@ import { FileDetails } from '../core/interfaces/company';
 })
 export class ExpedientesComponent implements OnInit {
   public searchTerm: string = '';
+  public nextPag: string = '';
+  public previusPag: string = '';
+  public canElementos: string = '';
   public listado_expedientes: any[] = [];
   filtered_expedientes: any[] = [];
   isModalOpen = false;
@@ -87,5 +90,116 @@ export class ExpedientesComponent implements OnInit {
 
   confirm() {
     window.location.reload();
+  }
+
+  onSearch(): void {
+    if (this.searchTerm) {
+      this.service.getData(`incident_files/?search=${this.searchTerm}`).subscribe(
+        (response) => {
+          console.log(response)
+        this.listado_expedientes = response.results;
+        this.filtered_expedientes = response.results;
+        this.nextPag = response.next;
+        this.previusPag = response.previous;
+        if(response.count <= 10){
+          if(response.count == 0){
+            this.canElementos = '0';
+          }else{
+            this.canElementos = '1';
+          }
+          
+        }else{
+          this.canElementos = ((response.count)/10).toFixed(0);
+        }
+        console.log( this.listado_expedientes)
+         
+        },
+        error => {
+          console.error('Error al traer listado de empresas:', error);
+          // Manejar el error en el login
+        });
+      } 
+    // console.log(this.searchTerm)
+    // this.filtered_empresas = this.listado_empresas.filter((empresa: any) => {
+    //   // Verificar que los campos sean strings válidos antes de llamar a toLowerCase()
+    //   const nombre = empresa.nombre ? empresa.nombre : '';
+    //   const email = empresa.email ? empresa.email : '';
+    //   const telefono = empresa.telefono ? empresa.telefono : '';
+    //   return nombre.includes(this.searchTerm) || 
+    //          email.includes(this.searchTerm) || 
+    //          telefono.includes(this.searchTerm);
+    // });
+  }
+
+  nextPage(){
+
+
+    if (this.nextPag != null) {
+      
+    const url = this.nextPag;
+    const queryString = url.split('?')[1];
+    console.log(queryString);
+          this.service.getData('incident_files/?'+queryString).subscribe(
+      (response) => {
+        console.log(response)
+      this.listado_expedientes = response.results;
+      this.filtered_expedientes = response.results;
+      this.nextPag = response.next;
+      this.previusPag = response.previous;
+      if(response.count <= 10){
+        if(response.count == 0){
+          this.canElementos = '0';
+        }else{
+          this.canElementos = '1';
+        }
+        
+      }else{
+        this.canElementos = ((response.count)/10).toFixed(0);
+      }
+      console.log( this.listado_expedientes)
+       
+      },
+      error => {
+        console.error('Error al traer listado de empresas:', error);
+        // Manejar el error en el login
+      });
+    }
+
+
+  }
+  previusPage(){
+   
+    if (this.previusPag != null) {
+      const url = this.previusPag;
+      const queryString = url.split('?')[1];
+      console.log(queryString);
+          this.service.getData('incident_files/?'+queryString).subscribe(
+      (response) => {
+        console.log(response)
+      this.listado_expedientes = response.results;
+      this.filtered_expedientes = response.results;
+      this.nextPag = response.next;
+      this.previusPag = response.previous;
+      if(response.count <= 10){
+        if(response.count == 0){
+          this.canElementos = '0';
+        }else{
+          this.canElementos = '1';
+        }
+        
+      }else{
+        this.canElementos = ((response.count)/10).toFixed(0);
+      }
+      console.log( this.listado_expedientes)
+       
+      },
+      error => {
+        console.error('Error al traer listado de empresas:', error);
+        // Manejar el error en el login
+      });
+    }
+
+
+
   }
 }
