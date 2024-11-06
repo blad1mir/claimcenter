@@ -119,28 +119,7 @@
 </div>
 
 <div *ngIf="option==1" class="flex justify-center">
-  <div class="mt-10" name="listado_secundario" style="width: 80%;">
 
-    <div>
-      <div class="text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
-        <p class="text-blue-600 dark:text-blue-500">Creación de expediente</p>
-      </div>
-    
-      <form [formGroup]="formGroup" class="flex flex-col items-center">
-        <div class="w-full max-w-xl p-6">
-          <div class="grid grid-cols-1 gap-4">
-            <div *ngFor="let input of allInputs">
-              <label [for]="input.id">{{ input.label }}</label>
-              <input [id]="input.id" [formControlName]="input.id" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
-            </div>
-          </div>
-          <div class="mt-4 w-full max-w-xl">
-            <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded">Enviar</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
 <!-- nuevo -->
 
 <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
@@ -166,18 +145,21 @@
   </div>
 
   <div class="px-3 mb-6 md:mb-0">
-    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción</label>
-    <input [(ngModel)]="initialFileDetails.description" name="bank_name" type="text"
-      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-      required>
-  </div>
-
-  <div class="px-3 mb-6 md:mb-0">
     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tipo</label>
     <input [(ngModel)]="initialFileDetails.type" name="bank_name" type="text"
       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
       required>
   </div>
+
+  <div class="px-3 mb-6 md:mb-0">
+    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción</label>
+    <textarea [(ngModel)]="initialFileDetails.description" name="bank_name"
+      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+      required></textarea>
+  </div>
+  
+
+  
 
 
   <br>
