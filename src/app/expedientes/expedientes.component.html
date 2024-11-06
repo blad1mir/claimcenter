@@ -59,7 +59,6 @@
                 <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
                   <div class="ps-3">
                     <div class="text-base font-semibold">{{ expediente.code }}</div>
-
                   </div>
                 </th>
                 <td class="px-6 py-4">
@@ -73,15 +72,7 @@
                 <td class="px-6 py-4">
                   {{  expediente.start_date }}
                 </td>
-          
-                
-         
-
-                
-
-
               </tr> 
-
           </tbody>
         </table>
       </div>
@@ -149,12 +140,78 @@
         </div>
       </form>
     </div>
-    
-    
-
-
-
   </div>
+<!-- nuevo -->
+
+<div class="bg-white rounded shadow-lg p-6" style="width: 80%">
+  <div class="flex justify-between">
+    <div (click)="changeVisibility(0)" class="cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+        <path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z" readonly />
+      </svg>
+    </div>
+  
+  </div>
+  <br>
+
+<div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
+  <div class="select-input-data">
+    <label class="block text-black">Asignatario</label>
+    <div class="input-data">
+      <select [(ngModel)]="initialFileDetails.assignment" name="categories"
+        class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+        <option *ngFor="let empresa of listado_empresas" [value]="empresa.name">{{ empresa.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="px-3 mb-6 md:mb-0">
+    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descripción</label>
+    <input [(ngModel)]="initialFileDetails.description" name="bank_name" type="text"
+      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+      required>
+  </div>
+
+  <div class="px-3 mb-6 md:mb-0">
+    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tipo</label>
+    <input [(ngModel)]="initialFileDetails.type" name="bank_name" type="text"
+      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+      required>
+  </div>
+
+
+  <br>
+
+
+
+
+ 
+
+
+
+
+  
+
+
+
+
+
+
+</div>
+
+
+<div
+class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-container button-38 mt-8 mb-8">
+
+
+<button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+(click)="createExpedient()"
+>
+<i class="fas fa-plus">Guardar</i>
+</button>
+</div>
+</div>
+  
 </div>
 
 

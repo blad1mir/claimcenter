@@ -15,6 +15,9 @@ export class ExpedientesComponent implements OnInit {
   public canElementos: string = '';
   public listado_expedientes: any[] = [];
   filtered_expedientes: any[] = [];
+
+  public listado_empresas: any[] = [];
+
   isModalOpen = false;
   option = 0;
 
@@ -54,7 +57,10 @@ export class ExpedientesComponent implements OnInit {
     attributes: [],
   };
 
-  constructor(public service: DataService, private fb: FormBuilder) {}
+  constructor(public service: DataService, private fb: FormBuilder) {
+this.getListCompany();
+
+  }
 
   ngOnInit(): void {
      this.getExpedientes()
@@ -218,5 +224,26 @@ export class ExpedientesComponent implements OnInit {
     // if (this.option == 3 || this.option ==1) {
     //   this.service.setChange(false)
     // }
+  }
+
+  getListCompany() {
+
+    this.service.getData('enterprises/').subscribe(
+      (response) => {
+        console.log(response)
+      this.listado_empresas = response.results;
+      console.log( this.listado_empresas)
+       
+      },
+      error => {
+        console.error('Error al traer listado de empresas:', error);
+        // Manejar el error en el login
+      });
+
+
+  }
+
+  createExpedient(){
+
   }
 }
