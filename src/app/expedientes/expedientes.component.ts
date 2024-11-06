@@ -202,4 +202,21 @@ export class ExpedientesComponent implements OnInit {
 
 
   }
+
+  changeVisibility(value: number): void {
+    this.option = value;
+   // this.service.setOptionChange(this.option)
+    // if (this.option != 1 && this.option != 3 ) {
+      
+    //   this.service.setChange(true)
+    // }else{
+     
+    //   this.service.setChange(false)
+    // }
+    console.log('El valor actual de option es: '+this.option)
+    
+    // if (this.option == 3 || this.option ==1) {
+    //   this.service.setChange(false)
+    // }
+  }
 }
