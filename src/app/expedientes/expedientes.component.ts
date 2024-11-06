@@ -312,6 +312,7 @@ this.getListCompany();
   }
 
   openExpedient(code: string){
+    this.getExpedientParticular(code)
     this.codeExpedient = code;
     this.option = 2;
   }
