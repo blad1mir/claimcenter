@@ -528,10 +528,6 @@ changeVisibility(value: number): void {
   if (this.option == 3 || this.option ==1) {
     this.service.setChange(false)
   }
-
-  
-
-
 }
 
 setActiveTab(index: number) {

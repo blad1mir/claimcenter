@@ -179,6 +179,7 @@ class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-
 </div>
 
 <div *ngIf="option==2" class="flex justify-center">
+  <br>
   <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
     <div (click)="changeVisibility(0)" class="cursor-pointer">
       <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
@@ -229,6 +230,40 @@ class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-
             </a>
           </li>
         </ul>
+
+        <div class="flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+          <div class="px-4 py-5 flex-auto">
+            <div class="tab-content tab-space">
+              <div [ngClass]="{'hidden': openTab !== 1, 'block': openTab === 1}">
+                <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 ">
+                  <ul class="flex flex-wrap -mb-px">
+                    <li class="mr-2" *ngFor="let optionExpediente of menuOptionExpedients; let i = index">
+                      <a (click)="setActiveTab(i)" [ngClass]="{'border-b-2 border-blue-500': activeTab === i}" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-600 hover:border-gray-300  cursor-pointer">
+                       {{i}}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div [ngClass]="{'hidden': openTab !== 2, 'block': openTab === 2}">
+
+              </div>
+              <div [ngClass]="{'hidden': openTab !== 3, 'block': openTab === 3}">
+                
+              </div>
+              <div [ngClass]="{'hidden': openTab !== 4, 'block': openTab === 4}">
+                
+              </div>
+              <div [ngClass]="{'hidden': openTab !== 5, 'block': openTab === 5}">
+                
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
 
       </div>
 

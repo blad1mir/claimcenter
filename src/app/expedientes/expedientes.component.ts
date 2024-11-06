@@ -16,6 +16,14 @@ export class ExpedientesComponent implements OnInit {
   public listado_expedientes: any[] = [];
   filtered_expedientes: any[] = [];
   codeExpedient: string = '';
+  menuOptionExpedients = [
+    'Datos del expediente',
+    'Descripción',
+    'Datos del asegurado. Situación del riesgo',
+    'Datos de la póliza',
+    'Datos del siniestro',
+    'Facturacion'
+  ]
 
   public listado_empresas: any[] = [];
 
@@ -57,6 +65,7 @@ export class ExpedientesComponent implements OnInit {
     mediator_details: [],
     attributes: [],
   };
+  activeTab = 0;
   openTab = 1;
 toggleTabs($tabNumber: number){
   this.openTab = $tabNumber;
@@ -289,5 +298,9 @@ this.getListCompany();
   openExpedient(code: string){
     this.codeExpedient = code;
     this.option = 2;
+  }
+
+  setActiveTab(index: number) {
+    this.activeTab = index;
   }
 }
