@@ -22,7 +22,7 @@
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
           <thead class="text-xs text-gray-700 bg-gray-50 ">
 
-            <tr>
+            <tr> 
               <th scope="col" class="px-6 py-3 cursor-pointer">
                 Referencia
               </th>
@@ -57,7 +57,7 @@
               <tr *ngFor="let expediente of filtered_expedientes" class="bg-white border-b   hover:bg-gray-50 ">
 
                 <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
-                  <div class="ps-3">
+                  <div class="ps-3 cursor-pointer" (click)="openExpedient(expediente.code)">
                     <div class="text-base font-semibold">{{ expediente.code }}</div>
                   </div>
                 </th>
@@ -159,25 +159,7 @@
   </div>
   
 
-  
-
-
   <br>
-
-
-
-
- 
-
-
-
-
-  
-
-
-
-
-
 
 </div>
 
@@ -194,6 +176,65 @@ class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-
 </div>
 </div>
   
+</div>
+
+<div *ngIf="option==2" class="flex justify-center">
+  <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
+    <div (click)="changeVisibility(0)" class="cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+        <path d="m274-450 248 248-42 42-320-320 320-320 42 42-248 248h526v60H274Z" />
+      </svg>
+    </div>
+
+    <br>
+
+    <div class="block">
+      <h3>Referencia: {{codeExpedient}}</h3>
+      <div class="w-full">
+        <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+          <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <a class="text-xs font-bold px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
+              (click)="toggleTabs(1)"
+              [ngClass]="{'text-gray-600 bg-white': openTab !== 1, 'text-white bg-gray-600': openTab === 1}">
+              <i class="fas fa-space-shuttle text-base mr-1"></i> Atributos
+            </a>
+          </li>
+          <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
+              (click)="toggleTabs(2)"
+              [ngClass]="{'text-gray-600 bg-white': openTab !== 2, 'text-white bg-gray-600': openTab === 2}">
+              <i class="fas fa-cog text-base mr-1"></i> Documentos
+
+            </a>
+          </li>
+          <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
+              (click)="toggleTabs(3)"
+              [ngClass]="{'text-gray-600 bg-white': openTab !== 3, 'text-white bg-gray-600': openTab === 3}">
+              <i class="fas fa-briefcase text-base mr-1"></i> Tareas
+            </a>
+          </li>
+          <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
+              (click)="toggleTabs(4)"
+              [ngClass]="{'text-gray-600 bg-white': openTab !== 4, 'text-white bg-gray-600': openTab === 4}">
+              <i class="fas fa-briefcase text-base mr-1"></i> Notas
+            </a>
+          </li>
+          <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <a class="text-xs font-bold  px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer"
+              (click)="toggleTabs(5)"
+              [ngClass]="{'text-gray-600 bg-white': openTab !== 5, 'text-white bg-gray-600': openTab === 5}">
+              <i class="fas fa-briefcase text-base mr-1"></i> Enlaces
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+</div>
 </div>
 
 

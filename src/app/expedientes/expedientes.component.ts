@@ -15,6 +15,7 @@ export class ExpedientesComponent implements OnInit {
   public canElementos: string = '';
   public listado_expedientes: any[] = [];
   filtered_expedientes: any[] = [];
+  codeExpedient: string = '';
 
   public listado_empresas: any[] = [];
 
@@ -56,6 +57,10 @@ export class ExpedientesComponent implements OnInit {
     mediator_details: [],
     attributes: [],
   };
+  openTab = 1;
+toggleTabs($tabNumber: number){
+  this.openTab = $tabNumber;
+}
 
   constructor(public service: DataService, private fb: FormBuilder) {
 this.getListCompany();
@@ -244,6 +249,45 @@ this.getListCompany();
   }
 
   createExpedient(){
+    let expediente = {
+      
+        assignment: this.initialFileDetails.assignment,
+        description: this.initialFileDetails.description,
+        type: this.initialFileDetails.type,
+        status: "created"
+    
+    }
 
+    console.log(expediente)
+    if (!expediente.assignment || !expediente.description || !expediente.type) {
+      console.log("Por favor, complete todos los campos", "", {
+        duration: 2000
+      })
+      
+    }else{
+      this.service.postData('incident_files/',expediente).subscribe(
+        (response) => {
+  
+          if(response)
+          console.log('Registro creado correctamente', response);
+          console.log("Registro creado correctamente", "", {
+            duration: 2000
+          })
+         this.option = 0;
+        },
+        error => {
+          console.error('El expediente no se pudo crear:', error);
+          // Manejar el error en el login
+          console.log("El expediente no se pudo crear", "", {
+            duration: 2000
+          })
+        });
+    }
+
+  }
+
+  openExpedient(code: string){
+    this.codeExpedient = code;
+    this.option = 2;
   }
 }
