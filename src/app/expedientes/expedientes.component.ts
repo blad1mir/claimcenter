@@ -262,6 +262,7 @@ export class ExpedientesComponent implements OnInit {
   }
 
   getExpedientParticular(id: string) {
+    console.log("Get Particular: "+ id)
     this.service.getEnterprise('incident_files/' + id + '/').subscribe(
       (response) => {
         console.log(response);
