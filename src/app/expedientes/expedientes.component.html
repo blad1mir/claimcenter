@@ -27,11 +27,12 @@
                 Referencia
               </th>
               <th scope="col" class="px-6 py-3 cursor-pointer">
-                cliente
+                Nombre
               </th>
               <th scope="col" class="px-6 py-3 cursor-pointer">
-                Tipo
+                cliente
               </th>
+             
            
               <th scope="col" class="px-6 py-3 cursor-pointer">
                 Fecha de Inicio
@@ -62,14 +63,16 @@
                   </div>
                 </th>
                 <td class="px-6 py-4">
+                  {{  expediente.type }}
+                </td>
+                <td class="px-6 py-4">
                   {{ expediente.assignment }}
                 </td>
            
-                <td class="px-6 py-4">
-                  {{  expediente.type }}
-                </td>
+               
 
-                <td class="px-6 py-4">
+                <td class="px-6 py-4" *ngIf="expediente.start_date!=null">
+
                   {{  expediente.start_date }}
                 </td>
               </tr> 
@@ -218,6 +221,7 @@ class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-
     <br>
 
     <div class="block">
+      <h3>Nombre: {{codeExpedient}}</h3>
       <h3>Referencia: {{codeExpedient}}</h3>
       <div class="w-full">
         <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
@@ -259,11 +263,11 @@ class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-
                     </li>
                   </ul>
                   <div *ngIf="activeTab==0" class="text-left">
-                    <h3>Referencia: {{codeExpedient}}</h3>
-                    <h3>Fecha de inicio: {{initialFileDetails.start_date}}</h3>
-                    <h3>Estado: {{initialFileDetails.status}}</h3>
-                    <h3>Fecha de Finalización: {{initialFileDetails.end_date}}</h3>
-                    <h3>Cliente (Empresa): {{initialFileDetails.billing_issuer}}</h3>
+                    <h3 *ngIf="codeExpedient != null">Referencia: {{codeExpedient}}</h3>
+                    <h3 *ngIf="initialFileDetails.start_date != null">Fecha de inicio: {{initialFileDetails.start_date}}</h3>
+                    <h3 *ngIf="initialFileDetails.status != null">Estado: {{initialFileDetails.status}}</h3>
+                    <h3 *ngIf="initialFileDetails.end_date != null">Fecha de Finalización: {{initialFileDetails.end_date}}</h3>
+                    <h3 *ngIf="initialFileDetails.billing_issuer != null">Cliente (Empresa): {{initialFileDetails.billing_issuer}}</h3>
                   </div>
                   
 
