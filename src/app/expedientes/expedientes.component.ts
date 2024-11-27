@@ -266,7 +266,7 @@ export class ExpedientesComponent implements OnInit {
     this.service.getEnterprise('incident_files/' + id + '/').subscribe(
       (response) => {
         console.log(response);
-        this.initialFileDetails = response.results;
+        this.initialFileDetails = response;
       },
       (error) => {
         console.error('Error al traer listado de empresas:', error);
