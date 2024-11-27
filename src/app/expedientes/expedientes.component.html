@@ -262,23 +262,23 @@ class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-
                       </a>
                     </li>
                   </ul>
-                  <div *ngIf="activeTab==0" class="text-left">
-                    <h3 *ngIf="codeExpedient != null">Referencia: {{codeExpedient}}</h3>
-                    <h3 *ngIf="initialFileDetails.start_date != null">Fecha de inicio: {{initialFileDetails.start_date}}</h3>
-                    <h3 *ngIf="initialFileDetails.status != null">Estado: {{initialFileDetails.status}}</h3>
-                    <h3 *ngIf="initialFileDetails.end_date != null">Fecha de Finalización: {{initialFileDetails.end_date}}</h3>
-                    <h3 *ngIf="initialFileDetails.billing_issuer != null">Cliente (Empresa): {{initialFileDetails.billing_issuer}}</h3>
+                  <div *ngIf="activeTab==0 and initialFileDetails" class="text-left">
+                    <h3 >Referencia: {{codeExpedient}}</h3>
+                    <h3 >Fecha de inicio: {{initialFileDetails.start_date}}</h3>
+                    <h3 >Estado: {{initialFileDetails.status}}</h3>
+                    <h3 >Fecha de Finalización: {{initialFileDetails.end_date}}</h3>
+                    <h3 >Cliente (Empresa): {{initialFileDetails.billing_issuer}}</h3>
                   </div>
                   
 
-                  <div  *ngIf="activeTab==1">
+                  <div  *ngIf="activeTab==1 and initialFileDetails" >
                     <h3>{{initialFileDetails.description}}</h3>
                   </div>
 
-                  <div  *ngIf="activeTab==2">
+                  <div  *ngIf="activeTab==2 and initialFileDetails">
                     <h3>Asegurado: {{initialFileDetails.assignment}}</h3>
                   </div>
-                  <div  *ngIf="activeTab==3">
+                  <div  *ngIf="activeTab==3 and initialFileDetails">
                     <h3>Póliza: {{initialFileDetails.policy_details}}</h3>
                   </div>
 
