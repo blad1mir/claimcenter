@@ -118,10 +118,10 @@
 
 </div>
 
-<div *ngIf="option==1" class="flex justify-center">
+<div *ngIf="option==1" class="flex justify-center mt-7">
 
 <!-- nuevo -->
-
+<br>
 <div class="bg-white rounded shadow-lg p-6" style="width: 80%">
   <div class="flex justify-between">
     <div (click)="changeVisibility(0)" class="cursor-pointer">
@@ -134,6 +134,36 @@
   <br>
 
 <div class="grid gap-6 text-sm grid-cols-2 md:grid-cols-2">
+  
+
+  <div class="px-3 mb-6 md:mb-0">
+    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Nombre:</label>
+    <select [(ngModel)]="initialFileDetails.type" name="bank_name" 
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            required>
+      <option *ngFor="let nombre of nombresExpediente" [value]="nombre">{{ nombre }}</option>
+    </select>
+  </div>
+
+  <div class="px-3 mb-6 md:mb-0 relative">
+    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Asignatario:</label>
+    <input [(ngModel)]="searchTerms" (input)="filterOptions()" name="type_search" type="text"
+      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+      placeholder="Buscar asignatario...">
+    <div *ngIf="searchTerms && filteredNombresExpediente.length > 0" class="absolute z-10 w-full bg-white border border-gray-300 mt-1 rounded shadow-lg">
+      <ul>
+        <li *ngFor="let nombre of filteredNombresExpediente" (click)="selectOption(nombre)"
+            class="cursor-pointer p-2 hover:bg-gray-200">
+          {{ nombre }}
+        </li>
+      </ul>
+    </div>
+    <p *ngIf="searchTerm && filteredNombresExpediente.length === 0" class="mt-2 text-red-500">No se encontraron coincidencias</p>
+  </div>
+  
+  
+  
+<!--   
   <div class="select-input-data">
     <label class="block text-black">Asignatario</label>
     <div class="input-data">
@@ -142,14 +172,10 @@
         <option *ngFor="let empresa of listado_empresas" [value]="empresa.name">{{ empresa.name }}</option>
       </select>
     </div>
-  </div>
+  </div> -->
 
-  <div class="px-3 mb-6 md:mb-0">
-    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tipo</label>
-    <input [(ngModel)]="initialFileDetails.type" name="bank_name" type="text"
-      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-      required>
-  </div>
+ 
+  
   <br>
 
 </div>
@@ -284,7 +310,7 @@ class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-
 
 
 
-<div *ngIf="isModalOpen" class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75">
+<!-- <div *ngIf="isModalOpen" class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75">
   <div class="bg-white p-6 rounded-lg shadow-lg">
     <h2 class="text-xl font-semibold mb-4">Error de conexión</h2>
 
@@ -293,4 +319,4 @@ class="flex w-full justify-center rounded bg-primary p-3 font-medium reputation-
       <button (click)="confirm()" class="bg-yellow-500 text-white px-4 py-2 rounded mr-2">Reintentar</button>
     </div>
   </div>
-</div>
+</div> -->
